@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/fragments/head :: head(${post.title})"></head>
+<head>
+    <!--<link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="/resources/frontend/workField.css">-->
+    <!--<link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">-->
+    <!--<script src="/resources/frontend/libraries/constants.js"></script>-->
+    <script src="/resources/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, '', false, '')"></div>
+
+<div th:remove="all">
+    <main class="my-way-main"  th:fragment="main">
+        <div class="comeBack" style="width: 80px;margin: 4px;">
+            <a href="javascript:history.back();"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> </span><span>Назад</span></a>
+        </div>
+        <div class="workfield_post clearfix">
+            <div class="post-title-block">
+                <!--<a type="button" class="btn btn-primary glyphicon glyphicon-arrow-left" th:href="@{/home/post}"></a>-->
+                <h1 class="text-center workfield_post_article" th:text="${post.title}">post Title goes here</h1>
+                <ul class="list-inline text-center">
+                    <li><span class="glyphicon glyphicon-user"></span></li>
+                    <li th:text="${post.user}">Author |||</li>
+                    <li><span class="glyphicon glyphicon-calendar"></span></li>
+                    <li th:text="${#dates.format(post.createDate, 'dd/MM/YYYY HH:mm')}">Date </li>
+                </ul>
+            </div>
+            <div class="workfield_post">
+                <div class="image-block">
+                    <img th:src="@{'data:image;base64,' + ${post.encodeFileToBase64Binary()}}" class="img-responsive" >
+                </div>
+                <article class="workfield_post_text">
+                    <!--<p th:text="${post.body}"></p>-->
+                    <article class="articleText">
+                        <textarea th:utext="${post.body}" th:remove="tag">Новости</textarea>
+                    </article>
+                </article>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
+

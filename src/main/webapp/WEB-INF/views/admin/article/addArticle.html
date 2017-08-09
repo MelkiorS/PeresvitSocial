@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lesson</title>
+    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
+    <link rel="stylesheet" href="/resources/frontend/workField.css">
+    <!--<link rel="stylesheet" href="/resources/frontend/editLesson/css/editLesson.css">-->
+    <script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>
+    <script src="/resources/frontend/libraries/bootstrap.min.js"></script>
+    <script src="/resources/ckeditor/ckeditor.js"></script>
+    <script src="/resources/frontend/editLesson/addArticle.js"></script>
+    <style>
+        #cke_editor1{
+            margin-left:25px;
+        }
+    </style>
+</head>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/article/', 'Стаття')"></div>
+
+
+
+<div th:remove="all">
+    <div th:fragment="main">
+
+        <!--<div class="container-fluid wrapper">-->
+
+            <!--<div class=" col-xs-7 row well container-fluid main_section">-->
+                <form action="#" th:action="@{/admin/article/}" th:object="${article}" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 form-group">
+                            <label>Категорiя</label><br/>
+                            <select class="form-control" th:field="*{resourceGroupType.resourceGroupTypeId}" type="text" id="groupName" >
+                                <option th:each="rgt : ${resourceGroupTypeList}" th:value="${rgt.resourceGroupTypeId}" th:text="${rgt.caption}"></option>
+                            </select>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                            <label>Роздiл</label><br/>
+                            <!--<input class="form-control" th:field="*{chapterId}" type="text" id="chapterId" />-->
+                            <select class="form-control" th:field="*{chapterId}" type="text" id="chapter" >
+                                <option th:each="c : ${chapters}" th:value="${c.chapterId}" th:text="${c.chapterName}" th:hidden="true" th:rgt="${c.resourceGroupType.resourceGroupTypeId}"></option>
+                                <!--<option th:each="rgtc : ${resourceGroupType.chapterList}" th:value="${rgtc.chapterId}" th:text="${rgtc.chapterName}"></option>-->
+                            </select>
+                        </div>
+                        <div th:class="${'col-xs-4 form-group' + ( #fields.hasErrors('role') ? ' has-error' : '') }">
+                            <label>Доступ для</label><br/>
+                            <select class="form-control" th:field="*{role.roleId}">
+                                <option th:each="role : ${roleList}"
+                                        th:value="${role.roleId}"
+                                        th:text="${role.roleName}"></option>
+                            </select>
+                        </div>
+                    </div >
+                    <input type="hidden" th:field="*{articleId}" placeholder="bfsdkjhbvdj"/>
+                    <div class=' form-group'>
+                        <label for="title">Заголовок:</label>
+                        <input class=" form-control" id='title' type="text" th:field="*{articleName}" placeholder="Введіть заголовок" />
+                    </div>
+                    <script>
+                        //                    var data = CKEDITOR.instances.editor1.getData();
+                    </script>
+                    <div class="row row_textarea">
+                    <textarea th:field="*{context}" name="editor1" id="editor1" rows="10" cols="60">
+                        Вводите урок сюда.
+                    </textarea>
+                        <script>
+                            CKEDITOR.replace('editor1' ,{
+                            });
+                        </script>
+                        <br/>
+                        <input style='margin-left:25px;' class="btn btn-success" type="submit" value="Добавить статью"/>
+                    </div>
+
+                </form>
+                <script>
+                    function myFunction(chapterName, groupName) {
+                        document.getElementById("chapterId").value = chapterName;
+                        document.getElementById("groupName").value = groupName;
+                    }
+                </script>
+
+
+
+    </div>
+</div>
+</html>
+

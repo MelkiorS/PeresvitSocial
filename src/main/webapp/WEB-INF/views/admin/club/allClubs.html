@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Club list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/club/add','', 'Клуби')"></div>
+<style>
+  table{
+    width: 60%;
+    margin: 5px;
+  }
+  tbody tr{
+    height: 30px;
+  }
+  td,th{
+    text-align: center;
+  }
+</style>
+
+
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="clubList" th:unless="${#lists.isEmpty(clubList)}">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Дії</th>
+          <th>Назва клубу</th>
+          <th>Адреса</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="club : ${clubList}">
+          <!--<td th:text="${club.clubId}"></td>-->
+          <td>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs"  th:href="@{/admin/club/edit/} + ${club.clubId}"></a>
+            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" th:href="@{/admin/club/delete/} + ${club.clubId}"></a>
+          </td>
+          <td th:text="${club.clubName}"></td>
+          <td th:text="${club.address}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</html>

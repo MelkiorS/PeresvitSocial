@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/fragments/head :: head(${resourceGroupTypeList.getCaption()})"></head>
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, 'myway', true, ${resourceGroupTypeList.getCaption()})"></div>
+
+<div th:remove="all">
+    <main class="my-way-main" th:fragment="main" th:each="resourceGroupType : ${resourceGroupTypeList}">
+        <article th:each="chapter :  ${resourceGroupType.chapterList}" class="main-article-item">
+            <h3 th:unless="${#lists.isEmpty(chapter.articleCollection)}"><span th:text="${chapter.chapterName}">Подготовка к использованию техники разбивания предметов</span></h3>
+            <ol th:unless="${#lists.isEmpty(chapter.articleCollection)}" th:each="article : ${chapter.articleCollection}">
+                <li><a href="#" class="level2" th:href="@{/resource/article/} + ${article.articleId}" th:text="${article.articleName}">В чем важность техники разбивания</a></li>
+            </ol>
+        </article>
+        <div class='main-article-bottom-padding'></div>
+    </main>
+</div>
+
+<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-3.1.1.min.js"></script>
+<script src="/resources/frontend/js/sideBar.js"></script>
+<script type="text/javascript" src="/resources/frontend/js/peresvit.js"></script>
+
+</body>
+</html>

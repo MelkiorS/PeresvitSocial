@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Resource group type')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/resourceGroupType/', 'Вид заняття')"></div>
+
+
+
+<div th:remove="all">
+ <div th:fragment="main">
+
+  <form action="#" th:action="@{/admin/resourceGroupType/}" th:object="${resourceGroupType}" method="post">
+   <input type="hidden" th:field="*{resourceGroupTypeId}" />
+   <label for="groupName">Group name:</label>
+   <input class="form-control" type="text" th:field="*{groupName}" />
+   <br/>
+   <label for="caption">Caption:</label>
+   <input class="form-control" type="text" th:field="*{caption}" />
+   <br/>
+   <input class="btn btn-primary" type="submit" value="Зберегти">
+  </form>
+
+ </div>
+</div>
+</html>

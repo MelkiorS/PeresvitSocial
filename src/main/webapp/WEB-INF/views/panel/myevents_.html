@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cabinet</title>
+    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
+    <link rel="stylesheet" href="/resources/frontend/css/jquery.bxslider.css">
+    <link rel="stylesheet" href="/resources/frontend/css/peresvit.css">
+    <!--<link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="/resources/frontend/workField.css">-->
+    <!--<script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>-->
+    <!--<script src="/resources/frontend/libraries/constants.js"></script>-->
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="wrapper-outer clearfix">
+        <div th:replace="home/fragments/body::body"></div>
+        <div class="wrapper-inner Panel">
+            <div th:replace="home/fragments/header::header"></div>
+            <div class="content">
+                <div th:replace="home/fragments/navigation::navigation"></div>
+                <main class="my-way-main">
+                    <section class="calendar">
+                        <div class="calendar-box"></div>
+                        <div class="calendar-legend">
+                            <div>
+                                <p class="red"> - змагання</p>
+                                <p class="yellow">  - святкування</p>
+                                <p class="violet"> - показові виступи</p>
+                                <p class="grey"> - атестації</p>
+                            </div>
+                            <div class="calendar-legend-item2">
+                                <p class="darkgrey"> - семінари</p>
+                                <p class="lightgreen"> - чайні школи</p>
+                                <p class="green"> - походи, табори, перегляд кінофільмів</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="event-list">
+                        <h1>Найближчі події:</h1>
+                        <ul class="event-ul">
+                            <li class="event-li red">
+                                Змагання в Пекіні
+                            </li>
+                            <li class="event-li yellow">
+                                Святкування у Ірпені
+                            </li>
+                            <li class="event-li violet">
+                                Виступ в Бучі
+                            </li>
+                            <li class="event-li grey">
+                                Атестація групи 678
+                            </li>
+                            <li class="event-li lightgreen">
+                                Чайна школа
+                            </li>
+                            <li class="event-li darkgrey">
+                                Семінар
+                            </li>
+                            <li class="event-li green">
+                                Похід в Альпи
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="event-photo">
+                        <div class="event-photo-wrapper">
+                            <div class="event-photo-box">
+                                <img src="/resources/frontend/image/event-icon.png"class="event-photo-icon">
+                                <div class="event-photo-date">22.01.2017</div>
+                                <div class="event-photo-title">Похід в Альпи</div>
+                            </div>
+                            <button class="event-photo-btn">Додати в мої події</button>
+                        </div>
+                    </section>
+                    <section class="event-data">
+                        <ul class="event-data-ul">
+                            <li class="event-data-li cost">
+                                <span>Стоимость без скидки:</span>
+                                €250
+                            </li>
+                            <li class="event-data-li duration">
+                                <span>Продолжительность:</span>
+                                10 дней
+                            </li>
+                            <li class="event-data-li start">
+                                <span>Старт:</span>
+                                Шамони
+                            </li>
+                            <li class="event-data-li finish">
+                                <span>Финиш:</span>
+                                Шамони
+                            </li>
+                            <li class="event-data-li distance">
+                                <span>Расстояние:</span>
+                                120 км
+                            </li>
+                            <li class="event-data-li conditions">
+                                <span>Условия проживания:</span>
+                                в палатках
+                            </li>
+                            <li class="event-data-li difficulty">
+                                <span>Уровень сложности:</span>
+                                средний
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="event-details">
+                        Одна из наиболее известных обзорных площадок в Шамони находится на верхней станции подъёмника Эгюий дю Миди (3842 м). Вернуться с этой площадки обратно в Шамони, можно и в походном режиме. Спустившись в кабинке фуникулёра до средней станции (она называется План Д'Айгюль), выходите на извилистую и пологую горную тропинку и она приведёт вас в Шамони. Обычно этот путь занимает около 3 часов.
+                    </section>
+                </main>
+            </div>
+            <div th:replace="home/fragments/footer::footer"></div>
+        </div>
+    </div>
+</div>
+<!--<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-3.1.1.min.js"></script>-->
+<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-1.8.2.min.js"></script>
+<script src="/resources/frontend/js/jquery.bxslider.min.js"></script>
+<script src="/resources/frontend/js/sideBar.js"></script>
+<script src="/resources/frontend/js/peresvit.js"></script>
+</body>
+</html>
+<!--<script th:if="${all}">var _all = true</script>
+<script th:unless="${all}">var _all = false</script>
+<script src="/resources/frontend/myevents.js"></script>
+<h2 th:if="${all}">Наші події</h2>
+<h2 th:unless="${all}">Мої події</h2>-->

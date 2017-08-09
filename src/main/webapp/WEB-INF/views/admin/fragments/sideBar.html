@@ -1,0 +1,86 @@
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="btn-group-vertical btn-group-lg" role="group" aria-label="111" th:fragment="sideBar">
+        <div class="btn-group" role="group">
+            <form th:action="@{/home/workField/}">
+            <button class="btn btn-default btn-lg dropdown-toggle control_button sideFirst" type="submit"  aria-haspopup="true" aria-expanded="false">Особистий кабінет</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/user/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Користувачі</button>
+            </form>
+        </div>
+        <div class="btn-group" role="group">
+            <form  th:action="@{/admin/userGroup/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Группи</button>
+            </form>
+        </div>
+        <div class="btn-group" role="group">
+            <form  th:action="@{/admin/role/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Ролі</button>
+            </form>
+        </div>
+        <div class="btn-group" role="group">
+            <form  th:action="@{/admin/resourceGroupType/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Види занять</button>
+            </form>
+        </div>
+        <div class="btn-group" role="group">
+            <form  th:action="@{/admin/chapter/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Розділи</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/article/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Статті</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/city/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Міста</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/mark/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Відзнаки</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/achievement/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Досягнення</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/club/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Клуби</button>
+            </form>
+        </div>
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/combatArt/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Бойові мистецтва</button>
+            </form>
+        </div>
+
+
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/post/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Новини</button>
+            </form>
+        </div>
+
+        <div class="btn-group " role="group">
+            <form  th:action="@{/admin/event_edit/}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button" type="submit"  aria-haspopup="true" aria-expanded="false">Події</button>
+            </form>
+        </div>
+        <div class="btn-group" role="group">
+            <form th:action="@{/logout}">
+                <button class="btn btn-default btn-lg dropdown-toggle control_button " type="submit"  aria-haspopup="true" aria-expanded="false">Вийти</button>
+            </form>
+            <!--<a class="btn btn-default btn-lg dropdown-toggle control_button sideLast" th:href="@{/logout}">Вийти</a>-->
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('News list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/post/add','', 'Новини')"></div>
+<style>
+    table{
+        width: 80%;
+        margin: 5px;
+    }
+    tbody tr{
+        padding: 5px 5px;
+        height: 30px;
+    }
+    td,th{
+        text-align: center;
+    }
+</style>
+
+<div th:remove="all">
+    <div th:fragment="main">
+        <div class="rangList" th:unless="${#lists.isEmpty(page)}">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <!--<th>Id</th>-->
+                    <th>Дії</th>
+                    <th>Заголовок</th>
+                    <th>Автор</th>
+                    <th>Дата публікації</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="post : ${page}">
+                    <!--&lt;!&ndash;<td th:text="${role.roleId}"></td>&ndash;&gt;-->
+                    <td>
+                        <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/post/} + @{${post.postId} + '/edit' }"></a>
+                        <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/post/} + @{${post.postId} + '/delete' }"></a>
+                    </td>
+                    <td th:text="${post.title}"></td>
+                    <td th:text="${post.user}"></td>
+                    <td th:text="${#dates.format(post.createDate,'dd/MM/YYYY HH:mm')}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function deleteElem(e){
+        return confirm('Видалити цю новину?')? location.href = e.getAttribute('href'):false;
+    }
+</script>
+</html>

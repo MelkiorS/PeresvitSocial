@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Peresvit</title>
+    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
+    <link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css">
+    <script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>
+    <script src="/resources/frontend/libraries/constants.js"></script>
+    <script src="/resources/frontend/libraries/bootstrap.min.js"></script>
+    <script  async src="/resources/frontend/registration/js/validator.js"></script>
+    <script  async src="/resources/frontend/registration/js/registration_script.js"></script>
+</head>
+<body>
+<div class="container-fluid wrapper">
+    <div class="row">
+
+    </div>
+    <div class="row log_in">
+        <div class="col-xs-offset-5 col-xs-6 icemegamenu">
+            <ul id="icemegamenu" class="meganizr mzr-slide mzr-responsive">
+                <li id="iceMenu_303" class="iceMenuLiLevel_1 active  firstItem"><a href="#/" class="icemega_active iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Головна</span></a></li>
+                <li id="iceMenu_134" class="iceMenuLiLevel_1 mzr-drop parent" data-hover="false"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Про храм</span></a><ul class="icesubMenu icemodules sub_level_1" style="width:150px"><li class="lastItem firstItem"><div style="float:left;width:150px" class="iceCols"><ul><li id="iceMenu_283" class="iceMenuLiLevel_2  lastItem firstItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Вчення</span></a></li></ul></div></li></ul></li>
+                <li id="iceMenu_300" class="iceMenuLiLevel_1 mzr-drop parent" data-hover="false"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Напрямки</span></a><ul class="icesubMenu icemodules sub_level_1" style="width:280px"><li class="lastItem firstItem"><div style="float:left;width:280px" class="iceCols"><ul><li id="iceMenu_296" class="iceMenuLiLevel_2  firstItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Фрі-файт</span></a></li><li id="iceMenu_297" class="iceMenuLiLevel_2 "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Тайдзі-цюань</span></a></li><li id="iceMenu_298" class="iceMenuLiLevel_2 "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Шаолінь кунг-фу</span></a></li><li id="iceMenu_299" class="iceMenuLiLevel_2  lastItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Чайна традиція</span></a></li></ul></div></li></ul></li>
+                <li id="iceMenu_141" class="iceMenuLiLevel_1 "><a href="https://www.facebook.com/peresvit.ua/" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Блог</span></a></li>
+                <li id="iceMenu_142" class="iceMenuLiLevel_1  "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Контакти</span></a></li>
+                <li sec:authorize="hasRole('ADMIN')" class="iceMenuLiLevel_1"><a href="/admin" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Адмін</span></a></li>
+                <li sec:authorize="authenticated" class="iceMenuLiLevel_1 lastItem"><a href="/home/workField" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Кабінет</span></a></li>
+                <li sec:authorize="!authenticated" class="iceMenuLiLevel_1  lastItem"><a href="#" class=" iceMenuTitle log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_log_in"><span class="icemega_title icemega_nosubtitle">Вхід</span></a></li>
+            </ul>
+        </div>
+        <!--<button type="button" class="btn btn-default col-xs-offset-3 col-xs-2  col-sm-offset-3 col-sm-2 log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_sign_up">Реєстрація</button>-->
+        <!--<button type="button" class="btn btn-default col-xs-offset-1 col-xs-2  col-sm-offset-3 col-sm-2 log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_log_in">Вхід</button>-->
+    </div>
+    <!-- **************************Вход в личный кабинет*********************-->
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal_header_logIn row">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <div class="modal_header_logIn_title col-xs-offset-1 col-xs-10" id="myModalLabel"><p>Вхід до особистого кабінету</p></div>
+            </div>
+            <div class="modal_logIn_section row">
+                <!--*****************Сюда записывать form action при входе вличный кабинет*****************-->
+                <form class='col-xs-offset-1 col-xs-10 modal_logIn_section_form' data-toggle="validator" role="form" th:action="@{/registration/remindConfirm}" th:object="${user}" method="post">
+                    <input type="hidden" th:field="*{userId}" >
+
+                    <section class="passwords form-group">
+                        <p>Оновити пароль</p>
+                        <fieldset>
+                            <p>
+                                <label for="newPasswd">Введіть новий пароль</label>
+                                <input class="form-control" type="password" id="newPasswd" maxlength="25" placeholder="Новий пароль">
+                            </p>
+                            <p>
+                                <label for="confirmPasswd">Підтвердіть пароль</label>
+                                <!--В этот инпут нужно вставить тег для изменения пароля-->
+                                <input class="form-control" type="password" th:field="*{password}" id="confirmPasswd" maxlength="25" placeholder="Підтвердіть пароль">
+                                <span class="checkNewPass"></span>
+                            </p>
+
+                        </fieldset>
+                    </section>
+
+                    <div class="form-group col-xs-offset-10 col-xs-2">
+                        <!--**************При нажатии на эту кнопку происходить выполнение form action**********-->
+                        <button type="submit" class="btn btn-primary">Зберегти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+

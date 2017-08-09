@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/fragments/head :: head(${chat.chatTitle})"></head>
+<head>
+    <!--СЮДА МОЖНО ДОБАВИТЬ ВСЁ, ЧЕГО НЕТУ В head.HTML-->
+</head>
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, '', false, '')"></div>
+
+<div th:remove="all">
+    <main class="my-way-main"  th:fragment="main">
+        <!--Универсальная страница. Если переменная статус = edit, то меняем название или удаляем пользователей по крестику-->
+        <div th:if="${status == 'edit'}">
+            <form th:action="@{/home/messages/} + ${chatId} + '/changeTitle'" th:method="post" th:object="${chat}">
+                <div class="form-group newChat_title">
+                    <label class="newChat_title-item" th:for="chatTitle">Назва бесіди</label>
+                    <input class=" form-control newChat_title-input" type="text" th:field="*{chatTitle}" placeholder="Введiть назву бесiди">
+                </div>
+                <!--<input type="text" th:field="*{chatTitle}" title="Назва бесіди">-->
+                <input type="hidden" th:field="*{chatId}">
+                <input type="hidden" th:field="*{owner}">
+                <input type="hidden" th:field="*{members}" th:value="${chat.members}">
+
+                <!--<input type="submit" title="Змінити назву бесіди">-->
+                <table class="table table-striped">
+                    <tr class="delete-users" th:each="user: ${chat.members}">
+                        <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
+                        <td><a th:if="${!currentUser.equals(user)}" th:href="@{/home/messages/} + ${chatId} + '/deleteMember/' + ${user.userId}"> Видалити з бесіди</a></td>
+                        <!--Тут чекбоксы с пользователями на удаление. В конце кнопка удалить-->
+                    </tr>
+                </table>
+                <button class=' btn btn-primary messageList-content-newMsg-button clearfix' type="submit">Зберегти</button>
+            </form>
+
+        </div>
+        <!--Если переменная add, то добавляем-->
+        <div class="newChat_body" th:if="${status == 'add'}">
+            <form th:object="${newMembers}" th:method="post" th:action="@{/home/messages/} + ${chatId} + '/addMembers'">
+                <ul class="newChat_body_list">
+                    <li class="newChat_body_list_item" th:each="toAdd : ${membersToAdd}">
+                        <!--<div th:each="user : ${newMembers}">-->
+                        <!--th:src="@{'data:image;base64,' + ${user.encodeFileToBase64Binary()}}"-->
+                        <img th:src="@{'data:image;base64,' + ${toAdd.encodeFileToBase64Binary()}}"  alt="аватар">
+                        <label class="newChat_body_list_item_name" th:text="${toAdd.firstName} + ' ' + ${toAdd.lastName}">USER</label>
+                        <label class="newChat_body_list_item_checkbox">
+                            <input type="checkbox" th:value="${toAdd.userId}" name="users" title="учасники"/>
+                            <!--<div th:method="${newMembers}"></div>-->
+                            <!--</div>-->
+                            <span></span>
+                        </label>
+
+                    </li>
+
+                </ul>
+                <button class=' btn btn-primary messageList-content-newMsg-button clearfix' type="submit">Додати</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-1.8.2.min.js"></script>
+<script src="/resources/frontend/js/sideBar.js"></script>
+<script src="/resources/frontend/js/peresvit.js"></script>
+
+</body>
+</html>

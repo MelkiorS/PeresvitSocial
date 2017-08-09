@@ -1,0 +1,17 @@
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="body(mainPart, activeLink, isMyWay, myWayType)">
+<div class="wrapper">
+    <div class="wrapper-outer clearfix">
+        <div th:replace="home/fragments/leftBar :: leftBar(${activeLink})"></div>
+        <div class="wrapper-inner Panel">
+            <div th:replace="home/fragments/header :: header"></div>
+            <div class="content">
+                <div th:replace="home/fragments/navigation :: navigation(${isMyWay}, ${myWayType})"></div>
+                <div th:replace="${mainPart}"></div>
+            </div>
+            <div th:replace="home/fragments/footer :: footer"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

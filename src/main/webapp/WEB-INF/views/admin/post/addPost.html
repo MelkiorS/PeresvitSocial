@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="/resources/ckeditor/ckeditor.js"></script>
+    <style>
+        #cke_editor1{
+            margin-left:25px;
+        }
+    </style>
+</head>
+
+<div th:replace="admin/fragments/head :: header('News list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/post/', 'Новини')"></div>
+<div th:remove="all">
+    <div th:fragment="main" class="addCity">
+
+        <form action="#" th:action="@{/admin/post/add/}"  th:object="${post}" enctype="multipart/form-data" method="post">
+            <input type="hidden" th:field="*{postId}" />
+            <label for="title">Заголовок</label>
+            <input class="form-control" type="text" th:field="*{title}" />
+            <br/>
+            <p class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+            <label for="file">Фото новини</label>
+            <input class="form-control" type="file" name="file" />
+            <br/>
+
+            <div class="row row_textarea">
+                    <textarea th:field="*{body}" name="editor1" id="editor1" rows="10" cols="60">
+
+                    </textarea>
+                <script>
+                    CKEDITOR.replace('editor1' ,{
+                    });
+                </script>
+                <br/>
+                <input style='margin-left:25px;' class="btn btn-primary" type="submit" value="Зберегти">
+            </div>
+
+        </form>
+    </div>
+</div>
+</html>

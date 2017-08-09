@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('User')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/user/', 'Користувач')"></div>
+<style>
+    .form-group {
+        margin-bottom: 10px;
+    }
+    .table{
+        width: 60%;
+        margin: 5px 30px 5px 30px;
+    }
+    .table tbody tr{
+        padding: 5px 5px;
+        height: 60px;
+    }
+    .table td,th{
+        text-align: center;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main">
+
+        <form action="#" th:action="@{/admin/user/}" th:object="${user}" enctype="multipart/form-data" method="post">
+
+            <input type="hidden" th:field="*{userId}" />
+            <input type="hidden" th:field="*{enabled}" />
+            <input type="hidden" th:field="*{avatarURL}"/>
+            <div class="form-group">
+                <label for="firstName">Імя</label>
+                <input class="form-control" id='firstName' type="text" th:field="*{firstName}" placeholder="Ім'я" maxlength="25"/>
+            </div>
+            <div class="form-group">
+                <label>Прізвище</label>
+                <input class="form-control" type="text" th:field="*{lastName}" placeholder="прізвище" maxlength="25"/>
+            </div>
+            <div class="form-group">
+                <label>По батькові</label>
+                <input class="form-control" type="text" th:field="*{middleName}" placeholder="По батькові" maxlength="25" />
+            </div>
+            <div class="form-group">
+                <label>Електронна адреса</label>
+                <input class="form-control" type="text" th:field="*{email}" placeholder="Електронна адреса" />
+            </div>
+            <div class="form-group">
+                <label>Пароль</label>
+            <input class="form-control" type="text" th:field="*{password}" placeholder="пароль" />
+            </div>
+            <div class="form-group">
+                <label>Профіль Вконтакт</label>
+            <input class="form-control" type="text" th:field="*{profileVK}" placeholder="Профіль Вконтакт" />
+            </div>
+            <div class="form-group">
+                <label>Профіль Фейсбук</label>
+            <input class="form-control" type="text" th:field="*{profileFB}" placeholder="Профіль Фейсбук" />
+            </div>
+            <div class="form-group">
+                <label>Профіль Гугл+</label>
+            <input class="form-control" type="text" th:field="*{profileGoogle}" placeholder="Профіль Гугл+" />
+            </div>
+            <div class="form-group">
+                <label>Профіль Instagram</label>
+            <input class="form-control" type="text" th:field="*{profileInstagram}" placeholder="Профіль Instagram" />
+            </div>
+            <div class="form-group">
+                <label>Аватар</label>
+            <input type="file" name="file" value="Вибрати аватар"/>
+            </div>
+            <div class="form-group">
+            <label for="rangType">Rang:</label>
+            <select class="form-control" id='rangType' th:field="*{role.roleId}">
+                <option th:each="role : ${rangList}" th:value="${role.roleId}"
+                        th:text="${role.roleName}">
+
+                </option>
+            </select>
+            </div>
+            <h3>Інформація про користувача</h3>
+            <div class="form-group">
+            <label>Стать:</label>
+            <div class="radio" style="margin-left:25px;"><input type="radio" th:name="male" th:value="M"  th:field="*{sex}" checked>Чоловіча</div>
+            <div class="radio" style="margin-left:25px;"><input type="radio" th:name="female" th:value="F"  th:field="*{sex}" >Жіноча</div>
+            </div>
+            <div class="form-group">
+                <label >Бойове мистецтво:</label>
+                <select class="form-control" th:field="*{combatArt.combatArtId}">
+                    <option  disabled value="" th:text="'Бойове мистецтво'">Бойове мистецтво</option>
+                    <option th:each="combatArt : ${combatArtList}" th:value="${combatArt.combatArtId}"
+                            th:text="${combatArt.combatArtName}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Місто:</label>
+                <select class="form-control" th:field="*{city.cityId}">
+                    <option  disabled value="" th:text="'Місто'">Місто</option>
+                    <option th:each="city : ${cityList}" th:value="${city.cityId}"
+                            th:text="${city.cityName}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label >Клуб:</label>
+                <select th:field="*{club.clubId}">
+                    <option disabled value="" th:text="'Клуб'"></option>
+                    <option th:each="club : ${clubList}" th:value="${club.clubId}"
+                            th:text="${club.clubName}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Вчитель:</label>
+                <select th:field="*{mentor.userId}">
+                    <option disabled value="" th:text="'Вчитель'"></option>
+                    <option th:each="mentor : ${mentorList}" th:value="${mentor.userId}"
+                            th:text="${mentor.firstName} + ' ' + ${mentor.lastName}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label >Відзнака:</label>
+                <div th:field="*{marks}" style="margin-left:20px;">
+                    <!--<option value="" th:text="''"></option>-->
+                    <p th:each="mark : ${markList}" style="margin-bottom:5px">
+                        <input  th:name="marks" type="checkbox" style="margin-right: 7px; " th:value="${mark.markId}" th:text="${mark.markName}" th:checked="${user!=null && user.marks != null && user.marks.contains(mark)}"/>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="about">Інформація про користувача:</label>
+                <textarea  class="form-control" th:text="*{aboutMe}" ></textarea>
+            </div>
+            <!--ACHIEVEMENT LIST-->
+            <h4><a th:href="@{/admin/achievement/add/} + *{userId}">Додати досягнення</a></h4>
+            <div class="achievementList" >
+
+                <h3>Список досягнень</h3>
+
+                <table class="table" th:fragment="allAchievements">
+                    <thead>
+                    <tr>
+                        <th>Назва</th>
+                        <th>Опис</th>
+                        <!--<th>URL</th>-->
+                        <th>Редагувати</th>
+                        <th>Видалити</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="achievement : *{achievements}">
+                        <td th:text="${achievement.achievementName}"></td>
+                        <td th:text="${achievement.description}"></td>
+                        <!--<td th:text="${achievement.imageURL}"></td>-->
+
+                        <td><a th:href="@{/admin/achievement/edit/} + ${achievement.achievementId}">Редагувати</a></td>
+                        <td><a onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/achievement/delete/} + ${achievement.achievementId}">Видалити</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+
+            <input class="btn btn-primary" type="submit" value="Зберегти"/>
+        </form>
+        <script>
+            function deleteElem(e){
+                return confirm('Видалити цю роль?')? location.href = e.getAttribute('href'):false;
+            }
+        </script>
+    </div>
+
+</div>
+</html>
+

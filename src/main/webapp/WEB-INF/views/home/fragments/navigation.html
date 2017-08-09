@@ -1,0 +1,23 @@
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="navigation(isMyWay, articleType)">
+<nav class="tabs-in-main clearfix">
+    <ul>
+        <li><a class="tab-news" href="/home/post">Новини</a></li>
+        <li><a class="tab-messages" href="/home/messages">
+            Повiдомлення <div th:if="${unreadMessages != null}" th:text="${unreadMessages > 0 ? '(' + unreadMessages + ')' : ''}"></div>
+        </a></li>
+        <li><a class="tab-we" href="/home/we">Ми</a></li>
+        <li><a class="btn-broadcast" href="#">Трансляцiя</a></li>
+    </ul>
+</nav>
+<nav class="nav-path clearfix" th:if="${isMyWay == true}">
+    <ul>
+        <li><a class="nav-path-my-way" href="#">Мiй шлях</a></li>
+        <li>
+            <span class="nav-path slash">&#8260;</span>
+            <a class="nav-path-tech-complex" href="#" th:text="${articleType}">Базові технічні комплекси</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

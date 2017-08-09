@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Combat Art')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/combatArt/', 'Бойове мистецство')"></div>
+<style>
+    .addCombatArt form{
+        margin: 10px;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main" class="addCombatArt">
+
+        <form action="#" th:action="@{/admin/combatArt/}" th:object="${combatArt}" method="post">
+            <input type="hidden" th:field="*{combatArtId}" />
+            <div class="form-group">
+                <label>Введіть бойове мистецтво</label>
+            <input type="text" class="form-control" th:field="*{combatArtName}" placeholder="бойове мистецтво" /><br/>
+
+            <input type="submit" class="btn btn-primary" value="Зберегти"/>
+            </div>
+        </form>
+
+    </div>
+</div>
+</html>

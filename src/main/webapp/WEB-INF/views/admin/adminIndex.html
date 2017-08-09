@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Пересвіт Адмін</title>
+</head>
+<body>
+<a th:href="@{/}" >Особистий кабінет</a>
+<br/>
+<a th:href="@{/admin/resource/management}" >Управління ресурсами</a>
+<br/>
+<a th:href="@{/admin/resourceGroup/management}" >ResourceGroups Management</a>
+<br/>
+<a th:href="@{/admin/resourceGroupType/management}" >ResourceGroupsType Management</a>
+<br/>
+<a th:href="@{/admin/rang/management}" >Управління рівнями</a>
+<br/>
+<a th:href="@{/admin/club/management}" >Управління клубами</a>
+<br/>
+<a th:href="@{/admin/city/management}" >Управління містами</a>
+<br/>
+<a th:href="@{/admin/combatArt/management}" >Управління Бойовими мистецтвами</a>
+<br/>
+<a th:href="@{/admin/mark/management}" >Управління відзнаками</a>
+<br/>
+<a th:href="@{/admin/user/management}" >Управління користувачами</a>
+<br/>
+<a th:href="@{/admin/article/management}" >Управління статтями</a>
+<br/>
+<a th:href="@{/admin/userGroup/management}" >Управління групами</a>
+<br/>
+<a th:href="@{/admin/post/}" >Новини</a>
+<br/>
+
+<h3>Дані для користувача</h3>
+<a th:href="@{/resource/myWay}" >Мій шлях</a>
+<br/>
+<a th:href="@{/panel/myevents}" >Мої події</a>
+<br/>
+<br/>
+<a th:href="@{/admin/event_edit}" >Редагування подій</a>
+
+<br>
+<br>
+<a th:href="@{/logout}">Вийти</a>
+</body>
+</html>

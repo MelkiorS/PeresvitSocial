@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Club</title>
+</head>
+<body>
+<a th:href="@{/admin/club/management}">Club Management</a>
+<br/>
+<div class="club">
+    <h2>Club</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Club Name</th>
+            <th>Club Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${club.clubId}"></td>
+            <td th:text="${club.clubName}"></td>
+            <td th:text="${club.Address}"></td>
+            <td><a th:href="@{/admin/club/edit/} + ${club.clubId}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

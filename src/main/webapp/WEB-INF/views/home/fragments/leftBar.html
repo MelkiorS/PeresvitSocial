@@ -1,0 +1,45 @@
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+<aside th:fragment="leftBar(activeLink)" class="sideNav side-nav" id="slide-out" ><!--class sideNav is for sidebar-->
+    <a class="logo-in-sidebar clearfix" href="/home"></a>
+    <nav class="menu-level1 tabs-in-sidebar" >
+        <ul>
+            <li><a class="btn-news" href="/home/post">Новини</a></li>
+            <li><a class="btn-messages" href="/home/messages/" th:text="${unreadMessages > 0 ? 'Повiдомлення (' + unreadMessages + ')' : 'Повiдомлення'}">Повiдомлення</a></li>
+            <li><a class="btn-we" href="/home/we">Ми</a></li>
+            <li><a class="btn-broadcast" href="">Трансляцiя</a></li>
+        </ul>
+    </nav>
+    <nav class="menu-level1">
+        <ul>
+            <li sec:authorize="hasRole('ADMIN')"><a class="btn-admin" href="/admin">Адмін панель</a></li>
+            <li><a th:class="${activeLink=='ourevents'} ?  ' btn-our-events active' : 'btn-our-events'" href="/panel/ourevents">Нашi подiї</a></li>
+            <li><a th:class="${activeLink=='myevents'} ?  'btn-my-events active' : 'btn-my-events'" href="/panel/myevents">Мої подiї</a></li>
+            <li class="my-way ">
+                <a th:class="${activeLink=='myway'} ? 'btn-my-way active' : 'btn-my-way' " href="#">Мiй шлях  <img src="/resources/frontend/image/blue-arrow.png" alt=""></a>
+                <nav class="menu-level2">
+                    <ul>
+                        <li><a href="/resource/myWay/1">базова технiка</a></li>
+                        <li><a href="/resource/myWay/2">базові тех.комплекси</a></li>
+                        <li><a href="/resource/myWay/3">робота в парi</a></li>
+                        <li><a href="/resource/myWay/4">спец. фізпідготовка</a></li>
+                        <li><a href="/resource/myWay/5">загальна фiзична пiдготовка</a></li>
+                        <li><a href="/resource/myWay/6">розбивання предметiв</a></li>
+                    </ul>
+                </nav>
+            </li>
+            <li><a th:class="${activeLink=='workField'} ? 'btn-cabinet active' : 'btn-cabinet'" href="/home/workField">Особистий кабiнет</a></li>
+            <li><a class="btn-exit" href="/logout">Вийти</a></li>
+            <li class="sponsor-logo-sidebar ">
+                <div class="sponsor-logo-sidebar-text">
+                    <p>Cпонсор змагання</p>
+                    <a href="#">fightdante.com.ua</a>
+                </div>
+                <img src="/resources/frontend/image/sponsor-logo.png">
+            </li>
+        </ul>
+    </nav>
+</aside>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/fragments/head :: head('НАЗВАНИЕ СТРАНИЦЫ')"></head>
+<head>
+    <!--СЮДА МОЖНО ДОБАВИТЬ ВСЁ, ЧЕГО НЕТУ В head.HTML-->
+</head>
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, '', false, '')"></div>
+
+<div th:remove="all">
+    <main class="my-way-main"  th:fragment="main">
+        <!-- СЮДА ВСТАВЛЯЕМ ОСНОВНУЮ ЧАСТЬ -->
+    </main>
+</div>
+</body>
+</html>

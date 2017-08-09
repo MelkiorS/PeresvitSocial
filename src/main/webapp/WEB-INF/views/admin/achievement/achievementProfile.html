@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Achievement List</title>
+</head>
+<body>
+<a th:href="@{/admin/achievement/management}" >Achievement Management</a>
+<br/>
+<div class="achievement">
+    
+  <h2 >Achievement</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>URL</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${achievement.achievementName}"></td>
+        <td th:text="${achievement.description}"></td>
+        <td th:text="${achievement.url}"></td>
+
+        <td><a th:href="@{/admin/achievement/edit/} + ${achievement.achievementId}">Edit</a></td>   
+        <td><a th:href="@{/admin/achievement/delete/} + ${achievement.achievementId}">Delete</a></td>         
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

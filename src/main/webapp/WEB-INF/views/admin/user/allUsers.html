@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Users list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/user/add','', 'Користувачі')"></div>
+<style>
+  table{
+    width: 90%;
+    margin: 5px 30px 5px 10px;
+  }
+  tbody tr{
+    padding: 5px 5px;
+    height: 40px;
+  }
+  td,th{
+    text-align: center;
+  }
+</style>
+
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="rangList" th:unless="${#lists.isEmpty(userList)}">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <!--<th>userId</th>-->
+          <th>Дії</th>
+          <th>Ім'я</th>
+          <!--<th>Last Name</th>-->
+          <!--<th>Middle Name</th>-->
+          <th>Електронна адреса</th>
+          <!--<th>Avatar URL</th>-->
+          <th>Має дозвіл</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+          <!--<td th:text="${user.userId}"></td>-->
+          <td>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/user/edit/} + ${user.userId}"></a>
+            <a th:if="${user.enabled}" class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/user/deactivate/} + ${user.userId}"></a>
+            <a th:if="${!user.enabled}" class="glyphicon glyphicon-ok btn btn-success btn-xs" onclick="event.preventDefault();activateElem(this)" th:href="@{/admin/user/activate/} + ${user.userId}"></a>
+          </td>
+          <td th:text="${user.firstName} +' '+ ${user.lastName}"></td>
+          <!--<td th:text="${user.lastName}"></td>-->
+          <!--<td th:text="${user.middleName}"></td>-->
+          <td th:text="${user.email}"></td>
+          <!--<td th:text="${user.avatarURL}"></td>-->
+          <td th:text="${user.enabled ? 'Так' : 'Ні'}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+        function deleteElem(e){
+            return confirm('Деактивувати цього користувача?')? location.href = e.getAttribute('href'):false;
+        }
+        function activateElem(e){
+            return confirm('Активувати цього користувача?')? location.href = e.getAttribute('href'):false;
+        }
+    </script>
+  </div>
+</div>
+</html>
+

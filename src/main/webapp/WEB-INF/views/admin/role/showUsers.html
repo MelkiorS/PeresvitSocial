@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Role users')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/role/', 'Користувачі')"></div>
+
+<style>
+    tr{
+        font-size:16px;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Користувач</th>
+            </tr>
+            <tbody>
+            <tr th:each="user: ${role.userCollection}">
+                <td th:text="${user.toString()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>

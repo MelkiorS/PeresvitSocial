@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Club')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/club/', 'Клуб')"></div>
+<style>
+    .addClub form{
+        margin: 10px;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main" class="addClub">
+            <form action="#" th:action="@{/admin/club/}" th:object="${club}" method="post">
+                <div class="form-group">
+                    <input type="hidden" th:field="*{clubId}" />
+
+                    <label>Назва клубу</label>
+                    <input class="form-control" type="text" th:field="*{clubName}" placeholder="назва клубу" />
+                </div>
+                <div class="form-group">
+                <label>Адреса клубу</label>
+                <input class="form-control" type="text" th:field="*{address}" placeholder="адреса клубу" />
+                </div>
+                <input class="btn btn-primary"  type="submit" value="Зберегти" />
+            </form>
+    </div>
+</div>
+</html>

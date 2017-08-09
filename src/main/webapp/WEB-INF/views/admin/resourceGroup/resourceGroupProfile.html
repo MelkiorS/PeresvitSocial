@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ResourceGroup List</title>
+</head>
+<body>
+<a th:href="@{/admin/resourceGroup/management}" >ResourceGroup Management</a>
+<br/>
+<div class="resourceGroup" >
+    
+  <h2 >List of ResourceGroups</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>ResourceGroupName</th>
+        <th>Rang</th>
+        <th>Type</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Resources</th>
+        <th>NewResource</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${resourceGroup.resourceGroupId}"></td>
+        <td th:text="${resourceGroup.resourceGroupName}"></td>
+        <td th:text="${resourceGroup.rang.rangName}"></td>
+        <td th:text="${resourceGroup.resourceGroupType.groupName}"></td>      
+        <td th:text="${resourceGroup.typeId}"></td>
+        <td><a th:href="@{/admin/resourceGroup/edit/} + ${resourceGroup.resourceGroupId}">Edit</a></td>   
+        <td><a th:href="@{/admin/resourceGroup/delete/} + ${resourceGroup.resourceGroupId}">Delete</a></td>
+        <td><a th:href="@{/admin/resource/group/} + ${resourceGroup.resourceGroupId}">Resources</a></td>   
+        <td><a th:href="@{/admin/resource/add/group/} + ${resourceGroup.resourceGroupId}">Add resource</a></td>            
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

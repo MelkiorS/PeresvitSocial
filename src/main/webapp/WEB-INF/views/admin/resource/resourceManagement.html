@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resource Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Peresvit</title>
+    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
+    <link rel="stylesheet" href="/resources/frontend/workField.css">
+</head>
+<body>
+<div class="container-fluid wrapper">
+
+    <div th:replace="admin/fragments/headBar :: headBar"></div>
+
+
+    <div class="row main">
+        <div class="col-xs-3 container main_sidebar">
+            <!--Сюда вставляем боковой бар fragments/sideBar.html-->
+            <div th:replace="admin/fragments/sideBar :: sideBar"></div>
+            <div th:replace="admin/resource/ResourceSideBar :: sideBar"></div>
+        </div>
+
+        <div class=" col-xs-9 row well container-fluid main_section">
+            <!--Сюда вставляем содержимое страниц в соответствии с нажатыми кнопками-->
+            <div th:replace="admin/resource/allResources :: allResources"></div>
+
+
+        </div>
+    </div>
+
+
+    <div th:replace="admin/fragments/footBar :: footBar"></div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/resources/frontend/css/jquery.bxslider.css">
+</head>
+<head th:replace="home/fragments/head :: head('Кабінет')"></head>
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, 'workField', false, '')"></div>
+
+<div th:remove="all">
+    <main class="my-way-main"  th:fragment="main">
+        <section class="avatar">
+            <a class="avatar-edit-user" th:if="${isGuest == null}" th:href="@{/home/profileEdit/} + ${user.userId}"></a>
+            <h3 class="avatar-name">
+                <span th:text="${user.lastName}"></span>
+                <span th:text="${user.firstName}"></span>
+                <span th:text="${user.middleName}"></span>
+            </h3>
+            <div class="avatar-container">
+                <img class="avatar-photo" th:src= "${imageAvatar != null} ? @{'data:image;base64,' + ${imageAvatar}} : ${user.avatarURL}" alt="Аватар юзера">
+                <div th:each="mark, iter : ${user.marks}">
+                    <img class="avatar-belt" th:src="${mark.encodeFileToBase64Binary() != null} ?
+                    @{'data:image;base64,' + ${mark.encodeFileToBase64Binary()}} : ${mark.markUrl}" alt="Пояс юзера">
+                    <p class="belt-text" th:text="${mark.markName}">6 Кю. Жовтий пояс</p>
+                </div>
+                <div class="avatar-social">
+                    <a th:href="${user.profileVK != null} ? @{${user.profileVK.contains('vk.com') == true} ? ${user.profileVK} : @{'https://vk.com/' + ${user.profileVK}}} :
+                    @{''}" target="_blank" class="avatar-vk"></a>
+                    <a th:href="${user.profileFB != null} ? @{${user.profileFB.contains('facebook.com') == true} ? ${user.profileFB} : @{'https://www.facebook.com/' + ${user.profileFB}}} :
+                    @{''}" target="_blank" class="avatar-fb"></a>
+                    <a th:href="${user.profileInstagram != null} ? @{${user.profileInstagram.contains('instagram.com') == true} ? ${user.profileInstagram} : 'https://www.instagram.com/' + ${user.profileInstagram}} :
+                    @{''}" target="_blank" class="avatar-insta"></a>
+                    <!--<a th:href="${user.profileGoogle != null} ? @{'' + ${user.profileGoogle}} : @{''}" target="_blank" class="avatar-insta"></a>-->
+                </div>
+            </div>
+        </section>
+        <section class="details">
+            <div class="rows">
+                <div class="cell-left">Наставник:</div>
+                <div th:text="${user.mentor == null ? '' : user.mentor.firstName + ' ' + user.mentor.lastName}" class="cell-right coach">Степаненко Степан</div>
+            </div>
+            <div class="rows">
+                <div class="cell-left">Місто:</div>
+                <div th:text="${user.city == null ? '' : user.city.cityName}" class="cell-right">Київ</div>
+            </div>
+            <div class="rows">
+                <div class="cell-left">Клуб:</div>
+                <div th:text="${user.club == null ? '' : user.club.clubName}" class="cell-right">Пересвiт</div>
+            </div>
+            <div class="rows">
+                <div class="cell-left">Направлення:</div>
+                <div th:text="${user.combatArt == null ? '' : user.combatArt.combatArtName}" class="cell-right">Фрi-файт</div>
+            </div>
+            <div class="rows">
+                <div class="cell-left">Про себе:</div>
+                <div th:text="${user.aboutMe == null ? '' : user.aboutMe}" class="cell-right">Займаюсь бойовими мистецтвами понад 10 рокiв</div>
+            </div>
+            <div class="rows">
+                <div class="cell-left">Роль на сайтi:</div>
+                <div th:text="${user.role.roleName}" class="cell-right moderator">Модератор</div>
+            </div>
+        </section>
+        <section class="archivement">
+            <h5>Мої досягнення</h5>
+            <ul class="bxslider">
+                <li th:each="achievement, iter : ${user.achievements}"><img alt="Перемога" th:src= "@{'data:image;base64,' + ${achievement.encodeFileToBase64Binary()}}" th:title="${achievement.achievementName}"/></li>
+            </ul>
+            <!--<div class="col-xs-12  main_section_photoGallery_images">-->
+            <!--<tr th:each="achievement, iter : ${user.achievements}">-->
+            <!--<td th:text="${achievement.achievementId}">1</td>-->
+            <!--<td th:text="${achievement.achievementName}">Text</td>-->
+            <!--<img th:src= "@{'data:image;base64,' + ${achieveList.get(achievement.achievementId)}}" alt="achievement">-->
+            <!--</tr>-->
+            <!--</div>-->
+        </section>
+    </main>
+</div>
+
+<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-1.8.2.min.js"></script>
+<script src="/resources/frontend/js/jquery.bxslider.min.js"></script>
+<script src="/resources/frontend/js/sideBar.js"></script>
+<script src="/resources/frontend/js/peresvit.js"></script>
+
+</body>
+</html>

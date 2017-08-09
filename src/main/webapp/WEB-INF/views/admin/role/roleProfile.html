@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Role</title>
+</head>
+<body>
+<a th:href="@{/admin/role/management}" >Role Management</a>
+<br/>
+<div class="role">
+  <h2 >Role</h2>
+  
+  <table>
+    <thead>
+      <tr>
+       <th>Id</th>
+        <th>Role Name</th>
+        <th>Users</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${role.roleId}"></td>
+        <td th:text="${role.roleName}"></td>
+        <td><a th:href="@{/admin/role/users/} + ${role.roleId}">Users</a></td>
+        <td><a th:href="@{/admin/role/edit/} + ${role.roleId}">Edit</a></td>
+        <td><a th:href="@{/admin/role/delete/} + ${role.roleId}">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

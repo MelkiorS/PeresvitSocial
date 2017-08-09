@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('CombatArt List')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/combatArt/add','', 'Бойові мистецтва')"></div>
+<style>
+  table{
+    width: 60%;
+    margin: 5px 30px 5px 5px;
+  }
+  tbody tr{
+    padding: 5px 5px;
+    height: 30px;
+  }
+  td,th{
+    text-align: center;
+  }
+</style>
+
+
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="combatArtList" th:unless="${#lists.isEmpty(combatArtList)}">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <!--<th>Id</th>-->
+          <th>Дії</th>
+          <th>Бойове мистецтво</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="combatArt : ${combatArtList}">
+          <!--<td th:text="${combatArt.combatArtId}"></td>-->
+          <td>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/combatArt/edit/} + ${combatArt.combatArtId}"></a>
+            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" th:href="@{/admin/combatArt/delete/} + ${combatArt.combatArtId}"></a>
+          </td>
+          <td th:text="${combatArt.combatArtName}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</html>

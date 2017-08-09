@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>City</title>
+</head>
+<body>
+<a th:href="@{/admin/city/management}" >City Management</a>
+<br/>
+<div class="city">
+  <h2 >City</h2>
+  
+  <table>
+    <thead>
+      <tr>
+       <th>Id</th>
+        <th>City Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${city.cityId}"></td>
+        <td th:text="${city.cityName}"></td>
+        <td><a th:href="@{/admin/city/edit/} + ${city.cityId}">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

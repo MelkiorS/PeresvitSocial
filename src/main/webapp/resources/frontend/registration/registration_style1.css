@@ -1,0 +1,661 @@
+
+@font-face {
+    font-family: Ubuntu; /* Имя шрифта */
+    src: url(../libraries/fonts/Ubuntu-C.ttf); /* Путь к файлу со шрифтом */
+}
+body{
+    background: url('img/glavn-001.jpg') no-repeat;
+    background-size: cover;
+    font-family: Ubuntu;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    overflow: hidden;
+    width: 98%;
+}
+.info-message{
+    font-family: Ubuntu;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+.wrapper{
+    height:100%;
+    width: 100%;
+    margin:0 auto;
+    padding: 5% 0 0 0;
+    font-size: 1.6rem;
+    box-sizing: border-box;
+}
+/*********************************************************************************8*/
+.icemegamenu ul,
+.icemegamenu li {
+    font-size: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.icemegamenu > ul {
+    float: right;
+    clear: both;
+    margin: 14px 0;
+    padding: 0;
+    z-index: 999;
+}
+.icemegamenu > ul > li {
+    position: relative;
+    display: block;
+    float: left;
+}
+.icemegamenu > ul > li > a.iceMenuTitle {
+    position: relative;
+    z-index: 999;
+    display: block;
+    padding: 0 20px;
+    line-height: 42px;
+    font-size: 16px;
+    color: #ffffff;
+    background: none;
+    /*font-family: 'Ubuntu Condensed', sans-serif;*/
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    text-transform: uppercase;
+}
+.icemegamenu > ul > li > a.iceMenuTitle:before,
+.icemegamenu > ul > li > a.iceMenuTitle:after {
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.icemegamenu > ul > li > a.iceMenuTitle:before {
+    top: 0px;
+    left: 0px;
+    right: 100%;
+    bottom: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+.icemegamenu > ul > li > a.iceMenuTitle:after {
+    left: 100%;
+    top: 100%;
+    bottom: 0px;
+    right: 0px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+.icemegamenu > ul > li > a.iceMenuTitle:hover,
+.icemegamenu > ul > li > a.iceMenuTitle.icemega_active {
+    color: #ffffff;
+    background: none;
+}
+.icemegamenu > ul > li > a.iceMenuTitle:hover:before,
+.icemegamenu > ul > li > a.iceMenuTitle.icemega_active:before {
+    opacity: 1;
+    bottom: 0px;
+    right: 0px;
+}
+.icemegamenu > ul > li > a.iceMenuTitle:hover:after,
+.icemegamenu > ul > li > a.iceMenuTitle.icemega_active:after {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+}
+.icemegamenu > ul > li.hover > a.iceMenuTitle {
+    color: #ffffff;
+    background: none;
+}
+.icemegamenu > ul > li.hover > a.iceMenuTitle:before {
+    opacity: 1;
+    bottom: 0px;
+    right: 0px;
+}
+.icemegamenu > ul > li.hover > a.iceMenuTitle:after {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+}
+.icemegamenu > ul > li span.icemega_desc {
+    display: block;
+    padding: 0;
+    line-height: 1.25em;
+    /*color: none;*/
+}
+.icemegamenu > ul > li.fullwidth {
+    position: static;
+}
+.icemegamenu > ul > li + li {
+    margin-left: 3px;
+}
+.icemegamenu > ul:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+.icemegamenu .ice_menu {
+    padding-bottom: 20px;
+}
+.icemegamenu .ice_menu .iceModuleTile {
+    background: #2b2a28;
+    color: #ffffff;
+    padding: 5px;
+    font-weight: normal;
+    font-size: 10.4px;
+    margin-bottom: 10px;
+}
+.icemegamenu .mod-menu li {
+    font-size: 10.4px;
+}
+.icemegamenu .mod-menu li a:hover {
+    color: #605e59;
+}
+.icemegamenu .megamenu_banner_fullwidth .item_img a {
+    position: relative;
+}
+.icemegamenu .megamenu_banner_fullwidth .item_img a .item_introtext {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50%;
+    z-index: 10;
+    font-size: 13px;
+    line-height: 18px;
+}
+.icemegamenu .megamenu_banner_fullwidth .item_img a:before,
+.icemegamenu .megamenu_banner_fullwidth .item_img a:after {
+    display: none !important;
+}
+.icemegamenu .menu_banners .item_img a {
+    position: relative;
+}
+.icemegamenu .menu_banners .item_img a:before,
+.icemegamenu .menu_banners .item_img a:after {
+    display: none;
+}
+.icemegamenu .menu_banners .item_img a .item_content {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 15px;
+    font-size: 13px;
+    line-height: 18px;
+    z-index: 10;
+}
+.icemegamenu .menu_banners .item_img a .item_content .item_title {
+    background: #2b2a28;
+    padding: 5px 10px;
+    color: #fff;
+    display: inline-block;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.icemegamenu .menu_banners .item_img a .item_content .item_introtext {
+    padding: 0 20px;
+}
+.icemegamenu .menu_banners .item_img a:hover .item_content .item_title {
+    padding: 5px 20px;
+}
+div.icemegamenu ul#icemegamenu li.active a.icemega_active > span.icemega_title {
+    color: #ffffff;
+}
+/* when dont have subtitle */
+.icemegamenu > ul > li > a.iceMenuTitle > span.icemega_nosubtitle {
+    display: inline-block;
+}
+.ice-megamenu-toggle {
+    display: none;
+    float: none;
+    border: 1px solid #cccccc;
+    margin-bottom: 20px;
+}
+.ice-megamenu-toggle a {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    padding-top: 30px;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    height: 0;
+    position: relative;
+}
+.ice-megamenu-toggle a:before {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: FontAwesome;
+    content: '\f0c9';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+/* Submenu */
+ul.icesubMenu {
+    position: absolute;
+    z-index: 600;
+    margin: 0;
+    top: 100%;
+    left: 0px;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: #2b2a28;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    -webkit-transform: translate(0, 30px);
+    -moz-transform: translate(0, 30px);
+    -ms-transform: translate(0, 30px);
+    -o-transform: translate(0, 30px);
+    transform: translate(0, 30px);
+    pointer-events: none;
+}
+#icemegamenu li.hover > ul.icesubMenu {
+    opacity: 1;
+    overflow: visible;
+    -webkit-transform: translate(0, 0px);
+    -moz-transform: translate(0, 0px);
+    -ms-transform: translate(0, 0px);
+    -o-transform: translate(0, 0px);
+    transform: translate(0, 0px);
+    pointer-events: auto;
+}
+#icemegamenu ul.icesubMenu.visible {
+    height: auto;
+}
+ul.icesubMenu ul > li {
+    position: relative;
+}
+ul.icesubMenu li a.iceMenuTitle {
+    display: block;
+    font-size: 16px;
+    line-height: 42px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    background: none;
+    color: #ffffff;
+    padding: 0px 20px;
+    position: relative;
+}
+ul.icesubMenu li a.iceMenuTitle:before,
+ul.icesubMenu li a.iceMenuTitle:after {
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+ul.icesubMenu li a.iceMenuTitle:before {
+    top: 0px;
+    left: 0px;
+    right: 100%;
+    bottom: 100%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+ul.icesubMenu li a.iceMenuTitle:after {
+    left: 100%;
+    top: 100%;
+    bottom: 0px;
+    right: 0px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+ul.icesubMenu li a.iceMenuTitle:hover:before {
+    opacity: 1;
+    bottom: 0px;
+    right: 0px;
+}
+ul.icesubMenu li a.iceMenuTitle:hover:after {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+}
+ul.icesubMenu li.active > a.iceMenuTitle,
+ul.icesubMenu li:hover > a.iceMenuTitle,
+ul.icesubMenu li.hover > a.iceMenuTitle {
+    color: #ffffff;
+    background: none;
+}
+ul.icesubMenu li.active > a.iceMenuTitle:before,
+ul.icesubMenu li:hover > a.iceMenuTitle:before,
+ul.icesubMenu li.hover > a.iceMenuTitle:before {
+    opacity: 1;
+    bottom: 0px;
+    right: 0px;
+}
+ul.icesubMenu li.active > a.iceMenuTitle:after,
+ul.icesubMenu li:hover > a.iceMenuTitle:after,
+ul.icesubMenu li.hover > a.iceMenuTitle:after {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+}
+/* when is parent */
+/* Second Level Dropdown */
+ul.sub_level_2,
+ul.sub_level_3,
+ul.sub_level_4,
+ul.sub_level_5 {
+    top: 0px;
+    left: 100%;
+    z-index: 99999;
+    -webkit-transform: translate(30px, 0);
+    -moz-transform: translate(30px, 0);
+    -ms-transform: translate(30px, 0);
+    -o-transform: translate(30px, 0);
+    transform: translate(30px, 0);
+}
+ul.icesubMenu ul > li.hover > ul {
+    opacity: 1;
+    overflow: visible;
+    visibility: visible;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+/* Modules inside dropdown */
+.icesubMenu .icemega_cover_module {
+    color: #ffffff;
+}
+.icesubMenu .icemega_cover_module a {
+    color: #ffffff;
+}
+.icesubMenu .icemega_cover_module a:hover {
+    color: #ffffff;
+}
+.icesubMenu .icemega_cover_module span.iceModuleTile {
+    display: block;
+}
+.ice_righttoleft {
+    left: auto!important;
+    right: 0;
+}
+.icemega_modulewrap {
+    padding: 5px;
+}
+.nav-collapse .icesubMenu .nav > li > a,
+.nav-collapse .icesubMenu .dropdown-menu a {
+    padding: 0;
+    margin-bottom: 0;
+    color: #ffffff;
+}
+.nav-collapse .icesubMenu .nav > li > a:hover,
+.nav-collapse .icesubMenu .dropdown-menu a:hover {
+    color: #605e59;
+}
+.nav-collapse.collapse {
+    height: auto;
+}
+.iceCols {
+    width: 100% !important;
+}
+/*********************************************************************************8*/
+
+.log_in_field_main_logIn,
+.log_in_field_main_logIn:focus
+{
+    background: #0a3f51;
+    color: #fff;
+}
+.log_in_field_main_logIn:hover
+{
+    background: #1b6f8c;
+    color:#fff;
+}
+.btn{
+    font-size: 1.6rem;
+}
+.modal_header_logIn{
+    margin:7px 10px 2px;
+}
+.modal_header_logIn_title{
+    padding: 4px;
+    text-align: center;
+    margin-top: 15px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #286090;
+    border-radius: 3px;
+    font-size: 2.2rem;
+}
+.modal_header_logIn_title p{
+    margin:0;
+}
+.modal_logIn_section{
+    margin-top: 10px;
+}
+.modal_logIn_section_form_email{
+    padding: 13px 0 0 0;
+}
+.modal_logIn_section_form_email .form-control-feedback{
+    margin-top: 16px;
+}
+.modal_logIn_section_form_pass{
+    padding:0 0 0 0 ;
+    margin-bottom: 0;
+}
+.modal_logIn_section_form_pass .form-control-feedback{
+    margin: 3px 16px 0 0;
+}
+.modal_logIn_section_form_pass_forget{
+    margin: 7% 0 0 27px ;
+}
+.modal_logIn_section_form_pass .help-block{
+    margin: 5px 0 3px 0;
+}
+.modal_logIn_section_form_pass .help-block p {
+    margin: 0;
+}
+.modal_logIn_section_form .no_account{
+    padding: 6px 2px 0px 2px;
+    margin: 0;
+}
+.modal_logIn_section_form_rememberMe{
+    padding:0;
+}
+.modal_logIn_section_form_rememberMe_text{
+    padding: 0;
+}
+.modal_logIn_section_form_rememberMe_text h3{
+    margin: 5px 0 10px 0;
+}
+.modal_logIn_section_form_rememberMe_checkbox{
+    margin: 2.5% 0 0 16%;
+}
+.modal_logIn_section_form_rememberMe_checkbox .switch {
+    position: relative;
+    display: inline-block;
+    width: 39px;
+    height: 20px;
+}
+.modal_logIn_section_form_rememberMe_checkbox .slider {
+    position: absolute;
+    cursor: pointer;
+    top: -2px;
+    left: -4px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.modal_logIn_section_form_rememberMe_checkbox .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.modal_logIn_section_form_rememberMe_checkbox input:checked + .slider {
+    background-color: #337ab7 ;
+}
+
+.modal_logIn_section_form_rememberMe_checkbox input:focus + .slider {
+    box-shadow: 0 0 1px #286090;
+}
+
+.modal_logIn_section_form_rememberMe_checkbox input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(21px);
+}
+.modal_logIn_section_form_rememberMe_checkbox .slider.round {
+    border-radius: 34px;
+}
+
+.modal_logIn_section_form_rememberMe_checkbox .slider.round:before {
+    border-radius: 50%;
+}
+/*modal_logIn_section_form_pass*/
+.modal_logIn_section_form .vk,
+.modal_logIn_section_form .fb,
+.modal_logIn_section_form .google_plus{
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+.modal_logIn_section_form .vk_button:hover,
+.modal_logIn_section_form .vk_button:focus,
+.modal_logIn_section_form .fb_button:hover,
+.modal_logIn_section_form .fb_button:focus{
+    background: #3b699c;
+    color:#fff;
+}
+
+.modal_logIn_section_form .vk_button,
+.modal_logIn_section_form .fb_button{
+    background: #5e81a8;
+    color: #fff;
+    width: 100%;
+}
+.modal_logIn_section_form .google_plus_button:hover,
+.modal_logIn_section_form .google_plus_button:focus{
+    background: #f9f3f3;
+    color: #d64136;
+}
+.modal_logIn_section_form .google_plus_button{
+    background: #fff;
+    color: #d64136;
+    width: 100%;
+}
+.modal_logIn_section_form .vk_button img,
+.modal_logIn_section_form .fb_button img,
+.modal_logIn_section_form .google_plus_button img{
+    height: 18px;
+    margin: 0 4px 0 0;
+}
+/***************Форма Регистрации***********************/
+.modal_signUp_section_form_name{
+    padding:0;
+}
+.modal_header_signUp{
+    margin:7px 10px 2px;
+}
+.modal_header_signUp_title{
+    padding: 4px;
+    text-align: center;
+    margin-top: 15px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #286090;
+    border-radius: 3px;
+    font-size: 2.2rem;
+}
+.modal_header_signUp_title p{
+    margin:0;
+}
+.modal_signUp_section{
+    margin-top: 15px;
+}
+.modal_signUp_section_form_name,
+.modal_signUp_section_form_surname{
+    margin-bottom: 0;
+}
+.modal_signUp_section_form_name .form-control-feedback,
+.modal_signUp_section_form_surname .form-control-feedback{
+    margin-top: 3px;
+}
+.modal_signUp_section_form_email {
+    margin-bottom:0;
+}
+.modal_signUp_section_form_email .form-control-feedback{
+    margin: 3px 0 0 0;
+}
+.modal_signUp_section_form_confirm{
+    padding:0;
+}
+.modal_signUp_section_form .vk,
+.modal_signUp_section_form .fb,
+.modal_signUp_section_form .google_plus{
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+.modal_signUp_section_form .vk_button:hover,
+.modal_signUp_section_form .vk_button:focus,
+.modal_signUp_section_form .fb_button:hover,
+.modal_signUp_section_form .fb_button:focus{
+    background: #3b699c;
+    color:#fff;
+}
+
+.modal_signUp_section_form .vk_button,
+.modal_signUp_section_form .fb_button{
+    background: #5e81a8;
+    color: #fff;
+    width: 100%;
+}
+.modal_signUp_section_form .google_plus_button:hover,
+.modal_signUp_section_form .google_plus_button:focus{
+    background: #f9f3f3;
+    color: #d64136;
+}
+.modal_signUp_section_form .google_plus_button{
+    background: #fff;
+    color: #d64136;
+    width: 100%;
+}
+.modal_signUp_section_form .vk_button img,
+.modal_signUp_section_form .fb_button img,
+.modal_signUp_section_form .google_plus_button img{
+    height: 18px;
+    margin: 0 4px 0 0;
+}

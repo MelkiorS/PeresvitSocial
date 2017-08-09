@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пересвіт Адмін228</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Peresvit</title>
+    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
+    <link rel="stylesheet" href="/resources/frontend/workField.css">
+    <!--<script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>-->
+    <!--<script src="/resources/frontend/libraries/constants.js"></script>-->
+    <!--<script  async src="/resources/frontend/workField/js/workField_script.js"></script>    -->
+</head>
+<body>
+<div class="container-fluid wrapper">
+    <div class="row header">
+        <div class="col-xs-8 col-md-offset-4 h4 header_commercial">Гугл реклама</div>
+        <div class="col-xs-3 h2 header_logo"><img class='header_logo_img' src="/resources/frontend/images/logo_Peresvit.png" alt="логотип"></div>
+        <div class="col-xs-8  row header_nav">
+            <div th:replace="admin/fragments/headBar :: headBar"></div>
+            <!--Сюда вставляем данные с верхнего бара fragments/headBar.html-->
+        </div>
+    </div>
+    <div class="row main">
+        <div class="col-xs-3 container main_sidebar">
+            <!--Сюда вставляем боковой бар fragments/sideBar.html-->
+            <div th:replace="admin/fragments/sideBar :: sideBar"></div>
+            <div class="place_for_add_sidebar col-xs-12 row">
+
+            </div>
+        </div>
+        <div class=" col-xs-7 row well container-fluid main_section">
+            <!--Сюда вставляем содержимое страниц в соответствии с нажатыми кнопками-->
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="row container-fluid">
+            <div class="col-xs-6 col-md-8 col-md-offset-2 footer_commercial">
+                <p>Гугл реклама<span class="glyphicon glyphicon-pencil pencil" aria-hidden="true"></span></p>
+
+            </div>
+            <div class="col-xs-2 col-md-2 row">
+                <img src="/resources/frontend/images/Logovk.png" alt="vk">
+                <img src="/resources/frontend/images/Logofc.png" alt="fs">
+                <img src="/resources/frontend/images/Logoin.png" alt="instagram">
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+
+</body>
+</html>

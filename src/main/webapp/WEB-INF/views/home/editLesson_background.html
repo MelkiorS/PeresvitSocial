@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>edit Lesson Page</title>
+    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
+    <link rel="stylesheet" href="/resources/frontend/workField.css">
+    <!-- <script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script> -->
+    <script src="/resources/ckeditor/ckeditor.js"></script>
+
+</head>
+<body>
+<div class="container-fluid wrapper editLesson">
+
+<!-- This is HEADER -->
+    <div class="row header">
+        <div class="col-xs-8 col-md-offset-4 h4 header_commercial">Гугл реклама</div>
+        <div class="col-xs-3 h2 header_logo"><img class='header_logo_img' src="/resources/frontend/workField/images/logo_Peresvit.png" alt="логотип"></div>
+        <div class="col-xs-8  row header_nav">
+            <div class="btn-group btn-group-justified" role="group" aria-label="1">
+                <div class="btn-group " role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        обговорення </button>
+                </div>
+                <div class="btn-group " role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        нашi події </button>
+                </div>
+                <div class="btn-group " role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        новини </button>
+                </div>
+                <div class="btn-group " role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        контент </button>
+                </div>
+                <div class="btn-group " role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        керування </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row main">
+
+    <!-- This is LEFT SIDE BAR- -->
+        <div class="col-xs-3 container main_sidebar">
+            <div class="btn-group-vertical btn-group-lg" role="group" aria-label="111">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        створити урок </button>
+                </div>
+                <div class="btn-group " role="group">
+                    <button class="btn btn-default btn-lg dropdown-toggle control_button" type="button"  aria-haspopup="true" aria-expanded="false">
+                        редагувати урок</button>
+                </div>
+
+            </div>
+
+        </div>
+
+<!-- This is MAIN SECTION -->
+        <div class=" col-xs-7 row well container-fluid main_section">
+            <form action="#" th:action="@{/admin/article/}" th:object="${article}" method="post">
+                <div class="row">
+                    <div class="col-xs-5 col-xs-offset-3">
+                        <label>Категорiя</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Роздiл</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Доступ для</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <input th:field="*{resourceGroupType.resourceGroupTypeId}" type="text" id="groupName" />
+                    </div>
+                    <div class="col-xs-4">
+                        <input th:field="*{chapterId}" type="text" id="chapterId" />
+                    </div>
+                    <div class="col-xs-4">
+                        <select th:field="*{role.roleId}">
+                            <option th:each="rang : ${rangList}"
+                                    th:value="${role.roleId}"
+                                    th:text="${role.roleName}"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="hidden" th:field="*{articleId}" />
+                <label for="title">Заголовок:</label>
+                <ul id="mylist" th:each=" resourceGroupType : ${resourceGroupTypeList}">
+                    <b><span th:text="${resourceGroupType.groupName}">Test</span></b>
+                    <a th:href="@{/admin/chapter/add/group/} + ${resourceGroupTyp.resourceGroupTypeId}">Добавить раздел</a>
+                    <span th:each="chapter :  ${resourceGroupType.chapterList}">
+            </br>
+                        <td th:text="${chapter.chapterName}"></td>
+            <a th:href="${'javascript:myFunction(' + chapter.chapterId + ',' + resourceGroupType.resourceGroupTypeId + ')'}") >Выбрать</a>
+            <a th:href="@{/admin/chapter/edit/} + ${chapter.chapterId}">Изменить</a>
+            <a th:href="@{/admin/chapter/delete/} + ${chapter.chapterId}">Удалить</a>
+            </span>
+                </ul>
+                <script>
+                    var data = CKEDITOR.instances.editor1.getData();
+                </script>
+                <div class="row row_textarea">
+                <textarea th:field="*{context}" name="editor1" id="editor1" rows="10" cols="80">
+                Вводите урок сюда.
+            </textarea>
+                <script>
+                    CKEDITOR.replace('editor1' ,{
+                        language: 'ru',
+                        uiColor: '#9AB8F3', // to pick color
+                        height: 600,
+                        width: 1000
+                    });
+                </script>
+                <br/>
+                <input type="submit" value="Добавить статью"/>
+                </div>
+
+        </form>
+    </div>
+</div> 
+
+
+</body>
+</html>

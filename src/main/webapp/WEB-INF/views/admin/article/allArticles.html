@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Article List')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/article/add','', 'Статті')"></div>
+<style>
+    table{
+        width: 80%;
+        margin: 5px;
+    }
+    tbody tr{
+        padding: 5px 5px;
+        height: 30px;
+    }
+    td,th{
+        text-align: center;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main">
+
+        <div class="articleList" th:unless="${#lists.isEmpty(articleList)}">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Дії</th>
+                    <th>Назва</th>
+                    <th>Роль</th>
+                    <th>Тип</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="article : ${articleList}">
+                    <td>
+                        <a class="glyphicon glyphicon-pencil btn btn-link btn-xs"  th:href="@{/admin/article/edit/} + ${article.articleId}"></a>
+                        <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/article/delete/} + ${article.articleId}"></a>
+                    </td>
+                    <td th:text="${article.articleName}"></td>
+                    <td th:text="${article.role.roleName}"></td>
+                    <td th:text="${article.resourceGroupType.caption}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            function deleteElem(e){
+                return confirm('Видалити цю статтю?')? location.href = e.getAttribute('href'):false;
+            }
+        </script>
+
+    </div>
+
+</div>
+</html>
+

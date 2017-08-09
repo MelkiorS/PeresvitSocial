@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+</head>
+<body>
+<a th:href="@{/admin/article/management}" >Article Management</a>
+<br/>
+<div class="resourceGroup" >
+
+    <h2 >List of article</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Role</th>
+            <th>Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${article.articleName}"></td>
+            <td th:text="${article.role.roleName}"></td>
+            <td th:text="${article.resourceGroupType.groupName}"></td>
+            <td><a th:href="@{/admin/article/edit/} + ${article.articleId}">Edit</a></td>
+            <td><a th:href="@{/admin/article/delete/} + ${article.articleId}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

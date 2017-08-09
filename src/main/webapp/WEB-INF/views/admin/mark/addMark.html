@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Add mark')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/mark/','Відзнака')"></div>
+<style>
+    .addMark form{
+        margin: 10px;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main" class="addMark">
+
+        <form action="#" th:action="@{/admin/mark/}" th:object="${mark}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="hidden" th:field="*{markId}" />
+                <label>Введiть назву вiдзнаки</label>
+                <input type="text" class="form-control" th:field="*{markName}" placeholder="Введіть відзнаку" />
+            </div>
+            <div class="form-group">
+                <label for="file">Зображення</label>
+                <input type="file" name="file" id="file" placeholder="Виберiть файл" value="Виберiть файл"/>
+                <br/>
+                <input class="btn btn-primary" type="submit" value="Зберегти"/>
+            </div>
+        </form>
+
+    </div>
+</div>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Resource groups')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/resourceGroup/add','')"></div>
+
+
+
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="resourceGroupList" th:unless="${#lists.isEmpty(resourceGroupList)}">
+
+      <h2 >List of ResourceGroups</h2>
+
+      <table class=".table">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>ResourceGroupName</th>
+          <th>Role</th>
+          <th>TypeName</th>
+          <th>TypeId</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <th>Resources</th>
+          <th>NewResource</th>
+          <th>NewVideoResource</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resourceGroup : ${resourceGroupList}">
+          <td th:text="${resourceGroup.resourceGroupId}"></td>
+          <td th:text="${resourceGroup.resourceGroupName}"></td>
+          <td th:text="${resourceGroup.role.roleName}"></td>
+          <td th:text="${resourceGroup.resourceGroupType.groupName}"></td>
+          <td th:text="${resourceGroup.typeId}"></td>
+          <td><a th:href="@{/admin/resourceGroup/edit/} + ${resourceGroup.resourceGroupId}">Edit</a></td>
+          <td><a th:href="@{/admin/resourceGroup/delete/} + ${resourceGroup.resourceGroupId}">Delete</a></td>
+          <td><a th:href="@{/admin/resource/group/} + ${resourceGroup.resourceGroupId}">Resources</a></td>
+          <td><a th:href="@{/admin/resource/add/group/} + ${resourceGroup.resourceGroupId}">Add resource</a></td>
+          <td><a th:href="@{/admin/resource/addVideo/group/} + ${resourceGroup.resourceGroupId}">Add videoResource</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('City')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/city/', 'Місто')"></div>
+<style>
+    .addCity form{
+        margin: 10px;
+    }
+</style>
+
+
+<div th:remove="all">
+    <div th:fragment="main" class="addCity">
+
+        <form action="#" th:action="@{/admin/city/}" th:object="${city}" method="post">
+
+            <input type="hidden" th:field="*{cityId}" />
+            <div class="form-group">
+                <label>Введіть назву міста</label>
+            <input type="text" class="form-control"  th:field="*{cityName}" placeholder="місто" /><br/>
+
+            <input type="submit" class="btn btn-primary" value="Зберегти"/>
+            </div>
+        </form>
+
+    </div>
+</div>
+</html>

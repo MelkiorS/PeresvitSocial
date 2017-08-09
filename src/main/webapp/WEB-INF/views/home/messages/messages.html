@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/fragments/head :: head(${chat.chatTitle})"></head>
+<head>
+    <!--СЮДА МОЖНО ДОБАВИТЬ ВСЁ, ЧЕГО НЕТУ В head.HTML-->
+</head>
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, '', false, '')"></div>
+
+<div th:remove="all">
+    <main class="my-way-main"  th:fragment="main">
+        <div class="messageList1">
+            <div class=" messageList-header">
+                <p class=" messageList-header-title" th:text="${chat.getChatTitle()}">Название беседы</p>
+                <!--<select class="col-xs-4 messageList-header-select" name="Settings" >-->
+                <!--<option selected value="settings">Налаштування</option>-->
+                <!--<option th:action="@{/home/messages/} + ${chat.chatId} + '/addMembers'" th:method="get" value="add buddy">Додати співрозмовників</option>-->
+                <!--&lt;!&ndash;<option th:href="@{}" value="change title">Змінити назву бесіди</option>&ndash;&gt;-->
+                <!--<option th:action="@{/home/messages/} + ${chat.chatId} + '/leaveChat'" th:method="post" value="leave chat">Покинути бесіду</option>-->
+                <!--</select>-->
+                <!-- Если это диалог, то существует переменная dialog и настройка чата не отображается -->
+
+                <nav th:if="${dialog == null}" class="messageList-options">
+                        <ul class="dropdown">
+                            <li class="messageList-options-items dropdown-top">
+                                <a class="dropdown-top" th:href="@{/home/messages/} + ${chat.chatId} + '/edit'">Налаштування<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+                                <a class="dropdown-top gears" th:href="@{/home/messages/} + ${chat.chatId} + '/edit'"></a>
+                            <ul class="dropdown-inside">
+                                <li class="dropdown-inside-item">
+                                    <a class="" th:href="@{/home/messages/} + ${chat.chatId} + '/addMembers'">Додати співрозмовників</a>
+                                </li >
+                                <li class="dropdown-inside-item">
+                                    <a th:href="@{/home/messages/} + ${chat.chatId} + '/leaveChat'">Залишити бесіду</a>
+                                </li>
+                                <li class="dropdown-inside-item" th:if="${ownerPermission == true}">
+                                    <a th:href="@{/home/messages/} + ${chat.chatId} + '/deleteChat'" >Видалити бесіду</a>
+                                </li>
+                            </ul>
+                            </li>
+                        </ul>
+                </nav>
+            </div>
+            <script>
+                window.onload=func;
+                function func() {
+                    const scroll = document.getElementById("scrolledElement");
+                    scroll.scrollTop = 9999;
+                }
+            </script>
+            <div class="messageList-content">
+                <div class="container-fluid markList messageList-content-msgField" th:unless="${#lists.isEmpty(messagesList)}" id="scrolledElement">
+                    <div th:each="message : ${messagesList}">
+                        <div th:if="${message.functional == true}" class="msgField-advert">
+                            <p th:text="${message.content}"></p>
+                        </div>
+                        <div th:if="${message.functional != true}" class="msgField-letter clearfix">
+                            <img th:src="@{'data:image;base64,' + ${message.sender.encodeFileToBase64Binary()}}"  alt="аватар">
+                            <p class=" msgField-letter-author" th:text="${message.sender.getFirstName()} + ' ' + ${message.sender.getLastName()}"></p>
+                            <!--<span class="msgField-letter-id" th:text="${message.messageId}"></span>-->
+                            <p class="msgField-letter-content" th:text="${message.content}"></p>
+                            <!--<span th:if="${#dates.createToday().getDay()} == ${message.createdAt.date}"></span>-->
+                            <p class="msgField-letter-time" th:text="
+                                ${#dates.format(#dates.createNow(), 'dd-MM-yyyy') == #dates.format(message.createdAt, 'dd-MM-yyyy')} ?
+                                ${#dates.format(message.createdAt, 'HH:mm')} :
+                                ${#dates.format(message.createdAt, 'dd-MM-yyyy HH:mm')}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messageList-content-newMsg clearfix">
+                    <form class="messageList-content-newMsg-form" action="#" th:action="@{/home/messages/} + ${chat.chatId}" method="post" th:object="${message}">
+                        <input type="hidden" th:field="*{messageId}">
+                        <div hidden><select th:field="*{chat.chatId}"><option hidden th:value="${chat.chatId}"></option></select></div>
+                        <textarea type="text" class=" messageList-content-newMsg-textarea" placeholder="Введіть повідомлення" th:field="*{content}" required></textarea>
+                        <button class=' btn btn-primary messageList-content-newMsg_submit' type="submit"><span>Надіслати</span></button>
+                        <!--messageList-content-newMsg-button-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-1.8.2.min.js"></script>
+<script src="/resources/frontend/js/sideBar.js"></script>
+<script src="/resources/frontend/js/peresvit.js"></script>
+</body>
+</html>

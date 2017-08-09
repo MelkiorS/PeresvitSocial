@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark</title>
+</head>
+<body>
+<a th:href="@{/admin/mark/management}">Mark Management</a>
+<br/>
+<div class="mark">
+    <h2>Mark</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Mark Name</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${mark.markId}"></td>
+            <td th:text="${mark.markName}"></td>
+            <td th:text="${mark.imageURL}"></td>
+            <td><a th:href="@{/admin/mark/edit/} + ${mark.markId}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

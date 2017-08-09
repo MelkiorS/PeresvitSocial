@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Achievement list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/achievement/add','', 'Досягнення')"></div>
+
+<div th:remove="all">
+    <div th:fragment="main">
+        <div class="achievementList" th:unless="${#lists.isEmpty(achievementList)}">
+
+            <table class="table" th:fragment="allAchievements">
+                <thead>
+                    <tr>
+                        <th>Дії</th>
+                        <th>Назва</th>
+                        <th>Опис</th>
+                        <!--<th>Ресурс</th>-->
+                        <th>Користувач</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="achievement : ${achievementList}">
+                        <td>
+                            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/achievement/edit/} + ${achievement.achievementId}"></a>
+                            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" th:href="@{/admin/achievement/delete/} + ${achievement.achievementId}"></a>
+                        </td>
+                        <td th:text="${achievement.achievementName}"></td>
+                        <td th:text="${achievement.description}"></td>
+                        <!--<td th:text="${achievement.imageURL}"></td>-->
+                        <td th:text="${achievement.user == null ? '' : achievement.user.firstName + ' ' + achievement.user.lastName}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</html>

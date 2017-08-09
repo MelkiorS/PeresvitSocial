@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resource List</title>
+</head>
+<body>
+<a th:href="@{/admin/resource/management}" >Resource Management</a>
+<br/>
+<div class="resource">
+    
+  <h2 >Resource</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>URL</th>
+        <th>Download</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${resource.title}"></td>
+        <td th:text="${resource.description}"></td>
+        <td th:text="${resource.url}"></td>
+
+		<td th:switch="${resource.url}">
+			<div th:case = "''"></div>
+			<div th:case = null></div>
+			<div th:case = "*"><a th:href="@{/admin/resource/download/} + ${resource.resourceId}">Download</a></div>
+		</td>
+
+        <td><a th:href="@{/admin/resource/edit/} + ${resource.resourceId}">Edit</a></td>   
+        <td><a th:href="@{/admin/resource/delete/} + ${resource.resourceId}">Delete</a></td>         
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

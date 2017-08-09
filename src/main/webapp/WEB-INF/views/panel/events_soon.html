@@ -1,0 +1,14 @@
+<div>
+    <table th:if="${events.size()>0}">
+        <tr>
+            <td> Ближайшие события </td>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td>
+                <a th:onclick="|assignToMe(${event.id})|" th:unless="${event.isAssigned(me)}"> Assign </a>
+                <a th:if="${event.isAssigned(me)}"> Assigned </a>
+                <span th:text="${event.toString()}"></span>
+            </td>
+        </tr>
+    </table>
+</div>

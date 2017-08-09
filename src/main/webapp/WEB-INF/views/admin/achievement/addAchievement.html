@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Achievement list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/achievement/', 'Досягнення')"></div>
+<div th:remove="all">
+ <div th:fragment="main" class="addCity">
+
+  <form action="#" th:action="@{/admin/achievement/add/}"  th:object="${achievement}" enctype="multipart/form-data" method="post">
+      <input type="hidden" th:field="*{achievementId}" />
+   <label for="title">Назва:</label>
+   <input class="form-control" type="text" th:field="*{achievementName}" />
+   <br/>
+    <label for="description">Опис:</label>
+   <input class="form-control" type="text" th:field="*{description}" />
+   <br/>
+    <label for="User">Користувач:</label>
+   <select class="form-control" th:field="*{user.userId}">
+    <option th:each="u : ${userList}" th:text="${u.firstName} + ' ' + ${u.lastName}" th:value="${{u.getUserId().toString()}}" th:checked="${u.getUserId() == user}"></option>
+   </select>
+   <br/>
+    <label for="file">Зображення:</label>
+   <input class="form-control" type="file" name="file" />
+   <br/>
+   <input class="btn btn-primary" type="submit" value="Зберегти">
+  </form>
+ </div>
+</div>
+</html>

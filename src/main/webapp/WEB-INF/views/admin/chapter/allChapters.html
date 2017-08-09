@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Chapters list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/chapter/addChapter','', 'Розділи')"></div>
+<style>
+  table{
+    width: 60%;
+    margin: 5px;
+  }
+  tbody tr{
+    padding: 5px 5px;
+    height: 30px;
+  }
+  td,th{
+    text-align: center;
+  }
+</style>
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="chapterList" th:unless="${#lists.isEmpty(chapterList)}">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <!--<th>Id</th>-->
+          <th>Дії</th>
+          <th>Вид занять</th>
+          <th>Назва</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="chapter : ${chapterList}">
+          <td>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs"  th:href="@{/admin/chapter/edit/} + ${chapter.chapterId}"></a>
+            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" th:href="@{/admin/chapter/delete/} + ${chapter.chapterId}"></a>
+          </td>
+          <td th:text="${chapter.getResourceGroupType().getCaption()}"></td>
+          <td th:text="${chapter.chapterName}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</html>

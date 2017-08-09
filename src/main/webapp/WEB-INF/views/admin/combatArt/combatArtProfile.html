@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>CombatArt</title>
+</head>
+<body>
+<a th:href="@{/admin/combatArt/management}" >CombatArt Management</a>
+<br/>
+<div class="combatArt">
+    <h2>CombatArt</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>CombatArt Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${combatArt.combatArtId}"></td>
+            <td th:text="${combatArt.combatArtName}"></td>
+            <td><a th:href="@{/admin/combatArt/edit/} + ${combatArt.combatArtId}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

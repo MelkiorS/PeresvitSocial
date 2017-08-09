@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Chapter list')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/chapter/', 'Розділ')"></div>
+<div th:remove="all">
+    <div th:fragment="main" class="addChapter">
+
+        <form action="#" th:action="@{/admin/chapter/}" th:object="${chapter}" method="post">
+            <input type="hidden" th:field="*{chapterId}" />
+            <label for="chapterName">Chapter name:</label>
+            <input class="form-control" type="text" th:field="*{chapterName}" />
+            <br/>
+            <label for="resourceGroupType">Type:</label>
+            <select class="form-control" th:field="*{resourceGroupType.resourceGroupTypeId}">
+                <option th:each="resourceGroupType : ${resourceGroupTypeList}"
+                        th:value="${resourceGroupType.resourceGroupTypeId}"
+                        th:text="${resourceGroupType.getCaption()}"></option>
+            </select>
+            <br/>
+            <input class="btn btn-primary" type="submit" value="Зберегти">
+        </form>
+    </div>
+</div>
+</html>

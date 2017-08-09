@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Role users')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '', '/admin/resource/add','')"></div>
+
+
+
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="resourceList" th:unless="${#lists.isEmpty(resourceList)}">
+
+      <h2 >List of Resource</h2>
+
+      <table class=".table" th:fragment="allResources">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>URL</th>
+          <th>resourceGroupId</th>
+          <th>resourceTypeId</th>
+          <th>userId</th>
+          <th>Download</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resource : ${resourceList}">
+          <td th:text="${resource.title}"></td>
+          <td th:text="${resource.description}"></td>
+          <td th:text="${resource.url}"></td>
+          <td th:text="${resource.resourceGroup == null ? '' : resource.resourceGroup.resourceGroupId}"></td>
+          <td th:text="${resource.resourceType == null ? '' : resource.resourceType.resourceTypeId}"></td>
+          <td th:text="${resource.user == null ? '' : resource.user.userId}"></td>
+
+          <td th:switch="${resource.url}">
+            <div th:case = "''"></div>
+            <div th:case = null></div>
+            <div th:case = "*"><a th:href="@{/admin/resource/download/} + ${resource.resourceId}">Download</a></div>
+          </td>
+
+          <td><a th:href="@{/admin/resource/edit/} + ${resource.resourceId}">Edit</a></td>
+          <td><a th:href="@{/admin/resource/delete/} + ${resource.resourceId}">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</html>
+
+
+

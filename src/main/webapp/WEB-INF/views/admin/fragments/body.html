@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="body(pattern, refadd, refback, title)">
+<div class="container-fluid wrapper">
+    <div th:replace="admin/fragments/headBar :: headBar"></div>
+
+
+    <div class="row main">
+        <div class="col-xs-3 container main_sidebar">
+            <div th:replace="admin/fragments/sideBar :: sideBar"></div>
+        </div>
+
+        <div class=" col-xs-9 row well container-fluid main_section">
+            <!--Сюда вставляем содержимое страниц в соответствии с нажатыми кнопками-->
+            <a type="button" class="btn btn-primary glyphicon glyphicon-plus" th:href="@{${refadd}}" th:if="${refadd!=''}"></a>
+            <a type="button" class="btn btn-primary glyphicon glyphicon-arrow-left" th:href="@{${refback}}" th:if="${refback!=''}"></a>
+            <h2 th:text="${title}" style="display:inline; vertical-align: middle;padding-left: 10px;"></h2>
+            <div style="padding-top: 20px">
+                <div th:replace="${pattern}"></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</body>

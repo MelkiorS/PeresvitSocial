@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Add ResourceGroup')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '','/admin/resourceGroup/')"></div>
+
+
+
+<div th:remove="all">
+    <div th:fragment="main">
+
+        <form action="#" th:action="@{/admin/resourceGroup/}" th:object="${resourceGroup}" method="post">
+            <input type="hidden" th:field="*{resourceGroupId}" />
+            <label for="groupName">Group name:</label>
+            <input type="text" th:field="*{resourceGroupName}" />
+            <br/>
+            <label for="resourceGroupType">Type:</label>
+            <select th:field="*{resourceGroupType.resourceGroupTypeId}">
+                <option th:each="resourceGroupType : ${resourceGroupTypeList}"
+                        th:value="${resourceGroupType.resourceGroupTypeId}"
+                        th:text="${resourceGroupType.groupName}"></option>
+            </select>
+            <br/>
+            <label for="rangType">Rang:</label>
+            <select th:field="*{role.roleId}">
+                <option th:each="rang : ${rangList}"
+                        th:value="${rang.roleId}"
+                        th:text="${rang.roleName}"></option>
+            </select>
+            <br/>
+            <input type="submit" />
+        </form>
+
+    </div>
+</div>
+</html>
+
+

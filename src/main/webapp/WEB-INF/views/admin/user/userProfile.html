@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User</title>
+</head>
+<body>
+<a th:href="@{/admin/user/management}" >User Management</a>
+<br/>
+<div class="user">
+    <h2 >User</h2>
+	      
+    <table>
+        <thead>
+              <tr>
+                  <th>userId</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Middle Name</th>
+                  <th>Email</th>
+                  <th>Avatar URL</th>
+                  <th>gender</th>
+                  <th>CombatArt</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${user.userId}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.middleName}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.avatarURL}"></td>
+                <td th:text="${user.sex}"></td>
+                <td th:text="${user.combatArt == null ? '' : user.combatArt.combatArtId}"></td>
+                <td><a th:href="@{/admin/user/edit/} + ${user.userId}">Edit</a></td>
+                <td><a th:href="@{/admin/user/delete/} + ${user.userId}">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

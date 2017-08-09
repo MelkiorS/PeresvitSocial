@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('ResourceGroups List')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main}, '/admin/resourceGroupType/add','', 'Види занять')"></div>
+
+
+
+<div th:remove="all">
+  <div th:fragment="main">
+
+    <div class="resourceGroupTypeList" th:unless="${#lists.isEmpty(resourceGroupTypeList)}">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Дії</th>
+          <th>Назва</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resourceGroupType : ${resourceGroupTypeList}">
+          <td>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/resourceGroupType/edit/} + ${resourceGroupType.resourceGroupTypeId}"></a>
+            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" th:href="@{/admin/resourceGroupType/delete/} + ${resourceGroupType.resourceGroupTypeId}"></a>
+          </td>
+          <td th:text="${resourceGroupType.caption}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</html>
+

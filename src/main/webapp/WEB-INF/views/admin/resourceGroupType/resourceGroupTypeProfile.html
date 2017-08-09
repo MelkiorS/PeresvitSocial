@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ResourceGroup</title>
+</head>
+<body>
+<a th:href="@{/admin/resourceGroupType/management}" >ResourceGroupsType Management</a>
+<br/>
+<div class="resourceGroupType"> 
+  <h2 >List of ResourcesGroupTypes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Group Name</th>
+        <th>TypeId</th>
+        <th>Resources</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${resourceGroupType.resourceGroupTypeId}"></td>
+        <td th:text="${resourceGroupType.groupName}"></td>
+        <td >Link to event,competition ...</td>    
+        <td >Here goes URL to connect with Resources</td>
+        <td><a th:href="@{/admin/resourceGroupType/edit/} + ${resourceGroupType.resourceGroupTypeId}">Edit</a></td>   
+        <td><a th:href="@{/admin/resourceGroupType/delete/} + ${resourceGroupType.resourceGroupTypeId}">Delete</a></td>         
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

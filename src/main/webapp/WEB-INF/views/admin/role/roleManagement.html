@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/fragments/head :: header('Role management')"></div>
+<div th:replace="admin/fragments/body :: body(~{::main})"></div>
+
+
+
+<div th:remove="all">
+<div th:fragment="main">
+<a th:href="@{/admin}" >Admin Management</a>
+<br/>
+<a th:href="@{/admin/role/add}" > Add Role</a>
+<br/>
+<a th:href="@{/admin/role/}" > Show All Roles</a>
+</div>
+</div>
+
+</html>

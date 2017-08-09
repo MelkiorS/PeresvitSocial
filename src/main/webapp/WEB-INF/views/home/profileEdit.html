@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ukr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--СЮДА МОЖНО ДОБАВИТЬ ВСЁ, ЧЕГО НЕТУ В head.HTML-->
+
+</head>
+<head th:replace="home/fragments/head :: head('Редагування профiлю')"></head>
+
+<body>
+<div th:replace="home/fragments/body :: body(~{::main}, '', false, '')"></div>
+
+<div th:remove="all">
+    <main class="my-way-main"  th:fragment="main">
+        <section class="profileEdit">
+            <h2 class="profileEdit-name">Редагування профілю</h2>
+            <form th:action="@{/home/profileEdit}" th:object="${user}" enctype="multipart/form-data" method="post">
+
+                <input type="hidden" th:field="*{userId}" >
+                <input type="hidden" th:field="*{enabled}" >
+                <input type="hidden" th:field="*{role.roleId}" >
+                <div th:class="${'form-group' + ( #fields.hasErrors('lastName') ? ' has-error' : '') }" class="form-group">
+                    <label for="lastName">Прізвище</label>
+                    <input class="form-control" pattern="^[0-9ЄєІіЇїА-Яа-яЁёA-z\s]+$" type="text" th:field="*{lastName}" id="lastName" maxlength="25" placeholder="Прізвище" data-toggle="popover" th:data-content="'Помилка по прочині ' + ${#fields.errors('lastName')} " th:data-trigger="${ #fields.hasErrors('lastName') ? 'hover' : 'manual'}" data-placement="top">
+                </div>
+
+                <div th:class="${'form-group' + ( #fields.hasErrors('firstName') ? ' has-error' : '') }" class="form-group">
+                    <label for="firstName">Імя</label>
+                    <input class="form-control" pattern="^[0-9ЄєІіЇїА-Яа-яЁёA-z\s]+$" type="text" th:field="*{firstName}" id="firstName" maxlength="25" placeholder="Імя" data-toggle="popover" th:data-content="'Помилка по прочині ' + ${#fields.errors('firstName')} " th:data-trigger="${ #fields.hasErrors('firstName') ? 'hover' : 'manual'}" data-placement="top">
+                </div>
+
+                <div th:class="${'form-group' + ( #fields.hasErrors('middleName') ? ' has-error' : '') }" class="form-group">
+                    <label for="middleName">По батькові</label>
+                    <input class="form-control" pattern="^[0-9ЄєІіЇїА-Яа-яЁёA-z\s]+$" type="text" th:field="*{middleName}" id='middleName' maxlength="25" placeholder="По батькові" data-toggle="popover" th:data-content="'Помилка по прочині ' + ${#fields.errors('middleName')} " th:data-trigger="${ #fields.hasErrors('middleName') ? 'hover' : 'manual'}" data-placement="top">
+                </div>
+
+                <div class="form-group">
+                    <h3 class="form-group_gender-title">Стать: </h3>
+                    <div class="form-group_gender-item">
+                        <input type="radio" th:name="male" th:value="M"  th:field="*{sex}" checked >
+                        <span>Чоловіча</span>
+                    </div>
+                    <div class="form-group_gender-item">
+                        <input type="radio" th:name="female" th:value="F"  th:field="*{sex}" >
+                        <span>Жіноча</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cityList">Місто: </label>
+                    <select th:field="*{city.cityId}" id="cityList" class="form-control">
+                        <option disabled value="" th:text="'Ваше місто'"></option>
+                        <option th:each="city : ${cityList}" th:value="${city.cityId}"
+                                th:text="${city.cityName}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="clubList">Клуб: </label>
+                    <select id="clubList" th:field="*{club.clubId}" class="form-control">
+                        <option disabled value="" th:text="'Ваш клуб'"></option>
+                        <option th:each="club : ${clubList}" th:value="${club.clubId}"
+                                th:text="${club.clubName}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="combatArtList">Направлення: </label>
+                    <select th:field="*{combatArt.combatArtId}" id="combatArtList" class="form-control">
+                        <option disabled value="" th:text="'Бойове мистецтво'"></option>
+                        <option th:each="combatArt : ${combatArtList}" th:value="${combatArt.combatArtId}"
+                                th:text="${combatArt.combatArtName}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Ваш Email: </label>
+                    <input class="form-control" type="text" th:field="*{email}" maxlength="50" id='email' placeholder="e-mail" >
+                </div>
+                <div class="form-group">
+                    <label for="fb">Ваш профiль у фейсбуцi: </label>
+                    <input class="form-control" type="text" th:field="*{profileFB}" maxlength="50" id='fb' placeholder="https://www.facebook.com/..." >
+                </div>
+                <div class="form-group">
+                    <label for="vk">Ваш профiль у Вконтакте: </label>
+                    <input class="form-control" type="text" th:field="*{profileVK}" maxlength="50" id='vk' placeholder="https://vk.com/..." >
+                </div>
+                <div class="form-group">
+                    <label for="insta">Ваш профiль в Iнстаграмi: </label>
+                    <input class="form-control" type="text" th:field="*{profileInstagram}" maxlength="50" id='insta' placeholder="https://www.instagram.com/..." >
+                </div>
+                <div class="form-group">
+                    <label for="about">Про мене:</label>
+                    <textarea th:field="*{aboutMe}" id="about" maxlength="250" class="form-control textarea" rows="4" placeholder="Введiть iнформацiю про себе" style="height:64px" ></textarea>
+                </div>
+                <div class=" form-group avatar ">
+                    <label for="avatar">Оновити аватар:</label>
+                    <input id="avatar" type="file" name="file" accept="image/*">
+                </div>
+                <fieldset class="passwords">
+                    <legend class="passwords-title">Оновити пароль</legend>
+                    <div class="form-group">
+                        <label for="oldPasswd">Введіть старий пароль</label>
+                        <input class="form-control" type="password" id="oldPasswd" maxlength="25" placeholder="Старий пароль">
+                        <span class="checkOldPass">Щоб змінити, підтвердіть старий пароль</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPasswd">Введіть новий пароль</label>
+                        <input class="form-control" disabled type="password" id="newPasswd" maxlength="25" placeholder="Новий пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPasswd">Підтвердіть пароль</label>
+                        <!--В этот инпут нужно вставить тег для изменения пароля-->
+                        <input class="form-control" disabled type="password" id="confirmPasswd" maxlength="25" placeholder="Підтвердіть пароль">
+                        <span class="checkNewPass"></span>
+                    </div>
+                </fieldset>
+
+                <div class="buttons form-group">
+                    <input class="btn submit" type="submit" value="Зберегти" >
+                    <input class="btn cancel" type="reset" value="Скасувати"  >
+                </div>
+                <!--Нельзя комментировать - выдает ошибку-->
+                <!--С этгого поля-->
+                <input type="hidden" th:field="*{password}" placeholder="password" >
+                <input type="hidden" th:field="*{avatarURL}">
+
+                <select th:field="*{mentor.userId}" style="display:none;">
+                    <option value="" th:text="''"></option>
+                    <option th:each="mentor : ${mentorList}" th:value="${mentor.userId}"
+                            th:text="${mentor.firstName} + ' ' + ${mentor.lastName}"></option>
+                </select>
+
+                <div th:field="*{marks}" style="display:none;">
+                    <p th:each="mark : ${markList}" style="margin-bottom:5px">
+                        <input th:name="marks" type="checkbox" style="margin-right: 7px; " th:value="${mark.markId}" th:text="${mark.markName}" th:checked="${user!=null && user.marks != null && user.marks.contains(mark)}"/>
+                    </p>
+                </div>
+
+                <!--И до вот этого, но их нужно убрать, ведь юзер может увидеть и изменить-->
+                <!-- эти данные не тем путем который разрешен и реализован-->
+            </form>
+        </section>
+    </main>
+</div>
+<script class="jquery" type="text/javascript" src="/resources/frontend/js/jquery-1.8.2.min.js"></script>
+<script src="/resources/frontend/js/jquery.bxslider.min.js"></script>
+<script src="/resources/frontend/js/sideBar.js"></script>
+<script src="/resources/frontend/js/peresvit.js"></script>
+<script src="/resources/frontend/js/profileEdit.js"></script>
+
+</body>
+</html>
