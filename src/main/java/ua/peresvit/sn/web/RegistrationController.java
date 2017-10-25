@@ -1,7 +1,6 @@
 package ua.peresvit.sn.web;
 
-import com.vk.api.sdk.exceptions.ApiException;
-import com.vk.api.sdk.exceptions.ClientException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
@@ -12,9 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.social.connect.*;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.google.api.Google;
-import org.springframework.social.google.api.plus.Person;
-import org.springframework.social.vkontakte.api.VKontakte;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,7 +58,7 @@ public class RegistrationController {
 
     // Show registration form
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String showRegistrationForm(WebRequest request, Model model) throws ClientException, ApiException {
+    public String showRegistrationForm(WebRequest request, Model model)  {
         Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
         UserDto userDto;
         userDto = createUserDto(connection);
@@ -69,7 +66,7 @@ public class RegistrationController {
         return "home";
     }
 
-    private UserDto createUserDto(Connection<?> connection) throws ClientException, ApiException {
+    private UserDto createUserDto(Connection<?> connection) {
         UserDto userDto = new UserDto();
 
         if (connection != null) {
@@ -77,12 +74,12 @@ public class RegistrationController {
                 case "facebook" :
                     userDto = createSocialUserDtoForFB((Connection<Facebook>) connection);
                     break;
-                case "google" :
+              /*  case "google" :
                     userDto = createSocialUserDtoForGoogle((Connection<Google>) connection);
                     break;
                 case "vkontakte" :
                     userDto = createSocialUserDtoForVK((Connection<VKontakte>) connection);
-                    break;
+                    break;*/
             }
         }
         return userDto;
@@ -226,6 +223,7 @@ public class RegistrationController {
         userDto.setSocial(SocialMediaService.FACEBOOK);
         return userDto;
     }
+/*
 
 //Creation DTO from connection with VK
     private UserDto createSocialUserDtoForVK(Connection<VKontakte> connection) throws ClientException, ApiException {
@@ -254,6 +252,7 @@ public class RegistrationController {
         userDto.setSocial(SocialMediaService.GOOGLE);
         return userDto;
     }
+*/
 
     private void authenticateUser(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
