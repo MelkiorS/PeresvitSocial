@@ -1,7 +1,6 @@
 package ua.peresvit.sn.service.impl;
 
 
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +16,8 @@ import ua.peresvit.sn.service.EventService;
 import ua.peresvit.sn.service.UserService;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -152,7 +153,11 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<Event> getPeriod(Date start, Date finish) {
-        return dao.getPeriod(start, DateUtils.addDays(finish, 1) );
+        LocalDateTime localFinish = finish.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        localFinish.plusDays(1);
+        Date dateFinish = Date.from(localFinish.atZone(ZoneId.systemDefault()).toInstant());
+        return dao.getPeriod(start, dateFinish);
+       // return dao.getPeriod(start, DateUtils.addDays(finish, 1) );
     }
 
     @Override
