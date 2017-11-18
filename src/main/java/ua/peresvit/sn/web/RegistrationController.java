@@ -1,6 +1,5 @@
 package ua.peresvit.sn.web;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
@@ -11,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.social.connect.*;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.facebook.api.Facebook;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -58,7 +56,7 @@ public class RegistrationController {
 
     // Show registration form
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String showRegistrationForm(WebRequest request, Model model)  {
+    public String showRegistrationForm(WebRequest request, Model model){
         Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
         UserDto userDto;
         userDto = createUserDto(connection);
@@ -74,12 +72,13 @@ public class RegistrationController {
                 case "facebook" :
                     userDto = createSocialUserDtoForFB((Connection<Facebook>) connection);
                     break;
-              /*  case "google" :
+/*                case "google" :
                     userDto = createSocialUserDtoForGoogle((Connection<Google>) connection);
                     break;
                 case "vkontakte" :
                     userDto = createSocialUserDtoForVK((Connection<VKontakte>) connection);
-                    break;*/
+                    break;
+*/
             }
         }
         return userDto;
