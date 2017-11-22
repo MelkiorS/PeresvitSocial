@@ -2,18 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Peresvit</title>
-    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
-    <link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css">
+    <link rel="stylesheet" href="/resources/static/frontend/libraries/bootstrap.css"/>
+    <link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css"/>
     <script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>
-    <script src="/resources/frontend/libraries/constants.js"></script>
+    <script src="frontend/static/libraries/constants.js"></script>
     <script src="/resources/frontend/libraries/bootstrap.min.js"></script>
-    <script  async src="/resources/frontend/registration/js/validator.js"></script>
-    <script  async src="/resources/frontend/registration/js/registration_script.js"></script>
+  <!--  <script  async src="/resources/frontend/registration/js/validator.js"></script>
+    <script  async src="/resources/frontend/registration/js/registration_script.js"></script>-->
 </head>
 <body>
-<div class=" info-message" th:if="${message} != null" th:text="${message}"></div>
+<!--<div class=" info-message" th:if="${message} != null" th:text="${message}"></div>-->
 <div class="container-fluid wrapper">
 <div class="row log_in">
     <div class="col-xs-offset-5 col-xs-6 icemegamenu">
@@ -131,54 +131,54 @@
                 </div>
                 <div class="modal_signUp_section row">
                     <!--*******************Сюда записывать form action при регистрации****************-->
-                    <form class='col-xs-offset-1 col-xs-10 modal_signUp_section_form' data-toggle="validator" role="form" th:action="@{/registration}" th:object="${user}" method="post">
+                    <form class='col-xs-offset-1 col-xs-10 modal_signUp_section_form' data-toggle="validator" role="form" th:action="@{/registration}"method="post">
                         <div class="form-group row modal_signUp_section_form_name has-feedback">
                             <div th:if="${#httpServletRequest.requestURI.contains('registration') == true}">
-                                <input type="hidden"  th:field="*{social}">
-                                <input type="hidden"  th:field="*{profileFB}">
-                                <input type="hidden"  th:field="*{profileGoogle}">
-                                <input type="hidden"  th:field="*{profileVK}">
+                                <!--<input type="hidden"  th:field="*{social}">-->
+                                <!--<input type="hidden"  th:field="*{profileFB}">-->
+                          <!--      <input type="hidden"  th:field="*{profileGoogle}">
+                                <input type="hidden"  th:field="*{profileVK}">-->
                                 <script>
                                     $("#myModal_sign_up").modal().show()
                                 </script>
                             </div>
-                            <label for="inputName" class="control-label ">Ім'я</label>
+                            <!--<label for="inputName" class="control-label ">Ім'я</label>-->
                             <div class="input-group">
                                 <span class="input-group-addon"><div class="glyphicon glyphicon-user"></div></span>
                                 <!--****************Сюда юзер вставляет свое имя ******************-->
-                                <input type="text" th:field="*{firstName}" class="form-control col-xs-12" id="inputName" placeholder="Введіть Ваше ім'я" required>
+                                <!--<input type="text" th:field="*{firstName}" class="form-control col-xs-12" id="inputName" placeholder="Введіть Ваше ім'я" required>-->
                             </div>
                             <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
                             <div class="help-block"><p>Це поле є обов`язковим для заповнення</p></div>
                         </div>
                         <div class="form-group row modal_signUp_section_form_surname has-feedback">
-                            <label for="inputSurname" class="control-label ">Прізвище</label>
+                            <!--<label for="inputSurname" class="control-label ">Прізвище</label>-->
                             <div class="input-group">
                                 <!--****************Сюда юзер вставляет свою фамилию ******************-->
                                 <span class="input-group-addon"><div class="glyphicon glyphicon-user"></div></span>
-                                <input type="text" th:field="*{lastName}" class="form-control col-xs-12" id="inputSurname" placeholder="Введіть Вашe прізвище" required>
+                                <!--<input type="text" th:field="*{lastName}" class="form-control col-xs-12" id="inputSurname" placeholder="Введіть Вашe прізвище" required>-->
                             </div>
                             <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
                             <div class="help-block"><p>Це поле є обов`язковим для заповнення</p></div>
                         </div>
                         <div class="form-group row has-feedback modal_signUp_section_form_email ">
-                            <label for="inputEmail_signUp" class="control-label">Введіть Ваш email</label>
+                            <!--<label for="inputEmail_signUp" class="control-label">Введіть Ваш email</label>-->
 
                             <div class="input-group col-xs-12">
                                 <span class="input-group-addon">@</span>
                                 <!--****************** Сюда юзер вставляет свой email, на который потом будет отправлено письмо с подтверждением о регистрации***********************-->
-                                <input type="email" th:field="*{email}" class="form-control "  id="inputEmail_signUp" placeholder="email" data-error="Ваш email невірний" required>
+                                <!--<input type="email" th:field="*{email}" class="form-control "  id="inputEmail_signUp" placeholder="email" data-error="Ваш email невірний" required>-->
                             </div>
                             <i class="glyphicon form-control-feedback" aria-hidden="true"></i>
                             <div class="help-block with-errors"></div>
                         </div>
 
                         <div class="form-group has-feedback col-xs-12 row modal_logIn_section_form_pass">
-                            <label for="inputPassword_signUp" class="control-label">Введіть Ваш пароль</label>
+                            <!--<label for="inputPassword_signUp" class="control-label">Введіть Ваш пароль</label>-->
                             <div class="input-group col-xs-12 modal_logIn_section_form_pass_input">
                                 <span class="input-group-addon"><div class="glyphicon glyphicon-lock"></div></span>
                                 <!--***************Сюда юзер вставляет свой пароль***************-->
-                                <input type="password" th:field="*{password}" data-minlength="6" class="form-control" id="inputPassword_signUp" placeholder="Password" required>
+                                <!--<input type="password" th:field="*{password}" data-minlength="6" class="form-control" id="inputPassword_signUp" placeholder="Password" required>-->
                             </div>
                             <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
                             <div class="help-block"><p>Довжина має бути не менше 6 символів</p></div>

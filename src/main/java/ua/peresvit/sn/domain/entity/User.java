@@ -89,11 +89,10 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "" + firstName.trim() + " " + lastName.trim();
+		return "" + firstName + " " + lastName;
 	}
 
 	public User() {
-		super();
 		this.setEnabled(false);
 	}
 
