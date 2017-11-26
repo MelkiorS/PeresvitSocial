@@ -20,8 +20,8 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     @Autowired
     private UserService service;
 
-   /* @Autowired
-    private MessageSource messages;*/
+    @Autowired
+    private MessageSource messages;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -57,13 +57,11 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     // constructEmailMessage
     private final SimpleMailMessage constructEmailMessage(final OnRegistrationCompleteEvent event, final User user, String token) {
         final String recipientAddress = user.getEmail();
-//        String subject = messages.getMessage("message.regSuccHeader", null, event.getLocale());
-        String subject = "message.regSuccHeader";
+        String subject = messages.getMessage("message.regSuccHeader", null, event.getLocale());
         String message;
         if (token != null){
             if(event.isUpdatePassword()) {
-//                subject = messages.getMessage("message.changePassword", null, event.getLocale());
-                subject ="message.changePassword";
+                subject = messages.getMessage("message.changePassword", null, event.getLocale());
                 message = createMessageWithTokenUpdPassword(event, recipientAddress, event.getLocale(), token);
             }
             else
@@ -80,26 +78,23 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     }
 
     private String createMessage(String recipientAddress, final Locale locale){
-//        final String message = messages.getMessage("message.regSucc", null, locale)+" "+recipientAddress;
-        final String message = "message.regSucc";
+        final String message = messages.getMessage("message.regSucc", null, locale)+" "+recipientAddress;
         return message;
     }
 
     private String createMessageWithToken(final OnRegistrationCompleteEvent event, String recipientAddress, final Locale locale, String token){
-      /*  final String message = messages.getMessage("message.regSucc", null, locale)+" "
+        final String message = messages.getMessage("message.regSucc", null, locale)+" "
                 +recipientAddress+"\n"
                 +messages.getMessage("token.message", null, locale)+" " +event.getAppUrl() + "/registration/registrationConfirm?token="
-                +token;*/
-        final String message ="token.message";
+                +token;
         return message;
     }
 
     private String createMessageWithTokenUpdPassword(final OnRegistrationCompleteEvent event, String recipientAddress, final Locale locale, String token){
-//        final String message =  messages.getMessage("message.regUpd", null, locale)+" "
-//                +recipientAddress+"\n"
-//                +messages.getMessage("message.resetYourPassword", null, locale)+" " +event.getAppUrl() + "/registration/remindConfirm?token="
-//                +token;
-        final String message ="token.message";
+        final String message =  messages.getMessage("message.regUpd", null, locale)+" "
+                +recipientAddress+"\n"
+                +messages.getMessage("message.resetYourPassword", null, locale)+" " +event.getAppUrl() + "/registration/remindConfirm?token="
+                +token;
         return message;
     }
 }

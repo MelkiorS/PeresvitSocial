@@ -17,14 +17,17 @@
     <link rel="stylesheet" th:href="@{/css/registration_style1.css}"/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <script th:src="@{/webjars/jquery/2.2.4/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/constants.js}"></script>
+    <!--<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>-->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!--<script th:src="@{/js/jquery-3.1.1.min.js}"></script>-->
     <script th:src="@{/js/validator.js}"></script>
     <script th:src="@{/js/registration_script.js}"></script>
+    <script th:src="@{/js/constants.js}"></script>
+
 
 </head>
 <body>
-<!--<div class=" info-message" th:if="${message} != null" th:text="${message}"></div>-->
+<div class=" info-message" th:if="${message} != null" th:text="${message}"></div>
 <div class="container-fluid wrapper">
 <div class="row log_in">
     <div class="col-xs-offset-5 col-xs-6 icemegamenu">
@@ -108,14 +111,14 @@
                         <div class="vk col-xs-offset-1  col-xs-11">
                             <form th:action="@{/auth/vkontakte}">
                                 <input type="hidden" name="scope" value="offline email" />
-                                <button type="submit" class="btn btn-default vk_button"><img src="/resources/frontend/registration/img/vk_icon.png" alt=""> Войти через Вконтате</button>
+                                <button type="submit" class="btn btn-default vk_button"><img  th:src="@{/images/registration/vk_icon.png}" alt=""> Войти через Вконтате</button>
                             </form>
                             <!--************Юзер нажимая эту кнопку хочет войти через Вконтакте*******-->
                             <!--<a role="button" class="btn btn-default vk_button" href="/auth/vkontakte"><img src="/resources/frontend/registration/img/vk_icon.png" alt=""> Войти через Вконтате</a>-->
                         </div>
                         <div class="fb col-xs-offset-1 col-xs-11">
                             <!--************Юзер нажимая эту кнопку хочет войти через Фейсбук*******-->
-                            <a role="button" class="btn btn-default fb_button" href="/auth/facebook"><img src="/resources/frontend/registration/img/fb_icon.png" alt="">Войти через Facebook</a>
+                            <a role="button" class="btn btn-default fb_button" href="/auth/facebook"><img  th:src="@{/images/registration/fb_icon.png}"alt="">Войти через Facebook</a>
                         </div>
                         <div class="google_plus col-xs-offset-1 col-xs-11">
                             <!--************Юзер нажимая эту кнопку хочет войти через Гугл+*******-->
@@ -123,7 +126,7 @@
                                 <input type="hidden" name="request_visible_actions" value="http://schemas.google.com/AddActivity http://schemas.google.com/BuyActivity http://schemas.google.com/CheckInActivity http://schemas.google.com/CommentActivity http://schemas.google.com/CreateActivity http://schemas.google.com/DiscoverActivity http://schemas.google.com/ListenActivity http://schemas.google.com/ReserveActivity http://schemas.google.com/ReviewActivity http://schemas.google.com/WantActivity"/>
                                 <input type="hidden" name="access_type" value="offline"/>
                                 <input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/tasks https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/latitude.all.best" />
-                                <button class="btn btn-default google_plus_button" type="submit"><img src="/resources/frontend/registration/img/google_plus_icon.png" alt=""> Войти через Google+</button>
+                                <button class="btn btn-default google_plus_button" type="submit"><img th:src="@{/images/registration/google_plus_icon.png}" alt=""> Войти через Google+</button>
                             </form>
                         </div>
                     </div>
@@ -142,13 +145,13 @@
                 </div>
                 <div class="modal_signUp_section row">
                     <!--*******************Сюда записывать form action при регистрации****************-->
-                    <form class='col-xs-offset-1 col-xs-10 modal_signUp_section_form' data-toggle="validator" role="form" th:action="@{/registration}"method="post">
+                    <form class='col-xs-offset-1 col-xs-10 modal_signUp_section_form' data-toggle="validator" role="form" th:action="@{/registration}" th:object="${user}" method="post">
                         <div class="form-group row modal_signUp_section_form_name has-feedback">
                             <div th:if="${#httpServletRequest.requestURI.contains('registration') == true}">
-                                <!--<input type="hidden"  th:field="*{social}">-->
-                                <!--<input type="hidden"  th:field="*{profileFB}">-->
-                          <!--      <input type="hidden"  th:field="*{profileGoogle}">
-                                <input type="hidden"  th:field="*{profileVK}">-->
+                                <input type="hidden"  th:field="*{social}">
+                                <input type="hidden"  th:field="*{profileFB}">
+                                <!--<input type="hidden"  th:field="*{profileGoogle}">-->
+                                <!--<input type="hidden"  th:field="*{profileVK}">-->
                                 <script>
                                     $("#myModal_sign_up").modal().show()
                                 </script>
@@ -167,29 +170,29 @@
                             <div class="input-group">
                                 <!--****************Сюда юзер вставляет свою фамилию ******************-->
                                 <span class="input-group-addon"><div class="glyphicon glyphicon-user"></div></span>
-                                <!--<input type="text" th:field="*{lastName}" class="form-control col-xs-12" id="inputSurname" placeholder="Введіть Вашe прізвище" required>-->
+                                <input type="text" th:field="*{lastName}" class="form-control col-xs-12" id="inputSurname" placeholder="Введіть Вашe прізвище" required>
                             </div>
                             <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
                             <div class="help-block"><p>Це поле є обов`язковим для заповнення</p></div>
                         </div>
                         <div class="form-group row has-feedback modal_signUp_section_form_email ">
-                            <!--<label for="inputEmail_signUp" class="control-label">Введіть Ваш email</label>-->
+                            <label for="inputEmail_signUp" class="control-label">Введіть Ваш email</label>
 
                             <div class="input-group col-xs-12">
                                 <span class="input-group-addon">@</span>
                                 <!--****************** Сюда юзер вставляет свой email, на который потом будет отправлено письмо с подтверждением о регистрации***********************-->
-                                <!--<input type="email" th:field="*{email}" class="form-control "  id="inputEmail_signUp" placeholder="email" data-error="Ваш email невірний" required>-->
+                                <input type="email" th:field="*{email}" class="form-control "  id="inputEmail_signUp" placeholder="email" data-error="Ваш email невірний" required>
                             </div>
                             <i class="glyphicon form-control-feedback" aria-hidden="true"></i>
                             <div class="help-block with-errors"></div>
                         </div>
 
                         <div class="form-group has-feedback col-xs-12 row modal_logIn_section_form_pass">
-                            <!--<label for="inputPassword_signUp" class="control-label">Введіть Ваш пароль</label>-->
+                            <label for="inputPassword_signUp" class="control-label">Введіть Ваш пароль</label>
                             <div class="input-group col-xs-12 modal_logIn_section_form_pass_input">
                                 <span class="input-group-addon"><div class="glyphicon glyphicon-lock"></div></span>
                                 <!--***************Сюда юзер вставляет свой пароль***************-->
-                                <!--<input type="password" th:field="*{password}" data-minlength="6" class="form-control" id="inputPassword_signUp" placeholder="Password" required>-->
+                                <input type="password" th:field="*{password}" data-minlength="6" class="form-control" id="inputPassword_signUp" placeholder="Password" required>
                             </div>
                             <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
                             <div class="help-block"><p>Довжина має бути не менше 6 символів</p></div>
@@ -210,10 +213,10 @@
                                 <!--&lt;!&ndash;************Юзер нажимая эту кнопку хочет войти через Вконтакте*******&ndash;&gt;-->
                                 <!--<a role="button" class="btn btn-default vk_button" href="#"><img src="/resources/frontend/registration/img/vk_icon.png" alt=""> Войти через Вконтате</a>-->
                             <!--</div>-->
-                            <!--<div class="fb col-xs-offset-1 col-xs-11">-->
-                                <!--&lt;!&ndash;************Юзер нажимая эту кнопку хочет войти через Facebook*******&ndash;&gt;-->
-                                <!--<a role="button" class="btn btn-default fb_button" href="/registration/facebook/connect"><img src="/resources/frontend/registration/img/fb_icon.png" alt="">Войти через Facebook</a>-->
-                            <!--</div>-->
+                            <div class="fb col-xs-offset-1 col-xs-11">
+                                <!--************Юзер нажимая эту кнопку хочет войти через Facebook*******-->
+                                <a role="button" class="btn btn-default fb_button" href="/registration/facebook/connect"><img src="/resources/frontend/registration/img/fb_icon.png" alt="">Войти через Facebook</a>
+                            </div>
                             <!--<div class="google_plus col-xs-offset-1 col-xs-11">-->
                                 <!--&lt;!&ndash;************Юзер нажимая эту кнопку хочет войти через Гугл+*******&ndash;&gt;-->
                                 <!--<a role="button" class="btn btn-default google_plus_button" href="#"><img src="/resources/frontend/registration/img/google_plus_icon.png" alt=""> Войти через Google+</a>-->
