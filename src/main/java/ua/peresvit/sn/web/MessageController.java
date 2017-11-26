@@ -23,13 +23,13 @@ import java.util.*;
 public class MessageController {
     final MessageService messageService;
     final UserService userService;
-    final MessageSource messages;
+//    final MessageSource messages;
 
     @Autowired
-    public MessageController(MessageService messageService, UserService userService, MessageSource messages) {
+    public MessageController(MessageService messageService, UserService userService/*, MessageSource messages*/) {
         this.messageService = messageService;
         this.userService = userService;
-        this.messages = messages;
+//        this.messages = messages;
     }
 
     //  after entering main messages' page we get list of all chats, we can create new chat or send new message
@@ -88,7 +88,7 @@ public class MessageController {
             model.addAttribute("chatId", chat.getChatId());
             return "redirect:/home/messages/{chatId}";
         } else {
-            model.addAttribute("message", messages.getMessage("message.chatCreationError", null, locale));
+//            model.addAttribute("message", messages.getMessage("message.chatCreationError", null, locale));
             return getAllChats(model);
         }
     }
@@ -188,7 +188,7 @@ public class MessageController {
             model.addAttribute("chatId", chatId);
             return "redirect:/home/messages/{chatId}";
         } else {
-            model.addAttribute("message", messages.getMessage("message.addingNewMemberToChatError", null, locale));
+//            model.addAttribute("message", messages.getMessage("message.addingNewMemberToChatError", null, locale));
             return "redirect:/home/messages/{chatId}";
         }
     }

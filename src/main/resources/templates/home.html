@@ -4,13 +4,24 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Peresvit</title>
-    <link rel="stylesheet" href="/resources/static/frontend/libraries/bootstrap.css"/>
-    <link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css"/>
-    <script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>
-    <script src="frontend/static/libraries/constants.js"></script>
-    <script src="/resources/frontend/libraries/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="/resources/static/frontend/libraries/bootstrap.css"/>-->
+    <!--<link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css"/>-->
+    <!--<script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>-->
+    <!--<script src="frontend/static/libraries/constants.js"></script>-->
+    <!--<script src="/resources/frontend/libraries/bootstrap.min.js"></script>-->
   <!--  <script  async src="/resources/frontend/registration/js/validator.js"></script>
     <script  async src="/resources/frontend/registration/js/registration_script.js"></script>-->
+
+    <!--_____________________________________________________________________________________________________________-->
+
+    <link rel="stylesheet" th:href="@{/css/registration_style1.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/jquery/2.2.4/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/constants.js}"></script>
+    <script th:src="@{/js/validator.js}"></script>
+    <script th:src="@{/js/registration_script.js}"></script>
+
 </head>
 <body>
 <!--<div class=" info-message" th:if="${message} != null" th:text="${message}"></div>-->

@@ -6,7 +6,7 @@ body{
 
 }
 .wrapper{
-    background: url('images/background.jpg');
+    background: url('../images/background.jpg');
     background-repeat: repeat;
     position: relative;
     height:auto;
@@ -71,7 +71,7 @@ footer {
     height: 50px;
     font-size:  2rem ;
     margin: 0 auto;
-    background: url('images/shum.png');
+    background: url('../images/shum.png');
 }
 .header_commercial,
 .footer_commercial {

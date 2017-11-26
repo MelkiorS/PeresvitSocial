@@ -16,8 +16,8 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private MessageSource messages;
+//    @Autowired
+//    private MessageSource messages;
 
     @RequestMapping(value = "login/success")
     public String loginSuccess() {
@@ -29,7 +29,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login/failure")
     public String loginFailure(RedirectAttributes model, Locale locale) {
-        model.addFlashAttribute("message", messages.getMessage("message.loginFailure", null, locale));
+//        model.addFlashAttribute("message", messages.getMessage("message.loginFailure", null, locale));
 //        model.addAttribute(new User());
         return "redirect:/home";
     }

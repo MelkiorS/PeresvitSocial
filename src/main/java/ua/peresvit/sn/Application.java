@@ -16,13 +16,13 @@ public class Application {
     /**
      * Handles favicon.ico requests assuring no <code>404 Not Found</code> error is returned.
      */
-    @Controller
+   /* @Controller
     static class FaviconController {
         @RequestMapping("favicon.ico")
         String favicon() {
             return "forward:/resources/frontend/image/logo-in-sidebar.png";
         }
-    }
+    }*/
 
 
 
