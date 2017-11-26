@@ -18,7 +18,7 @@ public class LoginController {
     private UserService userService;
 
     @Autowired
-    private MessageSource messages;
+    private MessageSource messages; // TODO Use tymeleaf messaging on html
 
     @RequestMapping(value = "login/success")
     public String loginSuccess() {
