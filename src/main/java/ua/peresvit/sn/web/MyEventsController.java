@@ -61,7 +61,7 @@ class EventClassAdapter extends TypeAdapter<Event> {
     public void write(JsonWriter out, Event value) throws IOException {
         if (value !=null) {
             out.beginObject();
-            wrt(out, "id", new Long(value.getId()).toString());
+            wrt(out, "userId", new Long(value.getId()).toString());
             wrt(out, "text", value.getName().toString());
             wrt(out, "start_date", new SimpleDateFormat("yyyy-MM-dd hh:mm").format(value.getStart()));
             wrt(out, "end_date", new SimpleDateFormat("yyyy-MM-dd hh:mm").format(value.getFinish()));
@@ -215,7 +215,7 @@ public class MyEventsController {
 
     @RequestMapping(value = "/admin/updEvent", method = RequestMethod.POST)
     @ResponseBody
-    public String updEvent(@RequestParam("id") long id, @RequestParam("start_date") Long start, @RequestParam("end_date") Long end,
+    public String updEvent(@RequestParam("userId") long id, @RequestParam("start_date") Long start, @RequestParam("end_date") Long end,
                            @RequestParam("place") String place,
                            @RequestParam("title") String title,
                            @RequestParam("description") String description,
@@ -241,7 +241,7 @@ public class MyEventsController {
 
     @RequestMapping(value = "/admin/delEvent", method = RequestMethod.POST)
     @ResponseBody
-    public String delEvent(@RequestParam("id") long id) {
+    public String delEvent(@RequestParam("userId") long id) {
         return String.valueOf(es.delete(es.findById(id)));
     }
 

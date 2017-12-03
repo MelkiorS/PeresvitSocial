@@ -17,7 +17,7 @@
 
                 <input type="hidden" th:field="*{userId}" >
                 <input type="hidden" th:field="*{enabled}" >
-                <input type="hidden" th:field="*{role.roleId}" >
+                <input type="hidden" th:field="*{role.userId}" >
                 <div th:class="${'form-group' + ( #fields.hasErrors('lastName') ? ' has-error' : '') }" class="form-group">
                     <label for="lastName">Прізвище</label>
                     <input class="form-control" pattern="^[0-9ЄєІіЇїА-Яа-яЁёA-z\s]+$" type="text" th:field="*{lastName}" id="lastName" maxlength="25" placeholder="Прізвище" data-toggle="popover" th:data-content="'Помилка по прочині ' + ${#fields.errors('lastName')} " th:data-trigger="${ #fields.hasErrors('lastName') ? 'hover' : 'manual'}" data-placement="top">

@@ -7,7 +7,7 @@
 
         <form action="#" th:action="@{/admin/chapter/}" th:object="${chapter}" method="post">
             <input type="hidden" th:field="*{chapterId}" />
-            <label for="chapterName">Chapter name:</label>
+            <label for="chapterName">Chapter roleName:</label>
             <input class="form-control" type="text" th:field="*{chapterName}" />
             <br/>
             <label for="resourceGroupType">Type:</label>

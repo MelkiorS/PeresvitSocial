@@ -930,7 +930,7 @@ scheduler._temp_limit_scope = function(){
 			scheduler._marked_timespans_types = {};
 		}
 
-		if (typeof configuration != "object") { // id was passed
+		if (typeof configuration != "object") { // userId was passed
 			scheduler._delete_marked_timespan_by_id(configuration);
 		} else { // normal configuration was passed
 

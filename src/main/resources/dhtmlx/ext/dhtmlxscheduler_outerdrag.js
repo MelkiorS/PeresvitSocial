@@ -33,7 +33,7 @@ scheduler.attachEvent("onTemplatesReady", function() {
 				start_date: new Date(action_data.date)
 			};
 
-			// custom views, need to assign section id, fix dates
+			// custom views, need to assign section userId, fix dates
 			if (scheduler.matrix && scheduler.matrix[scheduler._mode]) {
 				var view_options = scheduler.matrix[scheduler._mode];
 				event_data[view_options.y_property] = action_data.section;

@@ -52,7 +52,7 @@ public class CombatArtController {
         return "redirect:/admin/combatArt/";
     }
 
-    // show CombatArt by id
+    // show CombatArt by userId
     @RequestMapping(value = "/{combatArtId}", method = RequestMethod.GET)
     public String geArt(@PathVariable("combatArtId") long combatArtId, Model model) {
         if (!model.containsAttribute("combatArtId"))

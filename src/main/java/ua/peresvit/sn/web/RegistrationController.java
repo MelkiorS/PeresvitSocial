@@ -210,9 +210,9 @@ public class RegistrationController {
         Facebook facebook = connection.getApi();
 //      Here we can get fields from FB connection
 // Fields available for FB
-//{ "id", "about", "age_range", "birthday", "context", "cover", "currency", "devices", "education", "email", "favorite_athletes", "favorite_teams", "first_name", "gender", "hometown", "inspirational_people", "installed", "install_type", "is_verified", "languages", "last_name", "link", "locale", "location", "meeting_for", "middle_name", "name", "name_format", "political", "quotes", "payment_pricepoints", "relationship_status", "religion", "security_settings", "significant_other", "sports", "test_group", "timezone", "third_party_id", "updated_time", "verified", "video_upload_limits", "viewer_can_send_gift", "website", "work"}
+//{ "userId", "about", "age_range", "birthday", "context", "cover", "currency", "devices", "education", "email", "favorite_athletes", "favorite_teams", "first_name", "gender", "hometown", "inspirational_people", "installed", "install_type", "is_verified", "languages", "last_name", "link", "locale", "location", "meeting_for", "middle_name", "roleName", "name_format", "political", "quotes", "payment_pricepoints", "relationship_status", "religion", "security_settings", "significant_other", "sports", "test_group", "timezone", "third_party_id", "updated_time", "verified", "video_upload_limits", "viewer_can_send_gift", "website", "work"}
 
-        String [] fields = { "id", "email",  "first_name", "last_name", "link"};
+        String [] fields = { "userId", "email",  "first_name", "last_name", "link"};
         org.springframework.social.facebook.api.User userProfile = facebook.fetchObject("me", org.springframework.social.facebook.api.User.class, fields);
         UserDto userDto = new UserDto();
         userDto.setEmail(userProfile.getEmail());
@@ -233,7 +233,7 @@ public class RegistrationController {
         userDto.setFirstName(socialMediaProfile.getFirstName());
         userDto.setLastName(socialMediaProfile.getLastName());
         userDto.setEmail(vKontakte.getEmail());
-        userDto.setProfileVK("id"+connection.getKey().getProviderUserId());
+        userDto.setProfileVK("userId"+connection.getKey().getProviderUserId());
         userDto.setSocial(SocialMediaService.VKONTAKTE);
         return userDto;
     }
@@ -255,7 +255,7 @@ public class RegistrationController {
 
     private void authenticateUser(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole().getRoleName()));
+        authorities.add(new SimpleGrantedAuthority(user.getRoles().get(0).getRoleName())); // TODO refactor To Multi roles
         SecurityContextHolder.getContext().setAuthentication(
                 new UsernamePasswordAuthenticationToken(
                         user.getEmail(),

@@ -240,7 +240,7 @@ scheduler.attachEvent("onSchedulerReady", function() {
 		}
 	}
 
-	function _setMapSize(elem_id) { //input - map's div id
+	function _setMapSize(elem_id) { //input - map's div userId
 		var map = document.getElementById(elem_id);
 		var height = scheduler._y - scheduler.xy.nav_height;
 		if (height < 0)

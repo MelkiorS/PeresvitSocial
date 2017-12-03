@@ -17,6 +17,7 @@
 
 
     <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>ua.peresvit.sn.Application</start-class>
         <java.version>1.8</java.version>
@@ -126,7 +127,7 @@
 
 
         <!--@SerializedName
-         An annotation that indicates this member should be serialized to JSON with the provided name value as its field name.-->
+         An annotation that indicates this member should be serialized to JSON with the provided roleName value as its field roleName.-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

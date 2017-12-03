@@ -70,8 +70,8 @@
             </div>
             <div class="form-group">
             <label for="rangType">Rang:</label>
-            <select class="form-control" id='rangType' th:field="*{role.roleId}">
-                <option th:each="role : ${rangList}" th:value="${role.roleId}"
+            <select class="form-control" id='rangType' th:field="*{role.userId}">
+                <option th:each="role : ${rangList}" th:value="${role.userId}"
                         th:text="${role.roleName}">
 
                 </option>

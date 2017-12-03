@@ -12,7 +12,7 @@
         <div class="messageList1">
             <div class=" messageList-header">
                 <p class=" messageList-header-title" th:text="${chat.getChatTitle()}">Название беседы</p>
-                <!--<select class="col-xs-4 messageList-header-select" name="Settings" >-->
+                <!--<select class="col-xs-4 messageList-header-select" roleName="Settings" >-->
                 <!--<option selected value="settings">Налаштування</option>-->
                 <!--<option th:action="@{/home/messages/} + ${chat.chatId} + '/addMembers'" th:method="get" value="add buddy">Додати співрозмовників</option>-->
                 <!--&lt;!&ndash;<option th:href="@{}" value="change title">Змінити назву бесіди</option>&ndash;&gt;-->
@@ -56,7 +56,7 @@
                         <div th:if="${message.functional != true}" class="msgField-letter clearfix">
                             <img th:src="@{'data:image;base64,' + ${message.sender.encodeFileToBase64Binary()}}"  alt="аватар">
                             <p class=" msgField-letter-author" th:text="${message.sender.getFirstName()} + ' ' + ${message.sender.getLastName()}"></p>
-                            <!--<span class="msgField-letter-id" th:text="${message.messageId}"></span>-->
+                            <!--<span class="msgField-letter-userId" th:text="${message.messageId}"></span>-->
                             <p class="msgField-letter-content" th:text="${message.content}"></p>
                             <!--<span th:if="${#dates.createToday().getDay()} == ${message.createdAt.date}"></span>-->
                             <p class="msgField-letter-time" th:text="

@@ -50,7 +50,7 @@ public class MarkController {
         return "redirect:/admin/mark/";
     }
 
-    // show Mark by id
+    // show Mark by userId
     @RequestMapping(value = "/{markId}", method = RequestMethod.GET)
     public String geMark(@PathVariable("markId") long markId, Model model) {
         if (!model.containsAttribute("markId"))

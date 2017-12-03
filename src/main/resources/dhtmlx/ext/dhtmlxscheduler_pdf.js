@@ -322,7 +322,7 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
 		d.style.display = "none";
 		document.body.appendChild(d);
 
-		d.innerHTML = '<form id="' + uid + '" method="post" target="_blank" action="' + url + '" accept-charset="utf-8" enctype="application/x-www-form-urlencoded"><input type="hidden" name="mycoolxmlbody"/> </form>';
+		d.innerHTML = '<form userId="' + uid + '" method="post" target="_blank" action="' + url + '" accept-charset="utf-8" enctype="application/x-www-form-urlencoded"><input type="hidden" roleName="mycoolxmlbody"/> </form>';
 
 
 		var xml = "";

@@ -39,7 +39,7 @@ public interface UserService {
 
 	User getCurrentUser();
 
-	void initializeUserInfo(User user);
+	//void initializeUserInfo(User user);
 	////////////////////////////////////////////////////////////////////////
 	void createVerificationTokenForUser(User user, String token);
 	User getUser(String verificationToken);

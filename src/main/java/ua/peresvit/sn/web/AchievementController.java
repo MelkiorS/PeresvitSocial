@@ -60,7 +60,7 @@ public class AchievementController {
         return "redirect:/admin/achievement/{achievementId}";
     }
 
-    // show Achievement by id
+    // show Achievement by userId
     @RequestMapping(value = "/{achievementId}", method = RequestMethod.GET)
     public String geAchievement(@PathVariable("achievementId") long achievementId, Model model) {
         if (!model.containsAttribute("achievementId"))

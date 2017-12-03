@@ -44,7 +44,7 @@ public class RoleController {
 		return "redirect:/admin/role/";
 	}
 	
-	// show role by id
+	// show role by userId
 	@RequestMapping(value = "/{roleId}", method = RequestMethod.GET)
 	public String getRole(@PathVariable("roleId") long RoleId, Model model) {
 		if (!model.containsAttribute("role"))

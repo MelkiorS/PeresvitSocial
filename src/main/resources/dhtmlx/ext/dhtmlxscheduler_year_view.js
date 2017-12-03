@@ -268,7 +268,7 @@ scheduler.templates.year_tooltip = function(s, e, ev) {
 				}
 				b.appendChild(d);
 
-				d.childNodes[1].style.height = d.childNodes[1].childNodes[0].offsetHeight + "px"; // dhx_year_week should have height property so that day dates would get correct position. dhx_year_week height = height of it's child (with the day name)
+				d.childNodes[1].style.height = d.childNodes[1].childNodes[0].offsetHeight + "px"; // dhx_year_week should have height property so that day dates would get correct position. dhx_year_week height = height of it's child (with the day roleName)
 				var dt = Math.round((dy - 190) / 2);
 				d.style.marginTop = dt + "px";
 				this.set_xy(d, dx - 10, dy - dt - 10, dx * j + 5, dy * i + 5 + scheduler.xy.year_top);

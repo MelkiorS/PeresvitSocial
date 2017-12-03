@@ -31,13 +31,13 @@
         </thead>
         <tbody>
         <tr th:each="role : ${roleList}">
-          <!--&lt;!&ndash;<td th:text="${role.roleId}"></td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td th:text="${role.userId}"></td>&ndash;&gt;-->
           <td>
-            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/role/edit/} + ${role.roleId}"></a>
-            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/role/delete/} + ${role.roleId}"></a>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/role/edit/} + ${role.userId}"></a>
+            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/role/delete/} + ${role.userId}"></a>
           </td>
           <td th:text="${role.roleName}"></td>
-          <td><a th:href="@{/admin/role/users/} + ${role.roleId}">Переглянути</a></td>
+          <td><a th:href="@{/admin/role/users/} + ${role.userId}">Переглянути</a></td>
         </tr>
         </tbody>
       </table>

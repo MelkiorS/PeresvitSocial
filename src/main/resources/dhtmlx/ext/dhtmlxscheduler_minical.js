@@ -254,7 +254,7 @@ scheduler._render_calendar = function(obj, sd, conf, previous) {
 	if (!previous)
 		obj.appendChild(d);
 
-	d.childNodes[1].style.height = (d.childNodes[1].childNodes[0].offsetHeight - 1) + "px"; // dhx_year_week should have height property so that day dates would get correct position. dhx_year_week height = height of it's child (with the day name)
+	d.childNodes[1].style.height = (d.childNodes[1].childNodes[0].offsetHeight - 1) + "px"; // dhx_year_week should have height property so that day dates would get correct position. dhx_year_week height = height of it's child (with the day roleName)
 
 	/*restore*/
 	this._cols = temp;
@@ -358,7 +358,7 @@ scheduler.form_blocks.calendar_time = {
 
 		if (scheduler.config.full_day) {
 			if (!node._full_day) {
-				var html = "<label class='dhx_fullday'><input type='checkbox' name='full_day' value='true'> " + scheduler.locale.labels.full_day + "&nbsp;</label></input>";
+				var html = "<label class='dhx_fullday'><input type='checkbox' roleName='full_day' value='true'> " + scheduler.locale.labels.full_day + "&nbsp;</label></input>";
 				if (!scheduler.config.wide_form)
 					html = node.previousSibling.innerHTML + html;
 				node.previousSibling.innerHTML = html;

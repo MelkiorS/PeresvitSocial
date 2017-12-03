@@ -64,7 +64,7 @@ public class ArticleController {
         return "redirect:/admin/article/"; // just not to redownload it again
     }
 
-    // show article by id
+    // show article by userId
     @RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
     public String getArticle(@PathVariable("articleId") long articleId, Model model) {
         if (!model.containsAttribute("article"))  // if it's not redirect add

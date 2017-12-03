@@ -51,7 +51,7 @@ public class ClubController {
         return "redirect:/admin/club/";
     }
 
-    // show Club by id
+    // show Club by userId
     @RequestMapping(value = "/{clubId}", method = RequestMethod.GET)
     public String geClub(@PathVariable("clubId") long clubId, Model model) {
         if (!model.containsAttribute("clubId"))

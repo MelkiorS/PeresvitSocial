@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ua.peresvit.sn.domain.entity.User;
+import ua.peresvit.sn.security.RoleEnum;
 import ua.peresvit.sn.service.UserService;
 
 import java.util.Locale;
@@ -22,7 +23,7 @@ public class LoginController {
 
     @RequestMapping(value = "login/success")
     public String loginSuccess() {
-        if (userService.getCurrentUser().getRole().getRoleName().equals("ADMIN")) {
+        if (userService.getCurrentUser().getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO Refactor to milty roles
             return "redirect:/admin";
         }
         return "redirect:/home/workField";

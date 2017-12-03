@@ -1,7 +1,7 @@
 'use strict';
 $(function(){
     //меняем Имя
-    $('.pencil-name').on('click',function(){
+    $('.pencil-roleName').on('click',function(){
 
         var $name = $('.allName'),children = $name.children();
         var $agreeButton = $('<button type="submit" class="btn btn-success pensil-button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>');
@@ -43,7 +43,7 @@ $(function(){
         var formForChange = $('<form action="#" class="formForChange"></form>');
 
 
-        var citySelect = $('<select class="form-control" th:field="*{city.cityId}" id="cityList" >' +
+        var citySelect = $('<select class="form-control" th:field="*{city.cityId}" userId="cityList" >' +
             '<option disabled value="" th:text="">Місто</option>' +
             '<option th:each="city : ${cityList}" th:value="${city.cityId}"th:text="${city.cityName}"></option>' +
             '</select>');
@@ -67,7 +67,7 @@ $(function(){
         var formForChange = $('<form action="#" class="formForChange"></form>');
 
 
-        var clubSelect = $('<select id="clubList" th:field="*{club.clubId}" class="form-control">' +
+        var clubSelect = $('<select userId="clubList" th:field="*{club.clubId}" class="form-control">' +
             '<option disabled value="" th:text="">Клуб</option>' +
             '<option th:each="club : ${clubList}" th:value="${club.clubId}"th:text="${club.clubName}"></option>' +
             '</select>');
@@ -91,7 +91,7 @@ $(function(){
         var formForChange = $('<form action="#" class="formForChange"></form>');
 
 
-        var directSelect = $('<select th:field="*{combatArt.combatArtId}" id="combatArtList" class="form-control" >' +
+        var directSelect = $('<select th:field="*{combatArt.combatArtId}" userId="combatArtList" class="form-control" >' +
             '<option disabled value="" th:text="">Направлення</option>' +
             '<option th:each="combatArt : ${combatArtList}" th:value="${combatArt.combatArtId}"th:text="${combatArt.combatArtName}"></option>' +
             '</select>');
@@ -116,7 +116,7 @@ $(function(){
         var formForChange = $('<form action="#" class="formForChange"></form>');
 
         var userText = (children.eq(1).html()).toString();
-        var inputText = $('<textarea th:field="*{about}" id="about" class="form-control" rows="2">'+userText+'</textarea>');
+        var inputText = $('<textarea th:field="*{about}" userId="about" class="form-control" rows="2">'+userText+'</textarea>');
 
 
         children.css('display','none');

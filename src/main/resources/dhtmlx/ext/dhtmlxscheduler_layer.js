@@ -108,7 +108,7 @@ scheduler.attachEvent("onTemplatesReady",function(){
 		this.setCurrentView(this._date, this._mode);
 	};
 	
-	scheduler.getLayer = function(tlayer) { // either string with layer name or event with layer property
+	scheduler.getLayer = function(tlayer) { // either string with layer roleName or event with layer property
 		var layer,
 			layer_name;
 		if(typeof tlayer == 'string') 

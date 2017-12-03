@@ -1,7 +1,7 @@
 Чтобы проект у вас заработал, нужно создать у себя в MySQL Workbench новую таблицу(код таблицы):
 
 ```
-CREATE DATABASE peresvitDB
+CREATE DATABASE peresvitDB;
 use peresvitDB;
 create table UserConnection (userId varchar(255) not null,
                              providerId varchar(255) not null,

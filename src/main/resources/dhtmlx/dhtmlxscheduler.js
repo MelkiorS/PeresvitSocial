@@ -122,7 +122,7 @@ dtmlXMLLoaderObject.prototype.waitLoadFunction=function(dhtmlObject){
 
 /**
  *     @desc: return XML top node
- *     @param: tagName - top XML node tag name (not used in IE, required for Safari and Mozilla)
+ *     @param: tagName - top XML node tag roleName (not used in IE, required for Safari and Mozilla)
  *     @type: private
  *     @returns: top XML node
  *     @topic: 0
@@ -855,7 +855,7 @@ dtmlXMLLoaderObject.prototype.setXSLParamValue=function(paramName, paramValue, x
     if (xslDoc.responseXML)
         xslDoc=xslDoc.responseXML;
     var item =
-        this.doXPath("/xsl:stylesheet/xsl:variable[@name='"+paramName+"']", xslDoc,
+        this.doXPath("/xsl:stylesheet/xsl:variable[@roleName='"+paramName+"']", xslDoc,
             "http:/\/www.w3.org/1999/XSL/Transform", "single");
 
     if (item)
@@ -924,7 +924,7 @@ dhtmlxEventable=function(obj){
         if (!this[name])
             this[name]=new this.eventCatcher(callObj||this);
 
-        return(name+':'+this[name].addEvent(catcher)); //return ID (event name & event ID)
+        return(name+':'+this[name].addEvent(catcher)); //return ID (event roleName & event ID)
     };
     obj.callEvent=function(name, arg0){
         name='ev_'+name.toLowerCase();
@@ -1021,7 +1021,7 @@ if(!window.dhtmlx)
 	}
 
 	function button(text, result, css){
-		// css - for locale-independent class name
+		// css - for locale-independent class roleName
 		var className = css ? css : (text || "");
 		var button_css = "dhtmlx_"+(className).toLowerCase().replace(/ /g, "_")+"_button"; // dhtmlx_ok_button, dhtmlx_click_me_button
 		return "<div class='dhtmlx_popup_button "+button_css+"' result='"+result+"' ><div>"+text+"</div></div>";
@@ -1325,7 +1325,7 @@ dataProcessor.prototype={
 		this._endnm=convertStringToBoolean(mode);
 	},
 	/**
-	* 	@desc: enable/disable mode , when only changed fields and row id send to the server side, instead of all fields in default mode
+	* 	@desc: enable/disable mode , when only changed fields and row userId send to the server side, instead of all fields in default mode
 	*	@param:   mode - true/false
 	*	@type: public
 	*/
@@ -1349,9 +1349,9 @@ dataProcessor.prototype={
 	},
 	/**
 	* 	@desc: mark row as updated/normal. check mandatory fields,initiate autoupdate (if turned on)
-	*	@param: rowId - id of row to set update-status for
+	*	@param: rowId - userId of row to set update-status for
 	*	@param: state - true for "updated", false for "not updated"
-	*	@param: mode - update mode name
+	*	@param: mode - update mode roleName
 	*	@type: public
 	*/
 	setUpdated:function(rowId,state,mode){
@@ -1415,7 +1415,7 @@ dataProcessor.prototype={
 	},
 	/**
 	* 	@desc: check mandatory fields and varify values of cells, initiate update (if specified)
-	*	@param: rowId - id of row to set update-status for
+	*	@param: rowId - userId of row to set update-status for
 	*	@type: public
 	*/
 	checkBeforeUpdate:function(rowId){ 
@@ -1423,7 +1423,7 @@ dataProcessor.prototype={
 	},
 	/**
 	* 	@desc: send row(s) values to server
-	*	@param: rowId - id of row which data to send. If not specified, then all "updated" rows will be send
+	*	@param: rowId - userId of row which data to send. If not specified, then all "updated" rows will be send
 	*	@type: public
 	*/
 	sendData:function(rowId){
@@ -1552,7 +1552,7 @@ dataProcessor.prototype={
 	/**
 	* 	@desc: specify column which value should be varified before sending to server
 	*	@param: ind - column index (0 based)
-	*	@param: verifFunction - function (object) which should verify cell value (if not specified, then value will be compared to empty string). Two arguments will be passed into it: value and column name
+	*	@param: verifFunction - function (object) which should verify cell value (if not specified, then value will be compared to empty string). Two arguments will be passed into it: value and column roleName
 	*	@type: public
 	*/
 	setVerificator:function(ind,verifFunction){
@@ -1590,7 +1590,7 @@ dataProcessor.prototype={
 
 	/**
 	* 	@desc: define custom actions
-	*	@param: name - name of action, same as value of action attribute
+	*	@param: roleName - roleName of action, same as value of action attribute
 	*	@param: handler - custom function, which receives a XMl response content for action
 	*	@type: private
 	*/
@@ -1604,9 +1604,9 @@ dataProcessor.prototype={
 
 	/**
 *     @desc: used in combination with setOnBeforeUpdateHandler to create custom client-server transport system
-*     @param: sid - id of item before update
-*     @param: tid - id of item after up0ate
-*     @param: action - action name
+*     @param: sid - userId of item before update
+*     @param: tid - userId of item after up0ate
+*     @param: action - action roleName
 *     @type: public
 *     @topic: 0
 */
@@ -2023,7 +2023,7 @@ scheduler.get_elements=function(){
 		if (!this._els[class_name]) this._els[class_name]=[];
 		this._els[class_name].push(els[i]);
 		
-		//check if name need to be changed
+		//check if roleName need to be changed
 		var label = scheduler.locale.labels[attr_value||class_name];
 		if (typeof label !== "string" && attr_value && !els[i].innerHTML)
 			 label = attr_value.split("_")[0];
@@ -2765,7 +2765,7 @@ scheduler._render_x_header = function(i,left,d,h, offset_top){
 	head.className = "dhx_scale_bar";
 
 	if(this.templates[this._mode+"_scalex_class"]){
-		//'_scalex_class' - timeline already have similar template, use the same name
+		//'_scalex_class' - timeline already have similar template, use the same roleName
 		head.className += ' ' + this.templates[this._mode+"_scalex_class"](d);
 	}
 
@@ -3750,7 +3750,7 @@ scheduler.changeEventId = function(id, new_id) {
 	});
 	if (this._select_id == id) this._select_id = new_id;
 	if (this._edit_id == id) this._edit_id = new_id;
-	//if (this._drag_id==id) this._drag_id=new_id;
+	//if (this._drag_id==userId) this._drag_id=new_id;
 	this.callEvent("onEventIdChange", [id, new_id]);
 };
 
@@ -4344,7 +4344,7 @@ scheduler._copy_dummy = function() {
 scheduler._copy_event = function(ev) {
 	this._copy_dummy.prototype = ev;
 	return new this._copy_dummy();
-	//return {start_date:ev.start_date, end_date:ev.end_date, text:ev.text, id:ev.id}
+	//return {start_date:ev.start_date, end_date:ev.end_date, text:ev.text, userId:ev.userId}
 };
 scheduler._rendered = [];
 scheduler.clear_view = function() {
@@ -5282,7 +5282,7 @@ scheduler.form_blocks={
 
 			if(cfg.full_day) {
 				if (!node._full_day){
-					var html = "<label class='dhx_fullday'><input type='checkbox' name='full_day' value='true'> "+scheduler.locale.labels.full_day+"&nbsp;</label></input>";
+					var html = "<label class='dhx_fullday'><input type='checkbox' roleName='full_day' value='true'> "+scheduler.locale.labels.full_day+"&nbsp;</label></input>";
 					if (!scheduler.config.wide_form)
 						html = node.previousSibling.innerHTML+html;
 					node.previousSibling.innerHTML=html;
@@ -5679,7 +5679,7 @@ scheduler.getLightbox=function(){ //scheduler.config.wide_form=true;
 			if(typeof label_name !== "string"){
 				label_name = sns[i].name;
 			}
-			html+="<div id='"+sns[i].id+"' class='dhx_cal_lsection'>"+button+label_name+"</div>"+block.render.call(this,sns[i]);
+			html+="<div userId='"+sns[i].id+"' class='dhx_cal_lsection'>"+button+label_name+"</div>"+block.render.call(this,sns[i]);
 			html+="</div>";
 		}
 
@@ -6245,7 +6245,7 @@ if (window.jQuery){
 								scheduler.config[key] = config[key];
 
 						if (!this.getElementsByTagName("div").length){
-							this.innerHTML = '<div class="dhx_cal_navline"><div class="dhx_cal_prev_button">&nbsp;</div><div class="dhx_cal_next_button">&nbsp;</div><div class="dhx_cal_today_button"></div><div class="dhx_cal_date"></div><div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div><div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div><div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div></div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div>';
+							this.innerHTML = '<div class="dhx_cal_navline"><div class="dhx_cal_prev_button">&nbsp;</div><div class="dhx_cal_next_button">&nbsp;</div><div class="dhx_cal_today_button"></div><div class="dhx_cal_date"></div><div class="dhx_cal_tab" roleName="day_tab" style="right:204px;"></div><div class="dhx_cal_tab" roleName="week_tab" style="right:140px;"></div><div class="dhx_cal_tab" roleName="month_tab" style="right:76px;"></div></div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div>';
 							this.className += " dhx_cal_container";
 						}
 						scheduler.init(this, scheduler.config.date, scheduler.config.mode);

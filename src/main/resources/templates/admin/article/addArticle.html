@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-xs-4 form-group">
                             <label>Роздiл</label><br/>
-                            <!--<input class="form-control" th:field="*{chapterId}" type="text" id="chapterId" />-->
+                            <!--<input class="form-control" th:field="*{chapterId}" type="text" userId="chapterId" />-->
                             <select class="form-control" th:field="*{chapterId}" type="text" id="chapter" >
                                 <option th:each="c : ${chapters}" th:value="${c.chapterId}" th:text="${c.chapterName}" th:hidden="true" th:rgt="${c.resourceGroupType.resourceGroupTypeId}"></option>
                                 <!--<option th:each="rgtc : ${resourceGroupType.chapterList}" th:value="${rgtc.chapterId}" th:text="${rgtc.chapterName}"></option>-->
@@ -45,9 +45,9 @@
                         </div>
                         <div th:class="${'col-xs-4 form-group' + ( #fields.hasErrors('role') ? ' has-error' : '') }">
                             <label>Доступ для</label><br/>
-                            <select class="form-control" th:field="*{role.roleId}">
+                            <select class="form-control" th:field="*{role.userId}">
                                 <option th:each="role : ${roleList}"
-                                        th:value="${role.roleId}"
+                                        th:value="${role.userId}"
                                         th:text="${role.roleName}"></option>
                             </select>
                         </div>

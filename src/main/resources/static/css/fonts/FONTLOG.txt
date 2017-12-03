@@ -102,7 +102,7 @@ ChangeLog
     MdIt) (LP: #640623)
   * (Production) fstype bit set to 0 - Editable (Lt, LtIt, Md, MdIt)
     (LP: #648406)
-  * (Production) Localisation of name table has been removed because
+  * (Production) Localisation of roleName table has been removed because
     of problems with Mac OS/X interpretation of localisation. DM
     (LP: #730785)
   * (Hinting) Regular '?' dot non-circular (has incorrect control
@@ -171,7 +171,7 @@ ChangeLog
 
 Acknowledgements
 
-If you make modifications be sure to add your name (N), email (E),
+If you make modifications be sure to add your roleName (N), email (E),
 web-address (if you have one) (W) and description (D). This list is in
 alphabetical order.
 

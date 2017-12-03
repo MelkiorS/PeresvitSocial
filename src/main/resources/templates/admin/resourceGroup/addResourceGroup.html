@@ -10,7 +10,7 @@
 
         <form action="#" th:action="@{/admin/resourceGroup/}" th:object="${resourceGroup}" method="post">
             <input type="hidden" th:field="*{resourceGroupId}" />
-            <label for="groupName">Group name:</label>
+            <label for="groupName">Group roleName:</label>
             <input type="text" th:field="*{resourceGroupName}" />
             <br/>
             <label for="resourceGroupType">Type:</label>
@@ -21,9 +21,9 @@
             </select>
             <br/>
             <label for="rangType">Rang:</label>
-            <select th:field="*{role.roleId}">
+            <select th:field="*{role.userId}">
                 <option th:each="rang : ${rangList}"
-                        th:value="${rang.roleId}"
+                        th:value="${rang.userId}"
                         th:text="${rang.roleName}"></option>
             </select>
             <br/>

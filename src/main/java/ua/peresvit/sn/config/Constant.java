@@ -15,7 +15,7 @@ public class Constant {
 	public static final String UPLOAD_PATH = "/home/mma/downloads";
 	// folder user${userId} files
 	public static final String USR_FOLDER = "user";
-	// folder user without id files
+	// folder user without userId files
 	public static final String USER_UNKNOWN = "userunknown";
 	// pattern filename for avatar
 	public static final String AVATAR = "avatar";

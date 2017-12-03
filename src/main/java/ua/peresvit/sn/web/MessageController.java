@@ -1,7 +1,6 @@
 package ua.peresvit.sn.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +12,7 @@ import ua.peresvit.sn.domain.entity.Chat;
 import ua.peresvit.sn.domain.entity.Message;
 import ua.peresvit.sn.domain.entity.User;
 import ua.peresvit.sn.domain.entity.UserGroup;
+import ua.peresvit.sn.security.RoleEnum;
 import ua.peresvit.sn.service.MessageService;
 import ua.peresvit.sn.service.UserService;
 
@@ -68,7 +68,7 @@ public class MessageController {
         UserGroup[] uga;
         uga = new UserGroup[ug.size()];
         uga = ug.toArray(uga);
-        if (userService.getCurrentUser().getRole().getRoleName().equals("ADMIN")) {
+        if (userService.getCurrentUser().getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO refactor To Multi roles
             model.addAttribute("userList", userService.findAllWithoutCurrent());
         } else {
             model.addAttribute("userList", uga.length==0 ? new ArrayList<User>() : userService.getGroupsUsersWithoutCurrent(ug.toArray(uga)));
@@ -120,7 +120,7 @@ public class MessageController {
             model.addAttribute("dialog", true);
         }
 //      adding owner permissions to the chat view
-        if (currentUser.equals(chat.getOwner()) || currentUser.getRole().getRoleName().equals("ADMIN")) {
+        if (currentUser.equals(chat.getOwner()) || currentUser.getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO refactor To Multi roles
             model.addAttribute("ownerPermission", true);
         } else {
             model.addAttribute("ownerPermission", false);
@@ -149,7 +149,7 @@ public class MessageController {
         List<UserGroup> ug = userService.getUserGroups(currentUser);
         List<User> membersToAdd = new LinkedList<>();
         List<User> users;
-        if (currentUser.getRole().getRoleName().equals("ADMIN")) {
+        if (currentUser.getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO refactor To Multi roles
             users =  userService.findAll();
         } else {
             users = userService.getGroupsUsersWithoutCurrent( ug.toArray(new UserGroup[ug.size()]));
@@ -230,7 +230,7 @@ public class MessageController {
     public String deleteChat(@PathVariable("chatId") Long chatId, Model model) {
         Chat chat = messageService.findOneChat(chatId);
         User currentUser = userService.getCurrentUser();
-        if (chat.getOwner().equals(currentUser) || currentUser.getRole().getRoleName().equals("ADMIN")) {
+        if (chat.getOwner().equals(currentUser) || currentUser.getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO refactor To Multi roles
             messageService.deleteChat(chatId);
             model.addAttribute("message", "Бесіду видалено");
             return "redirect:/home/messages";

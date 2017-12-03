@@ -26,11 +26,11 @@ CKEDITOR.plugins.add( 'savebtn', {
                 $.ajax({
                     url: editor.config.saveSubmitURL,//the url to post at... configured in config.js
                     type: 'POST', 
-                    data: {text: data, id: editor.name, page: page},//editor.name contains the id of the current editable html tag
+                    data: {text: data, id: editor.name, page: page},//editor.roleName contains the userId of the current editable html tag
                 })
                 .done(function(response) {
                     console.log("success");
-                    alert('id: '+editor.name+' \nurl: '+page+' \ntext: '+data);
+                    alert('userId: '+editor.name+' \nurl: '+page+' \ntext: '+data);
 
                 })
                 .fail(function() {

@@ -9,7 +9,7 @@
     <div th:fragment="main">
         <form action="#" th:action="@{/admin/role/}" th:object="${role}" method="post">
             <div class="form-group">
-            <input type="hidden" th:field="*{roleId}" />
+            <input type="hidden" th:field="*{userId}" />
             <label >Назва ролі:</label>
             <input class="form-control" type="text" th:field="*{roleName}" />
             </div>

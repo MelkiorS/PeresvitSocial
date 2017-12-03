@@ -70,7 +70,7 @@ scheduler.form_blocks['combo']={
 					combo.selectOption(0);
 					combo.disable(0);
 				} else {
-					dhtmlxAjax.get(config.script_path+"?id="+selected_id+"&uid="+scheduler.uid(), function(result){
+					dhtmlxAjax.get(config.script_path+"?userId="+selected_id+"&uid="+scheduler.uid(), function(result){
 						var option = result.doXPath("//option")[0];
 						var label = option.childNodes[0].nodeValue;
 						config.cached_options[selected_id] = label;
@@ -102,7 +102,7 @@ scheduler.form_blocks['radio']={
 		res += "<div class='dhx_cal_ltext dhx_cal_radio' style='height:"+sns.height+"px;' >";
 		for (var i=0; i<sns.options.length; i++) {
 			var id = scheduler.uid();
-			res += "<input id='"+id+"' type='radio' name='"+sns.name+"' value='"+sns.options[i].key+"'><label for='"+id+"'>"+" "+sns.options[i].label+"</label>";
+			res += "<input userId='"+id+"' type='radio' roleName='"+sns.name+"' value='"+sns.options[i].key+"'><label for='"+id+"'>"+" "+sns.options[i].label+"</label>";
 			if(sns.vertical)
 				res += "<br/>";
 		}
@@ -144,7 +144,7 @@ scheduler.form_blocks['checkbox']={
 		var id = scheduler.uid();
 		var isChecked = (typeof config.checked_value != "undefined") ? value == config.checked_value : !!value;
 		node.className += " dhx_cal_checkbox";
-		var check_html = "<input id='"+id+"' type='checkbox' value='true' name='"+config.name+"'"+((isChecked)?"checked='true'":'')+"'>"; 
+		var check_html = "<input userId='"+id+"' type='checkbox' value='true' roleName='"+config.name+"'"+((isChecked)?"checked='true'":'')+"'>";
 		var label_html = "<label for='"+id+"'>"+(scheduler.locale.labels["section_"+config.name]||config.name)+"</label>";
 		if (scheduler.config.wide_form){
 			node.innerHTML = label_html;

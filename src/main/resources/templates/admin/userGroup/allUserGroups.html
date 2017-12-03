@@ -31,12 +31,12 @@
         </thead>
         <tbody>
         <tr th:each="userGroup : ${userGroupList}">
-          <!--<td th:text="${userGroup.id}"></td>-->
+          <!--<td th:text="${userGroup.userId}"></td>-->
           <td>
-            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/userGroup/edit/} + ${userGroup.id}"></a>
-            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/userGroup/delete/} + ${userGroup.id}"></a>
+            <a class="glyphicon glyphicon-pencil btn btn-link btn-xs" th:href="@{/admin/userGroup/edit/} + ${userGroup.userId}"></a>
+            <a class="glyphicon glyphicon-remove btn btn-danger btn-xs" onclick="event.preventDefault();deleteElem(this)" th:href="@{/admin/userGroup/delete/} + ${userGroup.userId}"></a>
           </td>
-          <td th:text="${userGroup.name}"></td>
+          <td th:text="${userGroup.roleName}"></td>
         </tr>
         </tbody>
       </table>

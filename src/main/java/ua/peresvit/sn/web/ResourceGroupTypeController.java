@@ -43,7 +43,7 @@ public class ResourceGroupTypeController {
 		return "redirect:/admin/resourceGroupType/";
 	}
 	
-	// show resourceGroupType by id
+	// show resourceGroupType by userId
 	@RequestMapping(value = "/{resourceGroupTypeId}", method = RequestMethod.GET)
 	public String getResourceGroupType(@PathVariable("resourceGroupTypeId") long resourceGroupTypeId, Model model) {
 		if (!model.containsAttribute("resourceGroupType")) 

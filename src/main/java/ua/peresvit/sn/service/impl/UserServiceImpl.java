@@ -4,6 +4,7 @@ package ua.peresvit.sn.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findOne(Long userId) {
         User user = userRepository.findOne(userId);
-        initializeUserInfo(user);
+//        initializeUserInfo(user);
         return user;
     }
 
@@ -74,7 +75,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findByRole(Role role) {
-        return userRepository.findByRole(role);
+        return userRepository.findByRoles(role);
     }
 
     @Override
@@ -101,8 +102,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserByEmail(String email) {
-        User user = userRepository.findByEmail(email);
-        initializeUserInfo(user);
+        User user = userRepository.findByEmail(email).orElseThrow(()->new UsernameNotFoundException("User with email '" + email + "' not found."));
+//        initializeUserInfo(user);
         return user;
     }
 
@@ -110,15 +111,15 @@ public class UserServiceImpl implements UserService {
     public User getCurrentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
-        return userRepository.findByEmail(name);
+        return userRepository.findByEmail(name).orElseThrow(()->new UsernameNotFoundException("User with email '" + name + "' not found."));
     }
 
-    @Override
+  /*  @Override
     public void initializeUserInfo(User user) {
         if(user == null)
             return;
     }
-
+*/
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -183,7 +184,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(accountDto.getPassword());
         user.setEmail(accountDto.getEmail());
         // Here the role USER is set to new user AS DEFAULT
-        user.setRole(roleRepository.findByRoleName("USER"));
+        user.setRoles(Arrays.asList(roleRepository.findByRoleName("USER"))); // TODO refactor to multi roles
         user.setAvatarURL("http://image.flaticon.com/icons/svg/126/126486.svg");
         if (accountDto.getProfileFB() != null) {
             user.setProfileFB(accountDto.getProfileFB());
@@ -200,8 +201,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private boolean emailExist(String email) {
-        User user = userRepository.findByEmail(email);
-        return user != null;
+        return userRepository.findByEmail(email).isPresent();
     }
 
     @Override

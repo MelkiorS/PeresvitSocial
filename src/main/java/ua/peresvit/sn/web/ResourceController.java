@@ -92,7 +92,7 @@ public class ResourceController {
 		return "redirect:/admin/resource/{resourceId}";
 	}
 	
-	// show resource by id
+	// show resource by userId
 	@RequestMapping(value = "/{resourceId}", method = RequestMethod.GET)
 	public String getResource(@PathVariable("resourceId") long resourceId, Model model) {
 		if (!model.containsAttribute("resource")) 

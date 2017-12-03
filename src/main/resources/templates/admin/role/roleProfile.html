@@ -22,11 +22,11 @@
     </thead>
     <tbody>
       <tr>
-        <td th:text="${role.roleId}"></td>
+        <td th:text="${role.userId}"></td>
         <td th:text="${role.roleName}"></td>
-        <td><a th:href="@{/admin/role/users/} + ${role.roleId}">Users</a></td>
-        <td><a th:href="@{/admin/role/edit/} + ${role.roleId}">Edit</a></td>
-        <td><a th:href="@{/admin/role/delete/} + ${role.roleId}">Delete</a></td>
+        <td><a th:href="@{/admin/role/users/} + ${role.userId}">Users</a></td>
+        <td><a th:href="@{/admin/role/edit/} + ${role.userId}">Edit</a></td>
+        <td><a th:href="@{/admin/role/delete/} + ${role.userId}">Delete</a></td>
       </tr>
     </tbody>
   </table>

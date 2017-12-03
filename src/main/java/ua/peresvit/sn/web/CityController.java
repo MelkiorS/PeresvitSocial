@@ -51,7 +51,7 @@ public class CityController {
         return "redirect:/admin/city/";
     }
 
-    // show City by id
+    // show City by userId
     @RequestMapping(value = "/{cityId}", method = RequestMethod.GET)
     public String geCity(@PathVariable("cityId") long cityId, Model model) {
         if (!model.containsAttribute("cityId"))

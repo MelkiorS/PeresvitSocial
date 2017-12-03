@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.peresvit.sn.domain.entity.*;
+import ua.peresvit.sn.security.RoleEnum;
 import ua.peresvit.sn.service.*;
 
 
@@ -46,18 +47,14 @@ public class UserArticlesController {
         ResourceGroupType resourceGroupTypes = resourceGroupTypeService.findOne(id);
         resourceGroupTypes.setChapterList(chapterService.findAllByResourceGroupType(resourceGroupTypes));
         User currentUser = userService.getCurrentUser();
-        switch (currentUser.getRole().getRoleName()) {
-            case "ADMIN" : {
-                resourceGroupTypes.getChapterList().forEach(c->c.setArticleCollection(articleService.findAllByChapterIdAndResourceGroupType
-                        (c.getChapterId(), resourceGroupTypes)));
-                break;
-            }
-            default : {
-                resourceGroupTypes.getChapterList().forEach(c->c.setArticleCollection(articleService.findAllByChapterIdAndResourceGroupTypeAndRang
-                        (c.getChapterId(), resourceGroupTypes, currentUser.getRole())));
-                break;
-            }
+        if (currentUser.getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())){
+            resourceGroupTypes.getChapterList().forEach(c->c.setArticleCollection(articleService.findAllByChapterIdAndResourceGroupType
+                    (c.getChapterId(), resourceGroupTypes)));
+        } else {
+            resourceGroupTypes.getChapterList().forEach(c->c.setArticleCollection(articleService.findAllByChapterIdAndResourceGroupTypeAndRang
+                    (c.getChapterId(), resourceGroupTypes, currentUser.getRoles().get(0)))); // TODO refactor to multiple roles
         }
+
         model.addAttribute("resourceGroupTypeList", resourceGroupTypes); // adding types for select
         model.addAttribute("unreadMessages", messageService.countUnreadChats());
         return "home/myWay";

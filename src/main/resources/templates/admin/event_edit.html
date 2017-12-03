@@ -33,7 +33,7 @@
     </style>
     <script type="text/javascript" charset="utf-8">
 
-        var html = function(id) { return document.getElementById(id); };
+        var html = function(userId) { return document.getElementById(id); };
         var t = function (v, def) { return v === undefined ? def : v }
         var n = function (v, def) { return v === null ? def : v }
 
@@ -77,7 +77,7 @@
 
     <label for="text">Заголовок</label><input type="text" name="text" value="" id="text">
     <label for="eventtype">Тип</label><select name="eventtype" value="" id="eventtype">
-        <option th:each="type : ${types}" th:text="${type.getPres()}" th:value="${type.name()}"></option>
+        <option th:each="type : ${types}" th:text="${type.getPres()}" th:value="${type.roleName()}"></option>
     </select> <br>
 
     <label for="description">Опис</label><input type="text" name="description" value="" id="description"> <br>
@@ -90,7 +90,7 @@
     <label for="groups">Надіслати запрошення группам</label>
     <ul class="tbl"  id="groups">
         <li class="elem" th:each="group : ${groups}">
-            <input th:name="groups" type="checkbox" style="margin-right: 7px; " th:text="${group.toString()}" th:value="${group.id}" />
+            <input th:name="groups" type="checkbox" style="margin-right: 7px; " th:text="${group.toString()}" th:value="${group.userId}" />
         </li>
     </ul>
 

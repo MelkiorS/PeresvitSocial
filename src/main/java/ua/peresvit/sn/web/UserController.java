@@ -53,7 +53,7 @@ public class UserController {
     public String goToAddForm(Model model) {
     	User user = new User();
 
-        userService.initializeUserInfo(user);
+//        userService.initializeUserInfo(user);
 
         initializeModelLists(model);
         model.addAttribute(user);
@@ -87,7 +87,7 @@ public class UserController {
         return "redirect:/admin/user/";
     }
 
-    // show user by id
+    // show user by userId
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public String getUser(@PathVariable("userId") long userId, Model model) {
         if (!model.containsAttribute("user"))

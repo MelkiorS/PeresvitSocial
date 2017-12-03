@@ -257,7 +257,7 @@ public class UserPageController {
         return "home/workField_allPosts";
     }
 
-    // NEWS show by id
+    // NEWS show by userId
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
     public String showPost(@PathVariable Long id, Model model){
         model.addAttribute("post", postService.findOne(id));

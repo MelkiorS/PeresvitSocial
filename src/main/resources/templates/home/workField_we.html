@@ -49,7 +49,7 @@
     <main class="my-way-main clearfix"  th:fragment="main">
         <div>
             <span> <a th:text="${'   #Все'}" th:href="@{/home/we}"></a> </span>
-            <span th:each="group: ${groups}"> <a th:text="${'   #' + group.name}" th:href="@{/home/we/{id}(id=${group.id}) }"></a> </span>
+            <span th:each="group: ${groups}"> <a th:text="${'   #' + group.roleName}" th:href="@{/home/we/{userId}(userId=${group.userId}) }"></a> </span>
         </div>
         <br>
         <!--<div class="newChat_body">-->

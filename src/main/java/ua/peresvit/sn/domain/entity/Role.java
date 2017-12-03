@@ -1,24 +1,20 @@
 package ua.peresvit.sn.domain.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
+
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
-@Table(name = "role")
+@Table(name = "roles")
 public class Role {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long roleId;
-	private String roleName;
-	@OneToMany(mappedBy = "role")
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@Cascade(CascadeType.DELETE)
-	private Collection<User> userCollection;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long roleId;
+    @Column(nullable = false, unique = true)
+    private String roleName;
+    @ManyToMany(mappedBy = "roles", cascade = CascadeType.REMOVE)
+    private List<User> userCollection;
 }

@@ -51,7 +51,7 @@ public class ResourceTypeController {
 	        return new ResponseEntity<ResourceType>(HttpStatus.NO_CONTENT);
 	    }
 
-		// show resourceType by id
+		// show resourceType by userId
 		@RequestMapping(value = "/resourceType/{resourceTypeId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 		public ResponseEntity<ResourceType> getResourceType(@PathVariable("resourceTypeId") long resourceTypeId) {
 			ResourceType resourceType = resourceTypeService.findOne(resourceTypeId);

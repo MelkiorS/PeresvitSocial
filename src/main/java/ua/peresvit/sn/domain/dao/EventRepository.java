@@ -16,7 +16,7 @@ public interface EventRepository extends JpaRepository<Event, Long>  {
     @Query("Select e from Event e where start >= :start order by start asc")
     List<Event> getClosest(@Param("start") Date start, Pageable pageable);
 
-    @Query("Select e from Event e JOIN e.users ue where e.start >= :start and ue.userId = :userId order by e.start asc")
+    @Query("Select e from Event e JOIN e.users ue where e.start >= :start and ue.id = :userId order by e.start asc")
     List<Event> getClosestByUser(@Param("start") Date start, @Param("userId") long userId, Pageable pageable);
 
     @Query("Select e from Event e where start >= :start and start < :finish order by start asc")

@@ -9,13 +9,14 @@ import ua.peresvit.sn.domain.entity.User;
 import ua.peresvit.sn.domain.entity.UserGroup;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
     <S extends User> S save(S arg0);
 
-    User findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
     User findByFirstNameAndLastName(String firstName, String lastName);
 
@@ -23,13 +24,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAll();
 
-    List<User> findByRole(Role role);
+    List<User> findByRoles(Role role);
 
     void delete(User arg0);
 
     boolean equals(Object obj);
 
-    @Query("select distinct u from UserGroup ug INNER JOIN ug.users u where ug in :uglist order by u.role.id desc")
+//    @Query("select distinct u from UserGroup ug INNER JOIN ug.users u where ug in :uglist order by u.roles.userId desc") // TODO edit ordering
+    @Query("select distinct u from UserGroup ug INNER JOIN ug.users u where ug in :uglist")
     List<User> getGroupsUsers(@Param("uglist") UserGroup[] ug);
 
     @Query("select distinct ug from UserGroup ug INNER JOIN ug.users u where u = :user")

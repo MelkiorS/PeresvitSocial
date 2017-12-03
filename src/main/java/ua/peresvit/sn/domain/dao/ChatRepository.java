@@ -23,7 +23,7 @@ public interface ChatRepository extends JpaRepository<Chat, Long> {
     @Query("select distinct c from User u " +
             "INNER JOIN u.chats c " +
             "INNER JOIN c.members m " +
-            "where (u.userId = :userId) " +
+            "where (u.id = :userId) " +
             "group by c " +
             "having count(m) = 2")
     Set<Chat> findDialogsOfUser(@Param("userId") Long userId);

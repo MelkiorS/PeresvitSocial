@@ -37,7 +37,7 @@
             <li id="iceMenu_300" class="iceMenuLiLevel_1 mzr-drop parent" data-hover="false"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Напрямки</span></a><ul class="icesubMenu icemodules sub_level_1" style="width:280px"><li class="lastItem firstItem"><div style="float:left;width:280px" class="iceCols"><ul><li id="iceMenu_296" class="iceMenuLiLevel_2  firstItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Фрі-файт</span></a></li><li id="iceMenu_297" class="iceMenuLiLevel_2 "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Тайдзі-цюань</span></a></li><li id="iceMenu_298" class="iceMenuLiLevel_2 "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Шаолінь кунг-фу</span></a></li><li id="iceMenu_299" class="iceMenuLiLevel_2  lastItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Чайна традиція</span></a></li></ul></div></li></ul></li>
             <li id="iceMenu_141" class="iceMenuLiLevel_1 "><a href="https://www.facebook.com/peresvit.ua/" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Блог</span></a></li>
             <li id="iceMenu_142" class="iceMenuLiLevel_1  "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Контакти</span></a></li>
-            <li sec:authorize="hasRole('ADMIN')" class="iceMenuLiLevel_1"><a href="/admin" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Адмін</span></a></li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="iceMenuLiLevel_1"><a href="/admin" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Адмін</span></a></li>
             <li sec:authorize="authenticated" class="iceMenuLiLevel_1 lastItem"><a href="/home/workField" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Кабінет</span></a></li>
             <li sec:authorize="!authenticated" class="iceMenuLiLevel_1  lastItem"><a href="#" class=" iceMenuTitle log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_log_in"><span class="icemega_title icemega_nosubtitle">Вхід</span></a></li>
         </ul>
@@ -160,7 +160,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><div class="glyphicon glyphicon-user"></div></span>
                                 <!--****************Сюда юзер вставляет свое имя ******************-->
-                                <!--<input type="text" th:field="*{firstName}" class="form-control col-xs-12" id="inputName" placeholder="Введіть Ваше ім'я" required>-->
+                                <!--<input type="text" th:field="*{firstName}" class="form-control col-xs-12" userId="inputName" placeholder="Введіть Ваше ім'я" required>-->
                             </div>
                             <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
                             <div class="help-block"><p>Це поле є обов`язковим для заповнення</p></div>

@@ -1,4 +1,4 @@
-USE peresvitDB;
+USE peresvitdb;
 # Spring Social Connection Repository
 # create table UserConnection (user_id varchar(255) not null,
 #                              providerId varchar(255) not null,
@@ -16,16 +16,29 @@ USE peresvitDB;
 drop table if exists userconnection;
 create table UserConnection (user_id varchar(255) not null,providerId varchar(255) not null,provideruser_id varchar(255),rank int not null,displayName varchar(255),profileUrl varchar(512),imageUrl varchar(512),accessToken varchar(512) not null,secret varchar(512),refreshToken varchar(512),expireTime bigint,primary key (user_id, providerId, provideruser_id));
 create unique index UserConnectionRank on UserConnection(user_id, providerId, rank);
+
+
+delete from user_role;
+delete from roles;
+delete from users;
+
+INSERT INTO roles(role_id,role_name) VALUES (1,'ROLE_ADMIN'), (2,'ROLE_USER'), (3,'LEVEL_1'), (4,'LEVEL_2'), (5,'LEVEL_3');
+INSERT INTO users(user_id, email, password, first_name, last_name,avatarURL ) VALUES (1, 'admin@mail', '123456', 'SuperAdmin', 'Peresvit', 'https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png');
+INSERT INTO users(user_id, email, password, first_name, last_name,avatarURL ) VALUES (2, 'user1@mail', '123456', 'Степан', 'Степаненко', 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png');
+INSERT INTO users(user_id, email, password, first_name, last_name,avatarURL ) VALUES (3, 'user2@mail', '123456', 'Василь', 'Петренко', 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png');
+INSERT INTO user_role (user_id, role_id) VALUES (1,1), (2,2), (3,2);
+
+
 INSERT INTO  resource_Type(type_name) VALUES ('TEXT'),('PHOTO'),('VIDEO'),('OTHER');
 INSERT INTO  resource_group_type(group_name, caption) VALUES ('BASE_TECHNIQUE', 'Базовая техника'),('BASE_TECH_COMPLEX', 'Базовая техника комплекс'),('SPECIAL_PHYSICAL_TRAININGS', 'Специальные упражнения'),('GENERAL_PHYSICAL_TRAININGS', 'Базовые упражнения'),('ANOTHER_SUBJECTS', 'Прочее'),('COMPETITION', 'Соревнования');
-INSERT INTO  role(role_name) VALUES ('LEVEL_1'),('LEVEL_2'),('LEVEL_3'),('USER'), ('ADMIN');
+# INSERT INTO  roles(roleName) VALUES ('LEVEL_1'),('LEVEL_2'),('LEVEL_3'),('USER'), ('ADMIN');
 INSERT INTO  combat_art(combat_art_name) VALUES ('Фрі-Файт'),('Тайдзі-Цюань'),('Шаолінь Кунг-фу');
 INSERT INTO  city(city_name) VALUES ('Київ'),('Львів'),('Дніпро');
 INSERT INTO  club(club_name) VALUES ('Клуб1'),('Клуб2');
 INSERT INTO  mark(mark_name) VALUES ('Пояс101'),('Пояс202'),('Награда303'),('Призер2016');
-INSERT INTO  user(first_name, last_name, email, password, avatarURL , role_id, combat_art_id) VALUES ('Admin', 'Peresvit', 'admin@mail', '123456','https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png', 5, 1);
-INSERT INTO  user(first_name, last_name, email, password, avatarURL , role_id, combat_art_id) VALUES ('Степан', 'Степаненко', 'user1@mail', '123456','http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', 4, 1);
-INSERT INTO  user(first_name, last_name, email, password, avatarURL , role_id, combat_art_id, city_id, club_id, mentor_user_id) VALUES ('Василь', 'Петренко', 'user@mail', '123456','http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', 4, 1, 1, 1, 2);
+# INSERT INTO  users(first_name, last_name, email, password, avatarURL , , combat_art_id) VALUES ('Admin', 'Peresvit', 'admin@mail', '123456','https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png', 5, 1);
+# INSERT INTO  users(first_name, last_name, email, password, avatarURL , role_id, combat_art_id) VALUES ('Степан', 'Степаненко', 'user1@mail', '123456','http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', 4, 1);
+# INSERT INTO  users(first_name, last_name, email, password, avatarURL , role_id, combat_art_id, city_id, club_id, users.userId) VALUES ('Василь', 'Петренко', 'user@mail', '123456','http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', 4, 1, 1, 1, 2);
 INSERT INTO chat(chat_title, owner_id) VALUES ('Chat', 1);
 INSERT INTO chat(chat_title, owner_id) VALUES ('Chat #2', 1);
 INSERT INTO chat(chat_title, owner_id) VALUES ('dialog', 1);

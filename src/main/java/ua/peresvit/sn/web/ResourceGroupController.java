@@ -57,7 +57,7 @@ public class ResourceGroupController {
 		return "redirect:/admin/resourceGroup/"; // just not to redownload it again
 	}
 	
-	// show resourceGroup by id
+	// show resourceGroup by userId
 	@RequestMapping(value = "/{resourceGroupId}", method = RequestMethod.GET)
 	public String getResourceGroup(@PathVariable("resourceGroupId") long resourceGroupId, Model model) {
 		if (!model.containsAttribute("resourceGroup"))  // if it's not redirect add

@@ -14,7 +14,7 @@
 
     function getValue($el) {
         return $el.is('[type="checkbox"]') ? $el.prop('checked') :
-            $el.is('[type="radio"]') ? !!$('[name="' + $el.attr('name') + '"]:checked').length :
+            $el.is('[type="radio"]') ? !!$('[roleName="' + $el.attr('name') + '"]:checked').length :
                 $el.val()
     }
 
@@ -113,7 +113,7 @@
         var prevErrors = $el.data('bs.validator.errors')
         var errors
 
-        if ($el.is('[type="radio"]')) $el = this.$element.find('input[name="' + $el.attr('name') + '"]')
+        if ($el.is('[type="radio"]')) $el = this.$element.find('input[roleName="' + $el.attr('name') + '"]')
 
         var e = $.Event('validate.bs.validator', {relatedTarget: $el[0]})
         this.$element.trigger(e)

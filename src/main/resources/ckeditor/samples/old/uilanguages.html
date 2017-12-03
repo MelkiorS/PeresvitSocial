@@ -45,7 +45,7 @@ CKEDITOR.replace( '<em>textarea_id</em>', {
 	<strong>language: 'de'</strong>
 });</pre>
 		<p>
-			Note that <code><em>textarea_id</em></code> in the code above is the <code>id</code> attribute of
+			Note that <code><em>textarea_id</em></code> in the code above is the <code>userId</code> attribute of
 			the <code>&lt;textarea&gt;</code> element to be replaced.
 		</p>
 	</div>
@@ -54,7 +54,7 @@ CKEDITOR.replace( '<em>textarea_id</em>', {
 			Available languages (<span id="count"> </span> languages!):<br>
 			<script>
 
-				document.write( '<select disabled="disabled" id="languages" onchange="createEditor( this.value );">' );
+				document.write( '<select disabled="disabled" userId="languages" onchange="createEditor( this.value );">' );
 
 				// Get the language list from the _languages.js file.
 				for ( var i = 0 ; i < window.CKEDITOR_LANGS.length ; i++ ) {
@@ -85,7 +85,7 @@ CKEDITOR.replace( '<em>textarea_id</em>', {
 					if ( editor )
 						editor.destroy();
 
-					// Replace the <textarea id="editor"> with an CKEditor
+					// Replace the <textarea userId="editor"> with an CKEditor
 					// instance, using default configurations.
 					editor = CKEDITOR.replace( 'editor1', {
 						language: languageCode,

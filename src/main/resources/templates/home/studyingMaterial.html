@@ -19,7 +19,7 @@
         <!--Сюда вставляем содержимое страниц в соответствии с нажатыми кнопками-->
         <article th:inline="html" class="article studyingMaterial " th:unless="${#lists.isEmpty(article)}" th:each="article : ${article}" >
             <div class='articleName'>
-                <h1 th:text="${article.articleName}">Article name</h1>
+                <h1 th:text="${article.articleName}">Article roleName</h1>
             </div>
             <!--<div class="col-xs-3 col-xs-offset-1 techComplexity">-->
             <!--<p>Сложность техники</p>-->
