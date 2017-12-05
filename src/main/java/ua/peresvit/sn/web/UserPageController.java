@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ua.peresvit.sn.config.Constant;
+import ua.peresvit.sn.domain.dto.UserDto;
 import ua.peresvit.sn.domain.entity.*;
 import ua.peresvit.sn.service.*;
 
@@ -72,7 +73,8 @@ public class UserPageController {
     @GetMapping
     public String goToReg(Model model) {
         model.addAttribute("user", (userService.getCurrentUser() == null ? new User() : userService.getCurrentUser()) );
-        return "home";
+//        return "home"; // настроить поля
+        return "test";
     }
 
     @RequestMapping(value = "/workField", method = RequestMethod.GET)

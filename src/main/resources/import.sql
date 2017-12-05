@@ -18,9 +18,10 @@ create table UserConnection (user_id varchar(255) not null,providerId varchar(25
 create unique index UserConnectionRank on UserConnection(user_id, providerId, rank);
 
 
-delete from user_role;
-delete from roles;
-delete from users;
+
+# delete from roles;
+# delete from users;
+# delete from user_role;
 
 INSERT INTO roles(role_id,role_name) VALUES (1,'ROLE_ADMIN'), (2,'ROLE_USER'), (3,'LEVEL_1'), (4,'LEVEL_2'), (5,'LEVEL_3');
 INSERT INTO users(user_id, email, password, first_name, last_name,avatarURL ) VALUES (1, 'admin@mail', '123456', 'SuperAdmin', 'Peresvit', 'https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png');

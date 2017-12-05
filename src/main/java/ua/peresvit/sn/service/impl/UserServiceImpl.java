@@ -111,7 +111,8 @@ public class UserServiceImpl implements UserService {
     public User getCurrentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
-        return userRepository.findByEmail(name).orElseThrow(()->new UsernameNotFoundException("User with email '" + name + "' not found."));
+//        return userRepository.findByEmail(name).orElseThrow(()->new UsernameNotFoundException("User with email '" + name + "' not found."));
+        return  userRepository.findByEmail(name).orElse(null); // TODO refactor geting user from cashe
     }
 
   /*  @Override

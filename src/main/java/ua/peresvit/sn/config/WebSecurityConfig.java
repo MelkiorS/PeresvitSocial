@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.social.security.SpringSocialConfigurer;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import ua.peresvit.sn.security.UserDetailsServiceImpl;
 
 import javax.sql.DataSource;
@@ -30,6 +31,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Bean
+    public SpringSecurityDialect securityDialect(){
+        return new SpringSecurityDialect();
+    }
 
   /*  @Bean
     public PasswordEncoder passwordEncoder(){
@@ -80,7 +86,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
-                    .loginPage("/home")
+                    .loginPage("/login")
                     .defaultSuccessUrl("/login/success")
                     .failureUrl("/login/failure")
 //                    .loginProcessingUrl("/login")
