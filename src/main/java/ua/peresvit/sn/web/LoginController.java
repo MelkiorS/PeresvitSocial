@@ -23,7 +23,7 @@ public class LoginController {
 
     @RequestMapping(value = "login/success")
     public String loginSuccess() {
-        if (userService.getCurrentUser().getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO Refactor to milty roles
+        if (userService.getCurrentUser().getRoles().get(0).getRoleName().equals(RoleEnum.ADMIN.getCode())) { // TODO Refactor to milty roles and use Spring sec Auth
             return "redirect:/admin";
         }
         return "redirect:/home/workField";

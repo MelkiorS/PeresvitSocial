@@ -1,236 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Peresvit</title>
-    <!--<link rel="stylesheet" href="/resources/static/frontend/libraries/bootstrap.css"/>-->
-    <!--<link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css"/>-->
-    <!--<script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>-->
-    <!--<script src="frontend/static/libraries/constants.js"></script>-->
-    <!--<script src="/resources/frontend/libraries/bootstrap.min.js"></script>-->
-  <!--  <script  async src="/resources/frontend/registration/js/validator.js"></script>
-    <script  async src="/resources/frontend/registration/js/registration_script.js"></script>-->
+    <title>Spring Boot Thymeleaf + Spring Security</title>
 
-    <!--_____________________________________________________________________________________________________________-->
-
-    <link rel="stylesheet" th:href="@{/css/registration_style1.css}"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
-    <script th:src="@{/webjars/jquery/2.2.4/jquery.min.js}"></script>
-    <!--<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>-->
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <!--<script th:src="@{/js/jquery-3.1.1.min.js}"></script>-->
-    <script th:src="@{/js/validator.js}"></script>
-    <script th:src="@{/js/registration_script.js}"></script>
-    <script th:src="@{/js/constants.js}"></script>
-
+    <div th:replace="fragments/header :: header-css"/>
 
 </head>
 <body>
-<div class=" info-message" th:if="${message} != null" th:text="${message}"></div>
-<div class="container-fluid wrapper">
-<div class="row log_in">
-    <div class="col-xs-offset-5 col-xs-6 icemegamenu">
-        <ul id="icemegamenu" class="meganizr mzr-slide mzr-responsive">
-            <li id="iceMenu_303" class="iceMenuLiLevel_1 active  firstItem"><a href="#/" class="icemega_active iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Головна</span></a></li>
-            <li id="iceMenu_134" class="iceMenuLiLevel_1 mzr-drop parent" data-hover="false"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Про храм</span></a><ul class="icesubMenu icemodules sub_level_1" style="width:150px"><li class="lastItem firstItem"><div style="float:left;width:150px" class="iceCols"><ul><li id="iceMenu_283" class="iceMenuLiLevel_2  lastItem firstItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Вчення</span></a></li></ul></div></li></ul></li>
-            <li id="iceMenu_300" class="iceMenuLiLevel_1 mzr-drop parent" data-hover="false"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Напрямки</span></a><ul class="icesubMenu icemodules sub_level_1" style="width:280px"><li class="lastItem firstItem"><div style="float:left;width:280px" class="iceCols"><ul><li id="iceMenu_296" class="iceMenuLiLevel_2  firstItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Фрі-файт</span></a></li><li id="iceMenu_297" class="iceMenuLiLevel_2 "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Тайдзі-цюань</span></a></li><li id="iceMenu_298" class="iceMenuLiLevel_2 "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Шаолінь кунг-фу</span></a></li><li id="iceMenu_299" class="iceMenuLiLevel_2  lastItem"><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Чайна традиція</span></a></li></ul></div></li></ul></li>
-            <li id="iceMenu_141" class="iceMenuLiLevel_1 "><a href="https://www.facebook.com/peresvit.ua/" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Блог</span></a></li>
-            <li id="iceMenu_142" class="iceMenuLiLevel_1  "><a href="#" class=" iceMenuTitle "><span class="icemega_title icemega_nosubtitle">Контакти</span></a></li>
-            <li sec:authorize="hasRole('ROLE_ADMIN')" class="iceMenuLiLevel_1"><a href="/admin" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Адмін</span></a></li>
-            <li sec:authorize="authenticated" class="iceMenuLiLevel_1 lastItem"><a href="/home/workField" class=" iceMenuTitle"><span class="icemega_title icemega_nosubtitle">Кабінет</span></a></li>
-            <li sec:authorize="!authenticated" class="iceMenuLiLevel_1  lastItem"><a href="#" class=" iceMenuTitle log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_log_in"><span class="icemega_title icemega_nosubtitle">Вхід</span></a></li>
-        </ul>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Spring Boot Web Thymeleaf + Spring Security</h1>
+        <h2>1. Visit <a th:href="@{/admin}">Admin page (Spring Security protected, Need Admin Role)</a></h2>
+        <h2>2. Visit <a th:href="@{/user}">User page (Spring Security protected, Need User Role)</a></h2>
+        <h2>3. Visit <a th:href="@{/about}">Normal page</a></h2>
     </div>
-    <!--<button type="button" class="btn btn-default col-xs-offset-3 col-xs-2  col-sm-offset-3 col-sm-2 log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_sign_up">Реєстрація</button>-->
-    <!--<button type="button" class="btn btn-default col-xs-offset-1 col-xs-2  col-sm-offset-3 col-sm-2 log_in_field_main_logIn" data-toggle="modal" data-target="#myModal_log_in">Вхід</button>-->
+
 </div>
-    <!-- **************************Вход в личный кабинет*********************-->
-    <div class="modal fade" id="myModal_log_in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content ">
-                <div class="modal_header_logIn row">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <div class="modal_header_logIn_title col-xs-offset-1 col-xs-10" id="myModalLabel"><p>Вхід до особистого кабінету</p></div>
-                </div>
-                <div class="modal_logIn_section row">
-                    <!--*****************Сюда записывать form action при входе вличный кабинет*****************-->
-                    <div class='col-xs-offset-1 col-xs-10 modal_logIn_section_form'>
-                    <form  data-toggle="validator" role="form" th:action="@{/login}" method="post">
-                        <div class="form-group has-feedback row modal_logIn_section_form_email">
-                                <label for="inputEmail" class="control-label">Введіть Ваш email</label>
-                                <div class="input-group col-xs-12">
-                                    <span class="input-group-addon">@</span>
-                                    <!--***********Сюда юзер вставляет свой email***************-->
-                                    <input type="email"  class="form-control " id="inputEmail" placeholder="email" data-error="Ваш email невірний" name="email" required>
-                                </div>
-                            <i class="glyphicon form-control-feedback" aria-hidden="true"></i>
-                            <div class="help-block with-errors"></div>
-                        </div>
+<!-- /.container -->
 
-                        <div class="form-group has-feedback col-xs-8 row modal_logIn_section_form_pass">
-                            <label for="inputPassword" class="control-label">Введіть Ваш пароль</label>
-                            <div class="input-group col-xs-12 modal_logIn_section_form_pass_input">
-                                <span class="input-group-addon"><div class="glyphicon glyphicon-lock"></div></span>
-                                <!--***************Сюда юзер вставляет свой пароль***************-->
-                                <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
-                            </div>
-                            <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
-                            <div class="help-block"><p>Довжина має бути не менше 6 символів</p></div>
-                        </div>
-                        <div class="form-group col-xs-4 modal_logIn_section_form_pass_forget">
-                            <div class="modal_logIn_section_form_pass_forget_item">
-                                <!--Это ссылка на которую переходит Юзер, если он забыл пароль-->
-                                <p><a th:href="@{/registration/remind}">Забули пароль?</a></p>
-                            </div>
-                        </div>
-                        <div class="form_inline modal_logIn_section_form_rememberMe col-xs-12">
-                            <div class="form-group">
-                                <div class="col-xs-6 modal_logIn_section_form_rememberMe_text ">
-                                    <h3>Запам'ятати мене</h3>
-                                </div>
-                                <div class="col-xs-offset-1 col-xs-3 modal_logIn_section_form_rememberMe_checkbox">
-                                    <label class="switch">
-                                        <input type="checkbox" name="remember-me" id="remember">
-                                        <div class="slider round"></div>
-                                    </label>
-                                </div>
-                            </div>
+<div th:replace="fragments/footer :: footer"/>
 
-                        </div>
-                        <div class="form-group no_account row col-xs-10">
-                            <!--****************Сюда юзер нажимает, чтобы перейти на форму регистрации***********-->
-                            <p class=" col-xs-9"><a data-toggle="modal" data-target="#myModal_sign_up" href="">Немає облікового запису? Реєстрація</a></p>
-                        </div>
-                        <div class="form-group col-xs-2">
-                            <!--**************При нажатии на эту кнопку происходить выполнение form action**********-->
-                            <button type="submit" class="btn btn-primary">Увійти</button>
-                        </div>
-                    </form>
-                    <div class="form-group using_social_networks row col-xs-12">
-                        <div class="vk col-xs-offset-1  col-xs-11">
-                            <form th:action="@{/auth/vkontakte}">
-                                <input type="hidden" name="scope" value="offline email" />
-                                <button type="submit" class="btn btn-default vk_button"><img  th:src="@{/images/registration/vk_icon.png}" alt=""> Войти через Вконтате</button>
-                            </form>
-                            <!--************Юзер нажимая эту кнопку хочет войти через Вконтакте*******-->
-                            <!--<a role="button" class="btn btn-default vk_button" href="/auth/vkontakte"><img src="/resources/frontend/registration/img/vk_icon.png" alt=""> Войти через Вконтате</a>-->
-                        </div>
-                        <div class="fb col-xs-offset-1 col-xs-11">
-                            <!--************Юзер нажимая эту кнопку хочет войти через Фейсбук*******-->
-                            <a role="button" class="btn btn-default fb_button" href="/auth/facebook"><img  th:src="@{/images/registration/fb_icon.png}"alt="">Войти через Facebook</a>
-                        </div>
-                        <div class="google_plus col-xs-offset-1 col-xs-11">
-                            <!--************Юзер нажимая эту кнопку хочет войти через Гугл+*******-->
-                            <form  th:action="@{/auth/google}">
-                                <input type="hidden" name="request_visible_actions" value="http://schemas.google.com/AddActivity http://schemas.google.com/BuyActivity http://schemas.google.com/CheckInActivity http://schemas.google.com/CommentActivity http://schemas.google.com/CreateActivity http://schemas.google.com/DiscoverActivity http://schemas.google.com/ListenActivity http://schemas.google.com/ReserveActivity http://schemas.google.com/ReviewActivity http://schemas.google.com/WantActivity"/>
-                                <input type="hidden" name="access_type" value="offline"/>
-                                <input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/tasks https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/latitude.all.best" />
-                                <button class="btn btn-default google_plus_button" type="submit"><img th:src="@{/images/registration/google_plus_icon.png}" alt=""> Войти через Google+</button>
-                            </form>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--*********************************Регистрация************************-->
-    <div class="modal fade" id="myModal_sign_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_sign_up">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content ">
-                <div class="modal_header_signUp row">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <div class="modal_header_signUp_title col-xs-offset-1 col-xs-10" id="myModalLabel_sign_up"><p>Реєстрація</p></div>
-                </div>
-                <div class="modal_signUp_section row">
-                    <!--*******************Сюда записывать form action при регистрации****************-->
-                    <form class='col-xs-offset-1 col-xs-10 modal_signUp_section_form' data-toggle="validator" role="form" th:action="@{/registration}" th:object="${user}" method="post">
-                        <div class="form-group row modal_signUp_section_form_name has-feedback">
-                            <div th:if="${#httpServletRequest.requestURI.contains('registration') == true}">
-                                <input type="hidden"  th:field="*{social}">
-                                <input type="hidden"  th:field="*{profileFB}">
-                                <!--<input type="hidden"  th:field="*{profileGoogle}">-->
-                                <!--<input type="hidden"  th:field="*{profileVK}">-->
-                                <script>
-                                    $("#myModal_sign_up").modal().show()
-                                </script>
-                            </div>
-                            <!--<label for="inputName" class="control-label ">Ім'я</label>-->
-                            <div class="input-group">
-                                <span class="input-group-addon"><div class="glyphicon glyphicon-user"></div></span>
-                                <!--****************Сюда юзер вставляет свое имя ******************-->
-                                <!--<input type="text" th:field="*{firstName}" class="form-control col-xs-12" userId="inputName" placeholder="Введіть Ваше ім'я" required>-->
-                            </div>
-                            <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
-                            <div class="help-block"><p>Це поле є обов`язковим для заповнення</p></div>
-                        </div>
-                        <div class="form-group row modal_signUp_section_form_surname has-feedback">
-                            <!--<label for="inputSurname" class="control-label ">Прізвище</label>-->
-                            <div class="input-group">
-                                <!--****************Сюда юзер вставляет свою фамилию ******************-->
-                                <span class="input-group-addon"><div class="glyphicon glyphicon-user"></div></span>
-                                <input type="text" th:field="*{lastName}" class="form-control col-xs-12" id="inputSurname" placeholder="Введіть Вашe прізвище" required>
-                            </div>
-                            <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
-                            <div class="help-block"><p>Це поле є обов`язковим для заповнення</p></div>
-                        </div>
-                        <div class="form-group row has-feedback modal_signUp_section_form_email ">
-                            <label for="inputEmail_signUp" class="control-label">Введіть Ваш email</label>
-
-                            <div class="input-group col-xs-12">
-                                <span class="input-group-addon">@</span>
-                                <!--****************** Сюда юзер вставляет свой email, на который потом будет отправлено письмо с подтверждением о регистрации***********************-->
-                                <input type="email" th:field="*{email}" class="form-control "  id="inputEmail_signUp" placeholder="email" data-error="Ваш email невірний" required>
-                            </div>
-                            <i class="glyphicon form-control-feedback" aria-hidden="true"></i>
-                            <div class="help-block with-errors"></div>
-                        </div>
-
-                        <div class="form-group has-feedback col-xs-12 row modal_logIn_section_form_pass">
-                            <label for="inputPassword_signUp" class="control-label">Введіть Ваш пароль</label>
-                            <div class="input-group col-xs-12 modal_logIn_section_form_pass_input">
-                                <span class="input-group-addon"><div class="glyphicon glyphicon-lock"></div></span>
-                                <!--***************Сюда юзер вставляет свой пароль***************-->
-                                <input type="password" th:field="*{password}" data-minlength="6" class="form-control" id="inputPassword_signUp" placeholder="Password" required>
-                            </div>
-                            <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
-                            <div class="help-block"><p>Довжина має бути не менше 6 символів</p></div>
-                        </div>
-
-                        <div class="form-group col-xs-12 row modal_signUp_section_form_confirm has-feedback ">
-                            <label for="inputPasswordConfirm" class="control-label">Введіть Ваш пароль</label>
-                            <div class="input-group col-xs-12 pass_confirm">
-                                <span class="input-group-addon"><div class="glyphicon glyphicon-lock"></div></span>
-                                <!--***************Сюда юзер повторно вводит пароль для проверки***************-->
-                            <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword_signUp" data-match-error="Паролі не співпадають" placeholder="Confirm" required>
-                                </div>
-                            <i class="glyphicon form-control-feedback " aria-hidden="true" ></i>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <!--<div class="form-group using_social_networks row col-xs-12">-->
-                            <!--<div class="vk col-xs-offset-1  col-xs-11">-->
-                                <!--&lt;!&ndash;************Юзер нажимая эту кнопку хочет войти через Вконтакте*******&ndash;&gt;-->
-                                <!--<a role="button" class="btn btn-default vk_button" href="#"><img src="/resources/frontend/registration/img/vk_icon.png" alt=""> Войти через Вконтате</a>-->
-                            <!--</div>-->
-                            <div class="fb col-xs-offset-1 col-xs-11">
-                                <!--************Юзер нажимая эту кнопку хочет войти через Facebook*******-->
-                                <a role="button" class="btn btn-default fb_button" href="/registration/facebook/connect"><img src="/resources/frontend/registration/img/fb_icon.png" alt="">Войти через Facebook</a>
-                            </div>
-                            <!--<div class="google_plus col-xs-offset-1 col-xs-11">-->
-                                <!--&lt;!&ndash;************Юзер нажимая эту кнопку хочет войти через Гугл+*******&ndash;&gt;-->
-                                <!--<a role="button" class="btn btn-default google_plus_button" href="#"><img src="/resources/frontend/registration/img/google_plus_icon.png" alt=""> Войти через Google+</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <div class="form-group col-xs-offset-9 col-xs-3">
-                            <!--****Нажимая эту кнопку юзер юзер регистрируется и ему отображается информация, что для подтверждения регистрации ему необходимо зайти на свою почту и подтвердить регистрацию****-->
-                            <button type="submit" class="btn btn-success">Зареєструватися</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

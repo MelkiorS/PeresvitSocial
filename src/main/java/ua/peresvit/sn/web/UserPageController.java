@@ -73,8 +73,8 @@ public class UserPageController {
     @GetMapping
     public String goToReg(Model model) {
         model.addAttribute("user", (userService.getCurrentUser() == null ? new User() : userService.getCurrentUser()) );
-//        return "home"; // настроить поля
-        return "test";
+        return "home";
+//        return "homeTest";
     }
 
     @RequestMapping(value = "/workField", method = RequestMethod.GET)
