@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.social.security.SpringSocialConfigurer;
-import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+//import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import ua.peresvit.sn.security.UserDetailsServiceImpl;
 
 import javax.sql.DataSource;
@@ -23,19 +23,13 @@ import javax.sql.DataSource;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${spring.queries.users-query}")
-    private String usersQuery;
-
-    @Value("${spring.queries.roles-query}")
-    private String rolesQuery;
-
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Bean
-    public SpringSecurityDialect securityDialect(){
-        return new SpringSecurityDialect();
-    }
+//    @Bean  it's a problem
+//    public SpringSecurityDialect securityDialect(){
+//        return new SpringSecurityDialect();
+//    }
 
   /*  @Bean
     public PasswordEncoder passwordEncoder(){

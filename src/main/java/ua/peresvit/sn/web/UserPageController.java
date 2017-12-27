@@ -104,7 +104,9 @@ public class UserPageController {
             try {
 //                achievement.setImageURL(Constant.encodeFileToBase64Binary(achievement.getImageURL()));
                 achiveList.put(achievement.getAchievementId(), Constant.encodeFileToBase64Binary(achievement.getImageURL()));
-            } catch (IOException ex){achiveList.put(achievement.getAchievementId(), null);}
+            } catch (IOException ex) {
+                achiveList.put(achievement.getAchievementId(), null);
+            }
         }
         model.addAttribute("achieveList", achiveList);
 

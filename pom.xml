@@ -17,10 +17,9 @@
 
 
     <properties>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>ua.peresvit.sn.Application</start-class>
         <java.version>1.8</java.version>
+        <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
     </properties>
 
     <!-- Add typical dependencies fo ua.peresvit.sn.web web application -->
@@ -72,7 +71,7 @@
             <!--<artifactId>spring-social-facebook</artifactId>-->
         <!--</dependency>-->
 
-         <!--optional, it brings userful tags to display spring security stuff-->
+         <!--optional, it brings userful tags to display spring security stuff. But it could be a problem with dialect-->
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
@@ -134,12 +133,12 @@
             <version>2.8.0</version>
         </dependency>
 
-        <!-- this is need for thymeleaf HTML5-->
+   <!--     &lt;!&ndash; this is need for thymeleaf HTML5&ndash;&gt;
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
             <version>1.9.22</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.webjars</groupId>

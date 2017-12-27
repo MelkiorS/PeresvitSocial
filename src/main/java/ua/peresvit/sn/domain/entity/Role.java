@@ -15,6 +15,6 @@ public class Role {
     private Long roleId;
     @Column(nullable = false, unique = true)
     private String roleName;
-    @ManyToMany(mappedBy = "roles", cascade = CascadeType.REMOVE)
-    private List<User> userCollection;
+   /* @ManyToMany(mappedBy = "roles", cascade = CascadeType.REMOVE)  // investigate this
+    private List<User> userCollection;*/
 }
