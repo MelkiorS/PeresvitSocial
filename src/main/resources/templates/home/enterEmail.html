@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Peresvit</title>
-    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
-    <link rel="stylesheet" href="/resources/frontend/registration/registration_style1.css">
-    <script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>
-    <script src="/resources/frontend/libraries/constants.js"></script>
-    <script src="/resources/frontend/libraries/bootstrap.min.js"></script>
-    <script  async src="/resources/frontend/registration/js/validator.js"></script>
-    <script  async src="/resources/frontend/registration/js/registration_script.js"></script>
+   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/registration_style1.css}">
+    <script th:src="@{js/jquery-2.2.4.min.js}"></script>
+   <script th:src="@{/js/constants.js}"></script>
+    <script th:src="@{js/bootstrap.min.js}"></script>
+    <script  async th:src="@{js/validator.js}"></script>
+    <script  async th:src="@{js/registration_script.js}"></script>
 </head>
 <body>
 <div class="container-fluid wrapper">

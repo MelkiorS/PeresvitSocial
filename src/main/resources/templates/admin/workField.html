@@ -5,9 +5,9 @@
     <title>Пересвіт Адмін228</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Peresvit</title>
-    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
-    <link rel="stylesheet" href="/resources/frontend/workField.css">
-    <!--<script src="/resources/frontend/libraries/jquery-2.2.4.min.js"></script>-->
+   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+   <link rel="stylesheet" th:href="@{/css/workField.css}"/>
+    <!--<script th:src="@{js/jquery-2.2.4.min.js}"></script>-->
     <!--<script src="/resources/frontend/libraries/constants.js"></script>-->
     <!--<script  async src="/resources/frontend/workField/js/workField_script.js"></script>    -->
 </head>
@@ -15,7 +15,7 @@
 <div class="container-fluid wrapper">
     <div class="row header">
         <div class="col-xs-8 col-md-offset-4 h4 header_commercial">Гугл реклама</div>
-        <div class="col-xs-3 h2 header_logo"><img class='header_logo_img' src="/resources/frontend/images/logo_Peresvit.png" alt="логотип"></div>
+        <div class="col-xs-3 h2 header_logo"><img class='header_logo_img' th:src="@{images/logo_Peresvit.png}" alt="логотип"></div>
         <div class="col-xs-8  row header_nav">
             <div th:replace="admin/fragments/headBar :: headBar"></div>
             <!--Сюда вставляем данные с верхнего бара fragments/headBar.html-->
@@ -42,9 +42,9 @@
 
             </div>
             <div class="col-xs-2 col-md-2 row">
-                <img src="/resources/frontend/images/Logovk.png" alt="vk">
-                <img src="/resources/frontend/images/Logofc.png" alt="fs">
-                <img src="/resources/frontend/images/Logoin.png" alt="instagram">
+                <img th:src="@{images/Logovk.png}" alt="vk"/>
+                <img th:src="@{images/Logofc.png}"alt="fs">
+                <img th:src="@{images/Logoin.png}" alt="instagram">
             </div>
         </div>
     </footer>

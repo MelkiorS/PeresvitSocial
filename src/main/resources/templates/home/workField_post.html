@@ -6,7 +6,7 @@
     <!--<link rel="stylesheet" href="/resources/frontend/workField.css">-->
     <!--<link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">-->
     <!--<script src="/resources/frontend/libraries/constants.js"></script>-->
-    <script src="/resources/ckeditor/ckeditor.js"></script>
+    <script th:src="@{/ckeditor/ckeditor.js}"></script>
 </head>
 <body>
 <div th:replace="home/fragments/body :: body(~{::main}, '', false, '')"></div>

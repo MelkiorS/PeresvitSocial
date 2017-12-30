@@ -3,10 +3,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${title}"></title>
-    <link rel="stylesheet" href="/resources/frontend/libraries/bootstrap.css">
-    <link rel="stylesheet" href="/resources/frontend/workField.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/workField.css}"/>
     <style type="text/css">
-        .tbl { height: 200px; overflow: auto; width: 100%; border: 1px solid #000; list-style-type: none; margin: 0; padding: 0; overflow-x: hidden;}
-        .elem { margin: 0; padding: 0; }
+        .tbl {
+            height: 200px;
+            overflow: auto;
+            width: 100%;
+            border: 1px solid #000;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .elem {
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
