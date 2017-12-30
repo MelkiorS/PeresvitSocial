@@ -20,7 +20,7 @@ public class Application {
     static class FaviconController {
         @RequestMapping("favicon.ico")
         String favicon() {
-            return "forward:/resources/frontend/image/logo-in-sidebar.png";
+            return "forward:/resources/frontend/images/logo-in-sidebar.png";
         }
     }*/
 

@@ -157,31 +157,31 @@ section.event-list {
 }
 
 .event-li.red:before {
-	background: url(../image/event-icons.png) 0 -30px no-repeat;
+	background: url(../images/event-icons.png) 0 -30px no-repeat;
 }
 
 .event-li.yellow:before {
-	background: url(../image/event-icons.png) -32px -30px no-repeat;
+	background: url(../images/event-icons.png) -32px -30px no-repeat;
 }
 
 .event-li.violet:before {
-	background: url(../image/event-icons.png) -64px -30px no-repeat;
+	background: url(../images/event-icons.png) -64px -30px no-repeat;
 }
 
 .event-li.grey:before {
-	background: url(../image/event-icons.png) -96px -30px no-repeat;
+	background: url(../images/event-icons.png) -96px -30px no-repeat;
 }
 
 .event-li.lightgreen:before {
-	background: url(../image/event-icons.png) -130px -30px no-repeat;
+	background: url(../images/event-icons.png) -130px -30px no-repeat;
 }
 
 .event-li.darkgrey:before {
-	background: url(../image/event-icons.png) -160px -30px no-repeat;
+	background: url(../images/event-icons.png) -160px -30px no-repeat;
 }
 
 .event-li.green:before {
-	background: url(../image/event-icons.png) -192px -30px no-repeat;
+	background: url(../images/event-icons.png) -192px -30px no-repeat;
 }
 
 .event-li > .event-title {
@@ -194,7 +194,7 @@ section.event-photo {
 	padding: 0;
 	border-bottom: 1px solid #dbdbdb; 
 	height: 200px;
-	background: url(../image/event-bkg.jpg) no-repeat;
+	background: url(../images/event-bkg.jpg) no-repeat;
 	background-size: cover;
 
 	text-align: center;
@@ -238,7 +238,7 @@ section.event-photo {
 
 .event-photo button:before {
 	content: '';
-	background: url(../image/event-icons.png) 6px -72px no-repeat;
+	background: url(../images/event-icons.png) 6px -72px no-repeat;
 	height: 50px;
 	width: 50px;
 	float: left;
@@ -262,31 +262,31 @@ section.event-data {
 }
 
 .event-data-li.cost:before {
-	background: url(../image/event-icons.png) 0 0 no-repeat;
+	background: url(../images/event-icons.png) 0 0 no-repeat;
 } 
 
 .event-data-li.duration:before {
-	background: url(../image/event-icons.png) -25px 0 no-repeat;
+	background: url(../images/event-icons.png) -25px 0 no-repeat;
 } 
 
 .event-data-li.start:before {
-	background: url(../image/event-icons.png) -50px 0 no-repeat;
+	background: url(../images/event-icons.png) -50px 0 no-repeat;
 } 
 
 .event-data-li.finish:before {
-	background: url(../image/event-icons.png) -72px 0 no-repeat;
+	background: url(../images/event-icons.png) -72px 0 no-repeat;
 } 
 
 .event-data-li.distance:before {
-	background: url(../image/event-icons.png) -95px 0 no-repeat;
+	background: url(../images/event-icons.png) -95px 0 no-repeat;
 } 
 
 .event-data-li.conditions:before {
-	background: url(../image/event-icons.png) -119px 0 no-repeat;
+	background: url(../images/event-icons.png) -119px 0 no-repeat;
 } 
 
 .event-data-li.difficulty:before {
-	background: url(../image/event-icons.png) -146px 0 no-repeat;
+	background: url(../images/event-icons.png) -146px 0 no-repeat;
 } 
 
 .event-data-li {
@@ -346,7 +346,7 @@ section.event-photo {
 	padding: 0;
 	border-bottom: 1px solid #dbdbdb; 
 	height: 326px;
-	background: url(../image/event-bkg.jpg) no-repeat;
+	background: url(../images/event-bkg.jpg) no-repeat;
 	background-size: cover;
 	text-align: center;
 	color: white;

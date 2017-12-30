@@ -21,7 +21,7 @@
                         <a class="media-body-author" th:text="${post.user}"  th:href="@{/home/workField/} + ${post.user.userId}">By Francisco</a>
                         <ul class="list-inline list-unstyled">
                             <li>
-                                <img src="/resources/frontend/image/glyphicon-calendar.png" class="glyphicon-calendar"></img>
+                                <img th:src="@{/images/glyphicon-calendar.png}" class="glyphicon-calendar"></img>
                                 <span class="glyphicon-calendar-span" th:text="${#dates.format(post.createDate,'dd/MM/YYYY HH:mm')}">2 days, 8 hours </span>
                             </li>
                         </ul>

@@ -17,7 +17,7 @@
             <li><a th:class="${activeLink=='ourevents'} ?  ' btn-our-events active' : 'btn-our-events'" href="/panel/ourevents">Нашi подiї</a></li>
             <li><a th:class="${activeLink=='myevents'} ?  'btn-my-events active' : 'btn-my-events'" href="/panel/myevents">Мої подiї</a></li>
             <li class="my-way ">
-                <a th:class="${activeLink=='myway'} ? 'btn-my-way active' : 'btn-my-way' " href="#">Мiй шлях  <img src="/resources/frontend/image/blue-arrow.png" alt=""></a>
+                <a th:class="${activeLink=='myway'} ? 'btn-my-way active' : 'btn-my-way' " href="#">Мiй шлях  <img th:src="@{/images/blue-arrow.png}" alt=""></a>
                 <nav class="menu-level2">
                     <ul>
                         <li><a href="/resource/myWay/1">базова технiка</a></li>
@@ -36,7 +36,7 @@
                     <p>Cпонсор змагання</p>
                     <a href="#">fightdante.com.ua</a>
                 </div>
-                <img src="/resources/frontend/image/sponsor-logo.png">
+                <img th:src="@{/images/sponsor-logo.png}">
             </li>
         </ul>
     </nav>

@@ -21,8 +21,8 @@ $(function(){
     }
 
     $('.sideNav .menu-level1 .btn-my-way').hover(function(){
-        $('.sideNav .menu-level1 .btn-my-way img').attr('src','/resources/frontend/image/red-arrow.png');},function(){
-        $('.sideNav .menu-level1 .btn-my-way img').attr('src','/resources/frontend/image/blue-arrow.png');
+        $('.sideNav .menu-level1 .btn-my-way img').attr('src','\\images\\red-arrow.png');},function(){
+        $('.sideNav .menu-level1 .btn-my-way img').attr('src','/images/blue-arrow.png');
 
     });
 

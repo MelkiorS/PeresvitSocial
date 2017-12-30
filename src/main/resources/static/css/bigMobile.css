@@ -113,7 +113,7 @@
         display: block;
         height: 40px;
         width: 40px;
-        background: url(../image/icons-cabinet.png) -423px 0 no-repeat;
+        background: url(../images/icons-cabinet.png) -423px 0 no-repeat;
         margin: 2.5% 0 0 3.9%;
         float: left;
     }
@@ -158,11 +158,11 @@
         width: 51px;
         height: 34px;
         margin: auto;
-        background: url("../image/icons-cabinet.png") no-repeat;
+        background: url("../images/icons-cabinet.png") no-repeat;
     }
 
     main .avatar-vk:hover {
-        background: url("../image/icons-cabinet.png") -52px no-repeat;
+        background: url("../images/icons-cabinet.png") -52px no-repeat;
     }
 
     main .avatar-fb {
@@ -170,11 +170,11 @@
         width: 51px;
         height: 34px;
         margin: 0 8px;
-        background: url("../image/icons-cabinet.png") -105px no-repeat;
+        background: url("../images/icons-cabinet.png") -105px no-repeat;
     }
 
     main .avatar-fb:hover {
-        background: url("../image/icons-cabinet.png") -156px no-repeat;
+        background: url("../images/icons-cabinet.png") -156px no-repeat;
     }
 
     main .avatar-insta {
@@ -182,11 +182,11 @@
         width: 51px;
         height: 34px;
         margin: auto;
-        background: url("../image/icons-cabinet.png") -208px no-repeat;
+        background: url("../images/icons-cabinet.png") -208px no-repeat;
     }
 
     main .avatar-insta:hover {
-        background: url("../image/icons-cabinet.png") -260px no-repeat;
+        background: url("../images/icons-cabinet.png") -260px no-repeat;
     }
 
 
@@ -246,8 +246,8 @@
     main .slider-container:before {
         /*	top: 100px;
             right: 0px;
-            background: url("../image/icons-cabinet.png") -500px no-repeat;
-        */	background: url('../image/icons-cabinet.png') -425px -3px no-repeat;
+            background: url("../images/icons-cabinet.png") -500px no-repeat;
+        */	background: url('../images/icons-cabinet.png') -425px -3px no-repeat;
         top: 15px;
         left: 15px;
     }
@@ -374,31 +374,31 @@
     }
 
     .event-li.red:before {
-        background: url(../image/event-icons.png) 0 -30px no-repeat;
+        background: url(../images/event-icons.png) 0 -30px no-repeat;
     }
 
     .event-li.yellow:before {
-        background: url(../image/event-icons.png) -32px -30px no-repeat;
+        background: url(../images/event-icons.png) -32px -30px no-repeat;
     }
 
     .event-li.violet:before {
-        background: url(../image/event-icons.png) -64px -30px no-repeat;
+        background: url(../images/event-icons.png) -64px -30px no-repeat;
     }
 
     .event-li.grey:before {
-        background: url(../image/event-icons.png) -96px -30px no-repeat;
+        background: url(../images/event-icons.png) -96px -30px no-repeat;
     }
 
     .event-li.lightgreen:before {
-        background: url(../image/event-icons.png) -130px -30px no-repeat;
+        background: url(../images/event-icons.png) -130px -30px no-repeat;
     }
 
     .event-li.darkgrey:before {
-        background: url(../image/event-icons.png) -160px -30px no-repeat;
+        background: url(../images/event-icons.png) -160px -30px no-repeat;
     }
 
     .event-li.green:before {
-        background: url(../image/event-icons.png) -192px -30px no-repeat;
+        background: url(../images/event-icons.png) -192px -30px no-repeat;
     }
 
     .event-li > .event-title {
@@ -411,7 +411,7 @@
         padding: 0;
         border-bottom: 1px solid #dbdbdb;
         height: 200px;
-        background: url(../image/event-bkg.jpg) no-repeat;
+        background: url(../images/event-bkg.jpg) no-repeat;
         background-size: cover;
 
         text-align: center;
@@ -455,7 +455,7 @@
 
     .event-photo button:before {
         content: '';
-        background: url(../image/event-icons.png) -7px -79px no-repeat;
+        background: url(../images/event-icons.png) -7px -79px no-repeat;
         height: 36px;
         width: 39px;
         float: left;
@@ -482,29 +482,29 @@
     }
 
     .event-data-li.cost:before {
-        background: url(../image/event-icons.png) 0 0 no-repeat;
+        background: url(../images/event-icons.png) 0 0 no-repeat;
     }
 
     .event-data-li.duration:before {
-        background: url(../image/event-icons.png) -25px 0 no-repeat;
+        background: url(../images/event-icons.png) -25px 0 no-repeat;
     }
 
     .event-data-li.start:before {
-        background: url(../image/event-icons.png) -50px 0 no-repeat;
+        background: url(../images/event-icons.png) -50px 0 no-repeat;
     }
 
     .event-data-li.finish:before {
-        background: url(../image/event-icons.png) -72px 0 no-repeat;
+        background: url(../images/event-icons.png) -72px 0 no-repeat;
     }
     .event-data-li.distance:before {
-        background: url(../image/event-icons.png) -95px 0 no-repeat;
+        background: url(../images/event-icons.png) -95px 0 no-repeat;
     }
     .event-data-li.conditions:before {
-        background: url(../image/event-icons.png) -119px 0 no-repeat;
+        background: url(../images/event-icons.png) -119px 0 no-repeat;
     }
 
     .event-data-li.difficulty:before {
-        background: url(../image/event-icons.png) -146px 0 no-repeat;
+        background: url(../images/event-icons.png) -146px 0 no-repeat;
     }
     .event-data-li {
         line-height: 30px;
@@ -663,7 +663,7 @@
     }
     .chats-header-button:before {
 
-        background: url('../image/chats.png') 2px 2px no-repeat;
+        background: url('../images/chats.png') 2px 2px no-repeat;
         content: "";
         margin: 0 1px 0 0;
         width: 40px;
@@ -818,7 +818,7 @@
         top: -6px;
         width: 100%;
         height: 100%;
-        background: url('../image/newChat.png') no-repeat; /* Фоновый рисунок */
+        background: url('../images/newChat.png') no-repeat; /* Фоновый рисунок */
         cursor: pointer; /* Курсор в виде руки */
     }
     .newChat_body_list_item_checkbox input[type="checkbox"]:checked +input[type="hidden"]+ span  {
@@ -841,7 +841,7 @@
     }
     .messageList-content-newMsg-button:before{
         content: '';
-        background: url(../image/event-icons.png) -7px -79px no-repeat;
+        background: url(../images/event-icons.png) -7px -79px no-repeat;
         height: 36px;
         width: 39px;
         float: left;
@@ -919,7 +919,7 @@
         text-decoration: none;
     }
     .dropdown-inside-item:nth-child(1) a:before{
-        background: url('../image/edtChat.png') 2px -23px no-repeat;
+        background: url('../images/edtChat.png') 2px -23px no-repeat;
         content: "";
         margin: 0 1px 0 0;
         width: 27px;
@@ -930,7 +930,7 @@
         display: inline-block;
     }
     .dropdown-inside-item:nth-child(2) a:before{
-        background: url('../image/edtChat.png') 2px 2px no-repeat;
+        background: url('../images/edtChat.png') 2px 2px no-repeat;
         content: "";
         margin: 0 1px 0 0;
         width: 27px;
@@ -941,7 +941,7 @@
         display: inline-block;
     }
     .dropdown-inside-item:nth-child(3) a:before{
-        background: url('../image/edtChat.png') -25px 2px no-repeat;
+        background: url('../images/edtChat.png') -25px 2px no-repeat;
         content: "";
         margin: 0 1px 0 0;
         width: 27px;
@@ -972,7 +972,7 @@
         display: block;
         height: 35px;
         width: 35px;
-        background: url(../image/icons-cabinet.png) -423px 0 no-repeat;
+        background: url(../images/icons-cabinet.png) -423px 0 no-repeat;
         margin: 1px 0 0 13%;
         /*display: none;*/
     }
@@ -980,7 +980,7 @@
         display: none;
         height: 35px;
         width: 35px;
-        background: url(../image/icons-cabinet.png) -423px 0 no-repeat;
+        background: url(../images/icons-cabinet.png) -423px 0 no-repeat;
         margin: 0.1% 0 0 3.4%;
     }
     .messageList-options ul.dropdown .messageList-options-items .glyphicon{
@@ -1079,7 +1079,7 @@
     }
     .messageList-content-newMsg_submit:before {
         content: '';
-        background: url(../image/paper_plane.png) 0 0 no-repeat;
+        background: url(../images/paper_plane.png) 0 0 no-repeat;
         height: 36px;
         width: 39px;
         float: left;
@@ -1159,7 +1159,7 @@
         top: -6px;
         width: 100%;
         height: 100%;
-        background: url('../image/newChat.png') no-repeat; /* Фоновый рисунок */
+        background: url('../images/newChat.png') no-repeat; /* Фоновый рисунок */
         cursor: pointer; /* Курсор в виде руки */
     }
     .newChat_body_list_item_checkbox input[type="checkbox"]:checked + span  {

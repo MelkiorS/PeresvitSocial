@@ -10,7 +10,7 @@
 
 @font-face {
 	font-family: MyriadPro;
-    src: url("../font/MyriadPro-Regular.otf");
+    src: url("../css/fonts/MyriadPro-Regular.otf");
 }
 *{
 	box-sizing: content-box;
@@ -38,82 +38,82 @@ a{
 }
 /*Вставляем иконки*/
 .btn-news:before {
-	background: url('../image/new_icons.png') -132px -50px no-repeat;
+	background: url('../images/new_icons.png') -132px -50px no-repeat;
 }
 .btn-messages:before {
-	background: url('../image/new_icons.png') -163px -50px	 no-repeat;
+	background: url('../images/new_icons.png') -163px -50px	 no-repeat;
 }
 .btn-we:before {
-	background: url('../image/new_icons.png') -220px -50px no-repeat;
+	background: url('../images/new_icons.png') -220px -50px no-repeat;
 }
 .btn-broadcast:before{
-	background: url('../image/new_icons.png') -8px -7px no-repeat;
+	background: url('../images/new_icons.png') -8px -7px no-repeat;
 }
 .btn-admin:before{
-	background: url('../image/new_icons.png') -13px -118px no-repeat;
+	background: url('../images/new_icons.png') -13px -118px no-repeat;
 }
 .btn-our-events:before{
-	background: url('../image/new_icons.png') -13px -50px no-repeat;
+	background: url('../images/new_icons.png') -13px -50px no-repeat;
 	/*background-size: 15px 15px;*/
 }
 .btn-my-events:before{
-	background: url('../image/new_icons.png') -43px -49px no-repeat;
+	background: url('../images/new_icons.png') -43px -49px no-repeat;
 }
 .btn-my-way:before{
-	background: url('../image/new_icons.png') -70px -50px no-repeat;
+	background: url('../images/new_icons.png') -70px -50px no-repeat;
 }
 .btn-cabinet:before{
-	background: url('../image/new_icons.png') -100px -51px  no-repeat;
+	background: url('../images/new_icons.png') -100px -51px  no-repeat;
 }
 .btn-exit:before{
-	background: url('../image/new_icons.png') -23px -160px no-repeat;
+	background: url('../images/new_icons.png') -23px -160px no-repeat;
 }
 
 /*icons must be red at hover over the menu item*/
 
 .btn-news:hover:before {
-	background: url('../image/new_icons.png') -132px -74px no-repeat;
+	background: url('../images/new_icons.png') -132px -74px no-repeat;
 }
 .btn-messages:hover:before {
-	background: url('../image/new_icons.png') -163px -75px no-repeat;
+	background: url('../images/new_icons.png') -163px -75px no-repeat;
 }
 .btn-we:hover:before {
-	background: url('../image/new_icons.png') -220px -73px no-repeat;
+	background: url('../images/new_icons.png') -220px -73px no-repeat;
 }
 .btn-broadcast:hover:before{
-	background: url('../image/new_icons.png') -49px -7px no-repeat;
+	background: url('../images/new_icons.png') -49px -7px no-repeat;
 }
 .btn-our-events:hover:before {
-	background: url('../image/new_icons.png') -13px -75px no-repeat;
+	background: url('../images/new_icons.png') -13px -75px no-repeat;
 }
 .btn-my-events:hover:before{
-	background: url('../image/new_icons.png') -43px -73px no-repeat;
+	background: url('../images/new_icons.png') -43px -73px no-repeat;
 }
 .btn-my-way:hover:before{
-	background: url('../image/new_icons.png') -70px -74px no-repeat;
+	background: url('../images/new_icons.png') -70px -74px no-repeat;
 }
 .btn-cabinet:hover:before{
-	background: url('../image/new_icons.png') -100px -74px  no-repeat;
+	background: url('../images/new_icons.png') -100px -74px  no-repeat;
 }
 .btn-exit:hover:before{
-	background: url('../image/new_icons.png') 1px -160px  no-repeat;
+	background: url('../images/new_icons.png') 1px -160px  no-repeat;
 }
 
 .sideNav .menu-level2 ul li a:before{
-	content:url('../image/black-arrow.png');
+	content:url('../images/black-arrow.png');
 	margin-right: 8px;
 }
 .sideNav .menu-level2>a:hover:before{
-	content: url('../image/red-arrow.png');
+	content: url('../images/red-arrow.png');
 }
 footer .icons-footer a:nth-child(1) {
-	background: url('../image/network_icons.png') -2px -1px no-repeat;
+	background: url('../images/network_icons.png') -2px -1px no-repeat;
 }
 footer .icons-footer a:nth-child(2) {
-	background: url('../image/network_icons.png') -40px -36px no-repeat;
+	background: url('../images/network_icons.png') -40px -36px no-repeat;
 }
 footer .icons-footer a:nth-child(3) {
-	background: url('../image/network_icons.png') -35px -1px no-repeat;
+	background: url('../images/network_icons.png') -35px -1px no-repeat;
 }
 
 @media screen and (max-width: 360px){
@@ -189,7 +189,7 @@ footer .icons-footer a:nth-child(3) {
 	}
 
 	.sideNav .logo-in-sidebar {
-		background:url('../image/logo-in-sidebar.png') no-repeat;
+		background:url('../images/logo-in-sidebar.png') no-repeat;
 		height: 151px;
 		background-size: 155px;
 		margin: 12px 25px 0 60px;
@@ -332,7 +332,7 @@ footer .icons-footer a:nth-child(3) {
 	}
 	/*header*/
 	header .logo-header-img {
-		background:url('../image/logo-mobile.png') no-repeat;
+		background:url('../images/logo-mobile.png') no-repeat;
 		background-size: 98%;
 		display: block;
 		margin: 3px 2px -5px 6px;
@@ -582,7 +582,7 @@ footer .icons-footer a:nth-child(3) {
 	}
 
 	.sideNav .logo-in-sidebar {
-		background:url('../image/logo-in-sidebar.png') no-repeat;
+		background:url('../images/logo-in-sidebar.png') no-repeat;
 		height: 151px;
 		/* width: 56%; */
 		background-size: 175px;
@@ -722,7 +722,7 @@ footer .icons-footer a:nth-child(3) {
 	}
 	/*header*/
 	header .logo-header-img {
-		background:url('../image/logo-mobile.png') no-repeat;
+		background:url('../images/logo-mobile.png') no-repeat;
 		background-size: 280px;
 		display: block;
 		/*margin: 5px 2px -1px 10px;*/
@@ -941,7 +941,7 @@ footer .icons-footer a:nth-child(3) {
 	/*}*/
 	.sideNav .logo-in-sidebar {
 		display: block;
-		background: url(../image/logo-in-sidebar.png) no-repeat;
+		background: url(../images/logo-in-sidebar.png) no-repeat;
 		background-size: 184px;
 		height: 168px;
 		margin: 18px 0 0 20px;
@@ -1265,7 +1265,7 @@ footer .icons-footer a:nth-child(3) {
 	}
 	.sideNav .logo-in-sidebar {
 		display:block;
-		background:url('../image/logo-in-sidebar.png') no-repeat;
+		background:url('../images/logo-in-sidebar.png') no-repeat;
 		width: 95%;
 		max-width: 270px;
 		background-size: 96%;

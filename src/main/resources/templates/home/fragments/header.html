@@ -2,9 +2,10 @@
 <body>
 <header th:fragment="header">
     <div class="logo-header-bar clearfix">
-        <a class="logo-header-img" href="/home" ></a>
+        <a class="logo-header-img" href="/home"></a>
         <!--src="image/logo-mobile.png"-->
-        <img data-activates="slide-out" class="btn-open-menu toggle-button" src="/resources/frontend/image/hamburger.png" alt="Вiдкрити меню">
+        <img data-activates="slide-out" class="btn-open-menu toggle-button" th:src="@{/images/hamburger.png}"
+             alt="Вiдкрити меню">
     </div>
     <div class="banner-header">
         <a href="">Реклама от Google Заголовок</a>
