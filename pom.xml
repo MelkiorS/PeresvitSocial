@@ -19,6 +19,7 @@
     <properties>
         <java.version>1.8</java.version>
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+        <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
         <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
     </properties>
 
@@ -45,6 +46,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        <!--optional, it brings userful tags to display spring security stuff. But it could be a problem with dialect-->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <version>3.0.1.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -66,11 +73,6 @@
             <optional>true</optional>
         </dependency>
 
-         <!--optional, it brings userful tags to display spring security stuff. But it could be a problem with dialect-->
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
